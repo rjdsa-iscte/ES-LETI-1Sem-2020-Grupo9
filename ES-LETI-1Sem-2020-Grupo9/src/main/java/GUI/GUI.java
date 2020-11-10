@@ -27,16 +27,16 @@ import javax.swing.JFileChooser;
 public class GUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTable table_1;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTable table;
-	private JTable table_2;
+	private JTextField filePath;
+	private JTable loadedFile;
+	private JTextField threshold_2;
+	private JTextField threshold_1;
+	private JTextField rulesFilePath;
+	private JTextField threshold_3;
+	private JTextField threshold_4;
+	private JTextField threshold_5;
+	private JTable resultsTable;
+	private JTable qualityReportTable;
 	private File ficheiroSelecionado;
 	final static JFileChooser selecionadorFicheiro = new JFileChooser();
 
@@ -78,26 +78,26 @@ public class GUI extends JFrame {
 		gbl_excel.columnWeights = new double[]{0.0, 1.0};
 		excel.setLayout(gbl_excel);
 		
-		table_1 = new JTable();
-		GridBagConstraints gbc_table_1 = new GridBagConstraints();
-		gbc_table_1.insets = new Insets(0, 0, 5, 0);
-		gbc_table_1.fill = GridBagConstraints.BOTH;
-		gbc_table_1.gridx = 1;
-		gbc_table_1.gridy = 0;
-		excel.add(table_1, gbc_table_1);
+		loadedFile = new JTable();
+		GridBagConstraints gbc_loadedFile = new GridBagConstraints();
+		gbc_loadedFile.insets = new Insets(0, 0, 5, 0);
+		gbc_loadedFile.fill = GridBagConstraints.BOTH;
+		gbc_loadedFile.gridx = 1;
+		gbc_loadedFile.gridy = 0;
+		excel.add(loadedFile, gbc_loadedFile);
 		
-		JPanel panel = new JPanel();
-		GridBagConstraints gbc_panel = new GridBagConstraints();
-		gbc_panel.gridx = 1;
-		gbc_panel.gridy = 1;
-		excel.add(panel, gbc_panel);
+		JPanel fileSearchPanel = new JPanel();
+		GridBagConstraints gbc_fileSearchPanel = new GridBagConstraints();
+		gbc_fileSearchPanel.gridx = 1;
+		gbc_fileSearchPanel.gridy = 1;
+		excel.add(fileSearchPanel, gbc_fileSearchPanel);
 		
-		textField = new JTextField();
-		panel.add(textField);
-		textField.setColumns(20);
+		filePath = new JTextField();
+		fileSearchPanel.add(filePath);
+		filePath.setColumns(20);
 		
-		JButton search = new JButton("Search File");
-		search.addActionListener(new ActionListener() {
+		JButton searchFileButton = new JButton("Search File");
+		searchFileButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int result = selecionadorFicheiro.showOpenDialog(contentPane);
 				if (result == JFileChooser.APPROVE_OPTION) {
@@ -106,10 +106,10 @@ public class GUI extends JFrame {
 				}
 			}
 		});
-		panel.add(search);
+		fileSearchPanel.add(searchFileButton);
 		
-		JButton Apply = new JButton("Apply");
-		panel.add(Apply);
+		JButton applyButton = new JButton("Apply");
+		fileSearchPanel.add(applyButton);
 		
 		JPanel rules = new JPanel();
 		tabbedPane.addTab("Rules", null, rules, null);
@@ -120,255 +120,255 @@ public class GUI extends JFrame {
 		gbl_rules.rowWeights = new double[]{1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		rules.setLayout(gbl_rules);
 		
-		JList list = new JList();
-		GridBagConstraints gbc_list = new GridBagConstraints();
-		gbc_list.gridheight = 2;
-		gbc_list.gridwidth = 13;
-		gbc_list.insets = new Insets(0, 0, 5, 0);
-		gbc_list.fill = GridBagConstraints.BOTH;
-		gbc_list.gridx = 0;
-		gbc_list.gridy = 0;
-		rules.add(list, gbc_list);
+		JList rulesList = new JList();
+		GridBagConstraints gbc_rulesList = new GridBagConstraints();
+		gbc_rulesList.gridheight = 2;
+		gbc_rulesList.gridwidth = 13;
+		gbc_rulesList.insets = new Insets(0, 0, 5, 0);
+		gbc_rulesList.fill = GridBagConstraints.BOTH;
+		gbc_rulesList.gridx = 0;
+		gbc_rulesList.gridy = 0;
+		rules.add(rulesList, gbc_rulesList);
 		
-		JComboBox comboBox_2 = new JComboBox();
-		GridBagConstraints gbc_comboBox_2 = new GridBagConstraints();
-		gbc_comboBox_2.gridwidth = 5;
-		gbc_comboBox_2.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_2.gridx = 0;
-		gbc_comboBox_2.gridy = 2;
-		rules.add(comboBox_2, gbc_comboBox_2);
+		JComboBox metric_1 = new JComboBox();
+		GridBagConstraints gbc_metric_1 = new GridBagConstraints();
+		gbc_metric_1.gridwidth = 5;
+		gbc_metric_1.insets = new Insets(0, 0, 5, 5);
+		gbc_metric_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_metric_1.gridx = 0;
+		gbc_metric_1.gridy = 2;
+		rules.add(metric_1, gbc_metric_1);
 		
-		JComboBox comboBox_4 = new JComboBox();
-		GridBagConstraints gbc_comboBox_4 = new GridBagConstraints();
-		gbc_comboBox_4.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_4.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_4.gridx = 6;
-		gbc_comboBox_4.gridy = 2;
-		rules.add(comboBox_4, gbc_comboBox_4);
+		JComboBox signal_1 = new JComboBox();
+		GridBagConstraints gbc_signal_1 = new GridBagConstraints();
+		gbc_signal_1.insets = new Insets(0, 0, 5, 5);
+		gbc_signal_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_signal_1.gridx = 6;
+		gbc_signal_1.gridy = 2;
+		rules.add(signal_1, gbc_signal_1);
 		
-		textField_2 = new JTextField();
-		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-		gbc_textField_2.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_2.gridx = 7;
-		gbc_textField_2.gridy = 2;
-		rules.add(textField_2, gbc_textField_2);
-		textField_2.setColumns(10);
+		threshold_1 = new JTextField();
+		GridBagConstraints gbc_threshold_1 = new GridBagConstraints();
+		gbc_threshold_1.insets = new Insets(0, 0, 5, 5);
+		gbc_threshold_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_threshold_1.gridx = 7;
+		gbc_threshold_1.gridy = 2;
+		rules.add(threshold_1, gbc_threshold_1);
+		threshold_1.setColumns(10);
 		
-		JComboBox comboBox_5 = new JComboBox();
-		GridBagConstraints gbc_comboBox_5 = new GridBagConstraints();
-		gbc_comboBox_5.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_5.gridx = 9;
-		gbc_comboBox_5.gridy = 2;
-		rules.add(comboBox_5, gbc_comboBox_5);
+		JComboBox logicOp_1 = new JComboBox();
+		GridBagConstraints gbc_logicOp_1 = new GridBagConstraints();
+		gbc_logicOp_1.insets = new Insets(0, 0, 5, 5);
+		gbc_logicOp_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_logicOp_1.gridx = 9;
+		gbc_logicOp_1.gridy = 2;
+		rules.add(logicOp_1, gbc_logicOp_1);
 		
-		JComboBox comboBox = new JComboBox();
-		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.gridwidth = 5;
-		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox.gridx = 0;
-		gbc_comboBox.gridy = 3;
-		rules.add(comboBox, gbc_comboBox);
+		JComboBox metric_2 = new JComboBox();
+		GridBagConstraints gbc_metric_2 = new GridBagConstraints();
+		gbc_metric_2.gridwidth = 5;
+		gbc_metric_2.insets = new Insets(0, 0, 5, 5);
+		gbc_metric_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_metric_2.gridx = 0;
+		gbc_metric_2.gridy = 3;
+		rules.add(metric_2, gbc_metric_2);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
-		gbc_comboBox_1.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_1.gridx = 6;
-		gbc_comboBox_1.gridy = 3;
-		rules.add(comboBox_1, gbc_comboBox_1);
+		JComboBox signal_2 = new JComboBox();
+		GridBagConstraints gbc_signal_2 = new GridBagConstraints();
+		gbc_signal_2.insets = new Insets(0, 0, 5, 5);
+		gbc_signal_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_signal_2.gridx = 6;
+		gbc_signal_2.gridy = 3;
+		rules.add(signal_2, gbc_signal_2);
 		
-		textField_1 = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridx = 7;
-		gbc_textField_1.gridy = 3;
-		rules.add(textField_1, gbc_textField_1);
-		textField_1.setColumns(10);
+		threshold_2 = new JTextField();
+		GridBagConstraints gbc_threshold_2 = new GridBagConstraints();
+		gbc_threshold_2.insets = new Insets(0, 0, 5, 5);
+		gbc_threshold_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_threshold_2.gridx = 7;
+		gbc_threshold_2.gridy = 3;
+		rules.add(threshold_2, gbc_threshold_2);
+		threshold_2.setColumns(10);
 		
-		JComboBox comboBox_3 = new JComboBox();
-		GridBagConstraints gbc_comboBox_3 = new GridBagConstraints();
-		gbc_comboBox_3.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_3.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_3.gridx = 9;
-		gbc_comboBox_3.gridy = 3;
-		rules.add(comboBox_3, gbc_comboBox_3);
+		JComboBox logicOp_2 = new JComboBox();
+		GridBagConstraints gbc_logicOp_2 = new GridBagConstraints();
+		gbc_logicOp_2.insets = new Insets(0, 0, 5, 5);
+		gbc_logicOp_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_logicOp_2.gridx = 9;
+		gbc_logicOp_2.gridy = 3;
+		rules.add(logicOp_2, gbc_logicOp_2);
 		
-		JComboBox comboBox_6 = new JComboBox();
-		GridBagConstraints gbc_comboBox_6 = new GridBagConstraints();
-		gbc_comboBox_6.gridwidth = 5;
-		gbc_comboBox_6.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_6.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_6.gridx = 0;
-		gbc_comboBox_6.gridy = 4;
-		rules.add(comboBox_6, gbc_comboBox_6);
+		JComboBox metric_3 = new JComboBox();
+		GridBagConstraints gbc_metric_3 = new GridBagConstraints();
+		gbc_metric_3.gridwidth = 5;
+		gbc_metric_3.insets = new Insets(0, 0, 5, 5);
+		gbc_metric_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_metric_3.gridx = 0;
+		gbc_metric_3.gridy = 4;
+		rules.add(metric_3, gbc_metric_3);
 		
-		JComboBox comboBox_7 = new JComboBox();
-		GridBagConstraints gbc_comboBox_7 = new GridBagConstraints();
-		gbc_comboBox_7.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_7.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_7.gridx = 6;
-		gbc_comboBox_7.gridy = 4;
-		rules.add(comboBox_7, gbc_comboBox_7);
+		JComboBox signal_3 = new JComboBox();
+		GridBagConstraints gbc_signal_3 = new GridBagConstraints();
+		gbc_signal_3.insets = new Insets(0, 0, 5, 5);
+		gbc_signal_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_signal_3.gridx = 6;
+		gbc_signal_3.gridy = 4;
+		rules.add(signal_3, gbc_signal_3);
 		
-		textField_4 = new JTextField();
-		GridBagConstraints gbc_textField_4 = new GridBagConstraints();
-		gbc_textField_4.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_4.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_4.gridx = 7;
-		gbc_textField_4.gridy = 4;
-		rules.add(textField_4, gbc_textField_4);
-		textField_4.setColumns(10);
+		threshold_3 = new JTextField();
+		GridBagConstraints gbc_threshold_3 = new GridBagConstraints();
+		gbc_threshold_3.insets = new Insets(0, 0, 5, 5);
+		gbc_threshold_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_threshold_3.gridx = 7;
+		gbc_threshold_3.gridy = 4;
+		rules.add(threshold_3, gbc_threshold_3);
+		threshold_3.setColumns(10);
 		
-		JComboBox comboBox_8 = new JComboBox();
-		GridBagConstraints gbc_comboBox_8 = new GridBagConstraints();
-		gbc_comboBox_8.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_8.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_8.gridx = 9;
-		gbc_comboBox_8.gridy = 4;
-		rules.add(comboBox_8, gbc_comboBox_8);
+		JComboBox logicOp_3 = new JComboBox();
+		GridBagConstraints gbc_logicOp_3 = new GridBagConstraints();
+		gbc_logicOp_3.insets = new Insets(0, 0, 5, 5);
+		gbc_logicOp_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_logicOp_3.gridx = 9;
+		gbc_logicOp_3.gridy = 4;
+		rules.add(logicOp_3, gbc_logicOp_3);
 		
-		JButton save = new JButton("Save");
-		save.addActionListener(new ActionListener() {
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		GridBagConstraints gbc_save = new GridBagConstraints();
-		gbc_save.insets = new Insets(0, 0, 5, 5);
-		gbc_save.gridx = 11;
-		gbc_save.gridy = 4;
-		rules.add(save, gbc_save);
+		GridBagConstraints gbc_saveButton = new GridBagConstraints();
+		gbc_saveButton.insets = new Insets(0, 0, 5, 5);
+		gbc_saveButton.gridx = 11;
+		gbc_saveButton.gridy = 4;
+		rules.add(saveButton, gbc_saveButton);
 		
-		JComboBox comboBox_9 = new JComboBox();
-		GridBagConstraints gbc_comboBox_9 = new GridBagConstraints();
-		gbc_comboBox_9.gridwidth = 5;
-		gbc_comboBox_9.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_9.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_9.gridx = 0;
-		gbc_comboBox_9.gridy = 5;
-		rules.add(comboBox_9, gbc_comboBox_9);
+		JComboBox metric_4 = new JComboBox();
+		GridBagConstraints gbc_metric_4 = new GridBagConstraints();
+		gbc_metric_4.gridwidth = 5;
+		gbc_metric_4.insets = new Insets(0, 0, 5, 5);
+		gbc_metric_4.fill = GridBagConstraints.HORIZONTAL;
+		gbc_metric_4.gridx = 0;
+		gbc_metric_4.gridy = 5;
+		rules.add(metric_4, gbc_metric_4);
 		
-		JComboBox comboBox_10 = new JComboBox();
-		GridBagConstraints gbc_comboBox_10 = new GridBagConstraints();
-		gbc_comboBox_10.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_10.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_10.gridx = 6;
-		gbc_comboBox_10.gridy = 5;
-		rules.add(comboBox_10, gbc_comboBox_10);
+		JComboBox signal_4 = new JComboBox();
+		GridBagConstraints gbc_signal_4 = new GridBagConstraints();
+		gbc_signal_4.insets = new Insets(0, 0, 5, 5);
+		gbc_signal_4.fill = GridBagConstraints.HORIZONTAL;
+		gbc_signal_4.gridx = 6;
+		gbc_signal_4.gridy = 5;
+		rules.add(signal_4, gbc_signal_4);
 		
-		textField_5 = new JTextField();
-		GridBagConstraints gbc_textField_5 = new GridBagConstraints();
-		gbc_textField_5.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_5.gridx = 7;
-		gbc_textField_5.gridy = 5;
-		rules.add(textField_5, gbc_textField_5);
-		textField_5.setColumns(10);
+		threshold_4 = new JTextField();
+		GridBagConstraints gbc_threshold_4 = new GridBagConstraints();
+		gbc_threshold_4.insets = new Insets(0, 0, 5, 5);
+		gbc_threshold_4.fill = GridBagConstraints.HORIZONTAL;
+		gbc_threshold_4.gridx = 7;
+		gbc_threshold_4.gridy = 5;
+		rules.add(threshold_4, gbc_threshold_4);
+		threshold_4.setColumns(10);
 		
-		JComboBox comboBox_11 = new JComboBox();
-		GridBagConstraints gbc_comboBox_11 = new GridBagConstraints();
-		gbc_comboBox_11.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_11.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_11.gridx = 9;
-		gbc_comboBox_11.gridy = 5;
-		rules.add(comboBox_11, gbc_comboBox_11);
+		JComboBox logicOp_4 = new JComboBox();
+		GridBagConstraints gbc_logicOp_4 = new GridBagConstraints();
+		gbc_logicOp_4.insets = new Insets(0, 0, 5, 5);
+		gbc_logicOp_4.fill = GridBagConstraints.HORIZONTAL;
+		gbc_logicOp_4.gridx = 9;
+		gbc_logicOp_4.gridy = 5;
+		rules.add(logicOp_4, gbc_logicOp_4);
 		
-		JButton btnNewButton = new JButton("Delete all");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton deleteAllButton = new JButton("Delete all");
+		deleteAllButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.anchor = GridBagConstraints.WEST;
-		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-		gbc_btnNewButton.gridx = 11;
-		gbc_btnNewButton.gridy = 5;
-		rules.add(btnNewButton, gbc_btnNewButton);
+		GridBagConstraints gbc_deleteAllButton = new GridBagConstraints();
+		gbc_deleteAllButton.anchor = GridBagConstraints.WEST;
+		gbc_deleteAllButton.insets = new Insets(0, 0, 5, 5);
+		gbc_deleteAllButton.gridx = 11;
+		gbc_deleteAllButton.gridy = 5;
+		rules.add(deleteAllButton, gbc_deleteAllButton);
 		
-		JComboBox comboBox_12 = new JComboBox();
-		GridBagConstraints gbc_comboBox_12 = new GridBagConstraints();
-		gbc_comboBox_12.gridwidth = 5;
-		gbc_comboBox_12.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_12.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_12.gridx = 0;
-		gbc_comboBox_12.gridy = 6;
-		rules.add(comboBox_12, gbc_comboBox_12);
+		JComboBox metric_5 = new JComboBox();
+		GridBagConstraints gbc_metric_5 = new GridBagConstraints();
+		gbc_metric_5.gridwidth = 5;
+		gbc_metric_5.insets = new Insets(0, 0, 5, 5);
+		gbc_metric_5.fill = GridBagConstraints.HORIZONTAL;
+		gbc_metric_5.gridx = 0;
+		gbc_metric_5.gridy = 6;
+		rules.add(metric_5, gbc_metric_5);
 		
-		JComboBox comboBox_13 = new JComboBox();
-		GridBagConstraints gbc_comboBox_13 = new GridBagConstraints();
-		gbc_comboBox_13.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_13.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_13.gridx = 6;
-		gbc_comboBox_13.gridy = 6;
-		rules.add(comboBox_13, gbc_comboBox_13);
+		JComboBox signal_5 = new JComboBox();
+		GridBagConstraints gbc_signal_5 = new GridBagConstraints();
+		gbc_signal_5.insets = new Insets(0, 0, 5, 5);
+		gbc_signal_5.fill = GridBagConstraints.HORIZONTAL;
+		gbc_signal_5.gridx = 6;
+		gbc_signal_5.gridy = 6;
+		rules.add(signal_5, gbc_signal_5);
 		
-		textField_6 = new JTextField();
-		GridBagConstraints gbc_textField_6 = new GridBagConstraints();
-		gbc_textField_6.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_6.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_6.gridx = 7;
-		gbc_textField_6.gridy = 6;
-		rules.add(textField_6, gbc_textField_6);
-		textField_6.setColumns(10);
+		threshold_5 = new JTextField();
+		GridBagConstraints gbc_threshold_5 = new GridBagConstraints();
+		gbc_threshold_5.insets = new Insets(0, 0, 5, 5);
+		gbc_threshold_5.fill = GridBagConstraints.HORIZONTAL;
+		gbc_threshold_5.gridx = 7;
+		gbc_threshold_5.gridy = 6;
+		rules.add(threshold_5, gbc_threshold_5);
+		threshold_5.setColumns(10);
 		
-		JComboBox comboBox_14 = new JComboBox();
-		GridBagConstraints gbc_comboBox_14 = new GridBagConstraints();
-		gbc_comboBox_14.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox_14.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox_14.gridx = 9;
-		gbc_comboBox_14.gridy = 6;
-		rules.add(comboBox_14, gbc_comboBox_14);
+		JComboBox logicOp_5 = new JComboBox();
+		GridBagConstraints gbc_logicOp_5 = new GridBagConstraints();
+		gbc_logicOp_5.insets = new Insets(0, 0, 5, 5);
+		gbc_logicOp_5.fill = GridBagConstraints.HORIZONTAL;
+		gbc_logicOp_5.gridx = 9;
+		gbc_logicOp_5.gridy = 6;
+		rules.add(logicOp_5, gbc_logicOp_5);
 		
-		textField_3 = new JTextField();
-		GridBagConstraints gbc_textField_3 = new GridBagConstraints();
-		gbc_textField_3.gridwidth = 5;
-		gbc_textField_3.insets = new Insets(0, 0, 0, 5);
-		gbc_textField_3.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_3.gridx = 3;
-		gbc_textField_3.gridy = 8;
-		rules.add(textField_3, gbc_textField_3);
-		textField_3.setColumns(10);
+		rulesFilePath = new JTextField();
+		GridBagConstraints gbc_rulesFilePath = new GridBagConstraints();
+		gbc_rulesFilePath.gridwidth = 5;
+		gbc_rulesFilePath.insets = new Insets(0, 0, 0, 5);
+		gbc_rulesFilePath.fill = GridBagConstraints.HORIZONTAL;
+		gbc_rulesFilePath.gridx = 3;
+		gbc_rulesFilePath.gridy = 8;
+		rules.add(rulesFilePath, gbc_rulesFilePath);
+		rulesFilePath.setColumns(10);
 		
-		JButton run = new JButton("RUN");
-		run.addActionListener(new ActionListener() {
+		JButton runButton = new JButton("RUN");
+		runButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		
-		JButton load = new JButton("Load");
-		load.addActionListener(new ActionListener() {
+		JButton loadButton = new JButton("Load");
+		loadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		GridBagConstraints gbc_load = new GridBagConstraints();
-		gbc_load.insets = new Insets(0, 0, 0, 5);
-		gbc_load.gridx = 8;
-		gbc_load.gridy = 8;
-		rules.add(load, gbc_load);
-		GridBagConstraints gbc_run = new GridBagConstraints();
-		gbc_run.fill = GridBagConstraints.BOTH;
-		gbc_run.insets = new Insets(0, 0, 0, 5);
-		gbc_run.gridx = 11;
-		gbc_run.gridy = 8;
-		rules.add(run, gbc_run);
+		GridBagConstraints gbc_loadButton = new GridBagConstraints();
+		gbc_loadButton.insets = new Insets(0, 0, 0, 5);
+		gbc_loadButton.gridx = 8;
+		gbc_loadButton.gridy = 8;
+		rules.add(loadButton, gbc_loadButton);
+		GridBagConstraints gbc_runButton = new GridBagConstraints();
+		gbc_runButton.fill = GridBagConstraints.BOTH;
+		gbc_runButton.insets = new Insets(0, 0, 0, 5);
+		gbc_runButton.gridx = 11;
+		gbc_runButton.gridy = 8;
+		rules.add(runButton, gbc_runButton);
 		
 		JPanel results = new JPanel();
 		tabbedPane.addTab("Results", null, results, null);
 		results.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		table = new JTable();
-		results.add(table);
+		resultsTable = new JTable();
+		results.add(resultsTable);
 		
 		JPanel quality_report = new JPanel();
 		tabbedPane.addTab("Quality Report", null, quality_report, null);
 		quality_report.setLayout(new GridLayout(1, 0, 0, 0));
 		
-		table_2 = new JTable();
-		quality_report.add(table_2);
+		qualityReportTable = new JTable();
+		quality_report.add(qualityReportTable);
 	}
 
 }
