@@ -16,11 +16,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JList;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 
 public class GUI extends JFrame {
 
@@ -35,11 +37,14 @@ public class GUI extends JFrame {
 	private JTextField textField_6;
 	private JTable table;
 	private JTable table_2;
+	private File ficheiroSelecionado;
+	final static JFileChooser selecionadorFicheiro = new JFileChooser();
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		selecionadorFicheiro.setCurrentDirectory(new File(System.getProperty("user.home")));
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -94,6 +99,11 @@ public class GUI extends JFrame {
 		JButton search = new JButton("Search File");
 		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int result = selecionadorFicheiro.showOpenDialog(contentPane);
+				if (result == JFileChooser.APPROVE_OPTION) {
+				    ficheiroSelecionado = selecionadorFicheiro.getSelectedFile();
+				    System.out.println("selecionou o ficheiro: " + ficheiroSelecionado.getAbsolutePath());
+				}
 			}
 		});
 		panel.add(search);
