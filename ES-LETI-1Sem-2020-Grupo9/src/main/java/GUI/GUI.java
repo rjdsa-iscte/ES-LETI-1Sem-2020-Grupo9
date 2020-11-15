@@ -23,6 +23,12 @@ import java.awt.Insets;
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
+import javax.swing.table.DefaultTableModel;
+import java.awt.Font;
+import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GUI extends JFrame {
 
@@ -39,6 +45,18 @@ public class GUI extends JFrame {
 	private JTable qualityReportTable;
 	private File ficheiroSelecionado;
 	final static JFileChooser selecionadorFicheiro = new JFileChooser();
+	private int iPlasma_DCI = 0;
+	private int iPlasma_DII = 0;
+	private int iPlasma_ADCI = 0;
+	private int iPlasma_ADII = 0;
+	private int PMD_DCI = 0;
+	private int PMD_DII = 0;
+	private int PMD_ADCI = 0;
+	private int PMD_ADII = 0;
+	private int user_DCI = 0;
+	private int user_DII = 0;
+	private int user_ADCI = 0;
+	private int user_ADII = 0;
 
 	/**
 	 * Launch the application.
@@ -365,10 +383,73 @@ public class GUI extends JFrame {
 		
 		JPanel quality_report = new JPanel();
 		tabbedPane.addTab("Quality Report", null, quality_report, null);
-		quality_report.setLayout(new GridLayout(1, 0, 0, 0));
+		quality_report.setLayout(new BorderLayout(0, 0));
+		
+		JButton updateButton = new JButton("Update");
+		updateButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				QualityChecker qc_iPlasma = new QualityChecker(9);
+				QualityChecker qc_PMD = new QualityChecker(10);
+				qc_iPlasma.start();
+				qc_PMD.start();
+				try {
+					qc_iPlasma.join();
+					qc_PMD.join();
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				updateiPlasmaValues(qc_iPlasma.getnDCI(), qc_iPlasma.getnDII(), qc_iPlasma.getnADCI(), qc_iPlasma.getnADII());
+				updatePMDValues(qc_PMD.getnDCI(), qc_PMD.getnDII(), qc_PMD.getnADCI(), qc_PMD.getnADII());
+			}
+
+		});
+		quality_report.add(updateButton, BorderLayout.SOUTH);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		quality_report.add(scrollPane, BorderLayout.CENTER);
 		
 		qualityReportTable = new JTable();
-		quality_report.add(qualityReportTable);
+		scrollPane.setViewportView(qualityReportTable);
+		qualityReportTable.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		qualityReportTable.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"iPlasma", iPlasma_DCI , iPlasma_DII, iPlasma_ADCI, iPlasma_ADII},
+				{"PMD", PMD_DCI, PMD_DII, PMD_ADCI, PMD_ADII},
+				{"User", user_DCI, user_DII, user_ADCI, user_ADII},
+			},
+			new String[] {
+				"Tools", "DCI", "DII", "ADCI", "ADII"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, Integer.class, Integer.class, Integer.class, Integer.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+			boolean[] columnEditables = new boolean[] {
+				false, false, false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+	}
+	
+	private void updateiPlasmaValues(int nDCI, int nDII, int nADCI, int nADII) {
+		qualityReportTable.setValueAt(nDCI, 0, 1);
+		qualityReportTable.setValueAt(nDII, 0, 2);
+		qualityReportTable.setValueAt(nADCI, 0, 3);
+		qualityReportTable.setValueAt(nADII, 0, 4);
+	}
+	
+	private void updatePMDValues(int nDCI, int nDII, int nADCI, int nADII) {
+		qualityReportTable.setValueAt(nDCI, 1, 1);
+		qualityReportTable.setValueAt(nDII, 1, 2);
+		qualityReportTable.setValueAt(nADCI, 1, 3);
+		qualityReportTable.setValueAt(nADII, 1, 4);
 	}
 
 }
