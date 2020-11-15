@@ -148,7 +148,7 @@ public class GUI extends JFrame {
 		gbc_rulesList.gridy = 0;
 		rules.add(rulesList, gbc_rulesList);
 		
-		JComboBox metric_1 = new JComboBox();
+		JComboBox metric_1 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_1 = new GridBagConstraints();
 		gbc_metric_1.gridwidth = 5;
 		gbc_metric_1.insets = new Insets(0, 0, 5, 5);
@@ -157,7 +157,7 @@ public class GUI extends JFrame {
 		gbc_metric_1.gridy = 2;
 		rules.add(metric_1, gbc_metric_1);
 		
-		JComboBox signal_1 = new JComboBox();
+		JComboBox signal_1 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_1 = new GridBagConstraints();
 		gbc_signal_1.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_1.fill = GridBagConstraints.HORIZONTAL;
@@ -174,7 +174,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_1, gbc_threshold_1);
 		threshold_1.setColumns(10);
 		
-		JComboBox logicOp_1 = new JComboBox();
+		JComboBox logicOp_1 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_1 = new GridBagConstraints();
 		gbc_logicOp_1.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_1.fill = GridBagConstraints.HORIZONTAL;
@@ -182,7 +182,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_1.gridy = 2;
 		rules.add(logicOp_1, gbc_logicOp_1);
 		
-		JComboBox metric_2 = new JComboBox();
+		JComboBox metric_2 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_2 = new GridBagConstraints();
 		gbc_metric_2.gridwidth = 5;
 		gbc_metric_2.insets = new Insets(0, 0, 5, 5);
@@ -191,7 +191,7 @@ public class GUI extends JFrame {
 		gbc_metric_2.gridy = 3;
 		rules.add(metric_2, gbc_metric_2);
 		
-		JComboBox signal_2 = new JComboBox();
+		JComboBox signal_2 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_2 = new GridBagConstraints();
 		gbc_signal_2.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_2.fill = GridBagConstraints.HORIZONTAL;
@@ -208,7 +208,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_2, gbc_threshold_2);
 		threshold_2.setColumns(10);
 		
-		JComboBox logicOp_2 = new JComboBox();
+		JComboBox logicOp_2 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_2 = new GridBagConstraints();
 		gbc_logicOp_2.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_2.fill = GridBagConstraints.HORIZONTAL;
@@ -216,7 +216,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_2.gridy = 3;
 		rules.add(logicOp_2, gbc_logicOp_2);
 		
-		JComboBox metric_3 = new JComboBox();
+		JComboBox metric_3 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_3 = new GridBagConstraints();
 		gbc_metric_3.gridwidth = 5;
 		gbc_metric_3.insets = new Insets(0, 0, 5, 5);
@@ -225,7 +225,7 @@ public class GUI extends JFrame {
 		gbc_metric_3.gridy = 4;
 		rules.add(metric_3, gbc_metric_3);
 		
-		JComboBox signal_3 = new JComboBox();
+		JComboBox signal_3 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_3 = new GridBagConstraints();
 		gbc_signal_3.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_3.fill = GridBagConstraints.HORIZONTAL;
@@ -242,7 +242,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_3, gbc_threshold_3);
 		threshold_3.setColumns(10);
 		
-		JComboBox logicOp_3 = new JComboBox();
+		JComboBox logicOp_3 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_3 = new GridBagConstraints();
 		gbc_logicOp_3.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_3.fill = GridBagConstraints.HORIZONTAL;
@@ -261,7 +261,7 @@ public class GUI extends JFrame {
 		gbc_saveButton.gridy = 4;
 		rules.add(saveButton, gbc_saveButton);
 		
-		JComboBox metric_4 = new JComboBox();
+		JComboBox metric_4 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_4 = new GridBagConstraints();
 		gbc_metric_4.gridwidth = 5;
 		gbc_metric_4.insets = new Insets(0, 0, 5, 5);
@@ -270,7 +270,7 @@ public class GUI extends JFrame {
 		gbc_metric_4.gridy = 5;
 		rules.add(metric_4, gbc_metric_4);
 		
-		JComboBox signal_4 = new JComboBox();
+		JComboBox signal_4 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_4 = new GridBagConstraints();
 		gbc_signal_4.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_4.fill = GridBagConstraints.HORIZONTAL;
@@ -287,7 +287,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_4, gbc_threshold_4);
 		threshold_4.setColumns(10);
 		
-		JComboBox logicOp_4 = new JComboBox();
+		JComboBox logicOp_4 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_4 = new GridBagConstraints();
 		gbc_logicOp_4.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_4.fill = GridBagConstraints.HORIZONTAL;
@@ -307,7 +307,7 @@ public class GUI extends JFrame {
 		gbc_deleteAllButton.gridy = 5;
 		rules.add(deleteAllButton, gbc_deleteAllButton);
 		
-		JComboBox metric_5 = new JComboBox();
+		JComboBox metric_5 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_5 = new GridBagConstraints();
 		gbc_metric_5.gridwidth = 5;
 		gbc_metric_5.insets = new Insets(0, 0, 5, 5);
@@ -316,7 +316,7 @@ public class GUI extends JFrame {
 		gbc_metric_5.gridy = 6;
 		rules.add(metric_5, gbc_metric_5);
 		
-		JComboBox signal_5 = new JComboBox();
+		JComboBox signal_5 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_5 = new GridBagConstraints();
 		gbc_signal_5.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_5.fill = GridBagConstraints.HORIZONTAL;
@@ -333,7 +333,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_5, gbc_threshold_5);
 		threshold_5.setColumns(10);
 		
-		JComboBox logicOp_5 = new JComboBox();
+		JComboBox logicOp_5 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_5 = new GridBagConstraints();
 		gbc_logicOp_5.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_5.fill = GridBagConstraints.HORIZONTAL;
