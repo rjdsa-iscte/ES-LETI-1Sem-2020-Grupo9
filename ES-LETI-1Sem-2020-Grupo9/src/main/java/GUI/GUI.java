@@ -11,19 +11,19 @@ import javax.swing.JTabbedPane;
 import java.awt.GridLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
-import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -50,15 +50,17 @@ public class GUI extends JFrame {
 	private JTable resultsTable;
 	private JTable qualityReportTable;
 	private File ficheiroSelecionado;
-	private static DefaultListModel<ArrayList<Object>> matrizExcel;
+	private static Vector<Vector<Object>> matrizExcel;
+	private static Vector<Object> colunasExcel;
 	final static JFileChooser selecionadorFicheiro = new JFileChooser();
-	private static JList<ArrayList<Object>> jlist;
+	private static JTable jtable;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {		
-		matrizExcel = new DefaultListModel<ArrayList<Object>>();
+		matrizExcel = new Vector<Vector<Object>>();
+		colunasExcel = new Vector<Object>();
 		selecionadorFicheiro.setCurrentDirectory(new File(System.getProperty("user.home")));
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -97,8 +99,9 @@ public class GUI extends JFrame {
         gbc_fileDisplay.fill = GridBagConstraints.BOTH;
         gbc_fileDisplay.gridx = 1;
         gbc_fileDisplay.gridy = 0;
-        jlist = new JList(matrizExcel);
-        JScrollPane scrollPane = new JScrollPane(jlist);
+        jtable = new JTable(matrizExcel, colunasExcel);
+        JScrollPane scrollPane = new JScrollPane(jtable);
+        jtable.setFillsViewportHeight(true);
     	excel.add(scrollPane, gbc_fileDisplay);
 		
 		loadedFile = new JTable();
@@ -139,25 +142,38 @@ public class GUI extends JFrame {
 						Workbook workbook = new XSSFWorkbook(ficheiroSelecionado);
 			            Sheet sheet = workbook.getSheetAt(0);
 			            Iterator<Row> iterator = sheet.iterator();
+			            colunasExcel.clear();
 			            matrizExcel.clear();
-			            //List<ArrayList<Object>> novo = new ArrayList<ArrayList<Object>>();
 			            int iter = 0;
 			            while (iterator.hasNext()) {
-			                Row linha = iterator.next();
-			                matrizExcel.add(iter, new ArrayList<Object>());
+			            	if(iter > 0) {
+			            		 matrizExcel.add(new Vector<Object>());
+			            	}
+			                Row linha = iterator.next();			               
 			                Iterator<Cell> iteratorCelula = linha.iterator();
 			                while (iteratorCelula.hasNext()) {
-			                    Cell celula = iteratorCelula.next();			                    
-			                    if (celula.getCellType()  == CellType.STRING) {
-			                    	matrizExcel.get(iter).add(celula.getStringCellValue());
-			                    } else if (celula.getCellType() == CellType.NUMERIC) {
-			                    	matrizExcel.get(iter).add(celula.getNumericCellValue());
-			                    }else if(celula.getCellType() == CellType.BOOLEAN) {
-			                    	matrizExcel.get(iter).add(celula.getBooleanCellValue());
-			                    }
+			                	Cell celula = iteratorCelula.next();
+			                	if(iter == 0) {
+			                		if (celula.getCellType()  == CellType.STRING) {
+				                    	colunasExcel.add(celula.getStringCellValue());
+				                    } else if (celula.getCellType() == CellType.NUMERIC) {
+				                    	colunasExcel.add(celula.getNumericCellValue());
+				                    }else if(celula.getCellType() == CellType.BOOLEAN) {
+				                    	colunasExcel.add(celula.getBooleanCellValue());
+				                    }
+			                	}else {
+			                		if (celula.getCellType()  == CellType.STRING) {
+			                			matrizExcel.get(iter - 1).add(celula.getStringCellValue());
+			                		}else if (celula.getCellType() == CellType.NUMERIC) {
+			                			matrizExcel.get(iter - 1).add(celula.getNumericCellValue());
+			                		}else if(celula.getCellType() == CellType.BOOLEAN) {
+			                			matrizExcel.get(iter - 1).add(celula.getBooleanCellValue());
+			                		}
+			                	}	
 			                }
 			                iter++;
 			            }
+			            ((DefaultTableModel)jtable.getModel()).fireTableStructureChanged();
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
