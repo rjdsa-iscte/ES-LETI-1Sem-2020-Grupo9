@@ -1,6 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridBagLayout;
 
@@ -8,27 +7,34 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
-import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import java.awt.GridLayout;
-import javax.swing.JSplitPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
-import javax.swing.table.DefaultTableModel;
-import java.awt.Font;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.poifs.filesystem.FileMagic; 
+
+
 
 public class GUI extends JFrame {
 
@@ -44,24 +50,15 @@ public class GUI extends JFrame {
 	private JTable resultsTable;
 	private JTable qualityReportTable;
 	private File ficheiroSelecionado;
+	private static DefaultListModel<ArrayList<Object>> matrizExcel;
 	final static JFileChooser selecionadorFicheiro = new JFileChooser();
-	private int iPlasma_DCI = 0;
-	private int iPlasma_DII = 0;
-	private int iPlasma_ADCI = 0;
-	private int iPlasma_ADII = 0;
-	private int PMD_DCI = 0;
-	private int PMD_DII = 0;
-	private int PMD_ADCI = 0;
-	private int PMD_ADII = 0;
-	private int user_DCI = 0;
-	private int user_DII = 0;
-	private int user_ADCI = 0;
-	private int user_ADII = 0;
+	private static JList<ArrayList<Object>> jlist;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
+		matrizExcel = new DefaultListModel<ArrayList<Object>>();
 		selecionadorFicheiro.setCurrentDirectory(new File(System.getProperty("user.home")));
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -96,6 +93,14 @@ public class GUI extends JFrame {
 		gbl_excel.columnWeights = new double[]{0.0, 1.0};
 		excel.setLayout(gbl_excel);
 		
+		GridBagConstraints gbc_fileDisplay = new GridBagConstraints();
+        gbc_fileDisplay.fill = GridBagConstraints.BOTH;
+        gbc_fileDisplay.gridx = 1;
+        gbc_fileDisplay.gridy = 0;
+        jlist = new JList(matrizExcel);
+        JScrollPane scrollPane = new JScrollPane(jlist);
+    	excel.add(scrollPane, gbc_fileDisplay);
+		
 		loadedFile = new JTable();
 		GridBagConstraints gbc_loadedFile = new GridBagConstraints();
 		gbc_loadedFile.insets = new Insets(0, 0, 5, 0);
@@ -127,6 +132,41 @@ public class GUI extends JFrame {
 		fileSearchPanel.add(searchFileButton);
 		
 		JButton applyButton = new JButton("Apply");
+		applyButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					if(ficheiroSelecionado != null && FileMagic.valueOf(ficheiroSelecionado).equals(FileMagic.OOXML)) {
+						Workbook workbook = new XSSFWorkbook(ficheiroSelecionado);
+			            Sheet sheet = workbook.getSheetAt(0);
+			            Iterator<Row> iterator = sheet.iterator();
+			            matrizExcel.clear();
+			            //List<ArrayList<Object>> novo = new ArrayList<ArrayList<Object>>();
+			            int iter = 0;
+			            while (iterator.hasNext()) {
+			                Row linha = iterator.next();
+			                matrizExcel.add(iter, new ArrayList<Object>());
+			                Iterator<Cell> iteratorCelula = linha.iterator();
+			                while (iteratorCelula.hasNext()) {
+			                    Cell celula = iteratorCelula.next();			                    
+			                    if (celula.getCellType()  == CellType.STRING) {
+			                    	matrizExcel.get(iter).add(celula.getStringCellValue());
+			                    } else if (celula.getCellType() == CellType.NUMERIC) {
+			                    	matrizExcel.get(iter).add(celula.getNumericCellValue());
+			                    }else if(celula.getCellType() == CellType.BOOLEAN) {
+			                    	matrizExcel.get(iter).add(celula.getBooleanCellValue());
+			                    }
+			                }
+			                iter++;
+			            }
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (InvalidFormatException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		fileSearchPanel.add(applyButton);
 		
 		JPanel rules = new JPanel();
@@ -383,73 +423,10 @@ public class GUI extends JFrame {
 		
 		JPanel quality_report = new JPanel();
 		tabbedPane.addTab("Quality Report", null, quality_report, null);
-		quality_report.setLayout(new BorderLayout(0, 0));
-		
-		JButton updateButton = new JButton("Update");
-		updateButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				QualityChecker qc_iPlasma = new QualityChecker(9);
-				QualityChecker qc_PMD = new QualityChecker(10);
-				qc_iPlasma.start();
-				qc_PMD.start();
-				try {
-					qc_iPlasma.join();
-					qc_PMD.join();
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				updateiPlasmaValues(qc_iPlasma.getnDCI(), qc_iPlasma.getnDII(), qc_iPlasma.getnADCI(), qc_iPlasma.getnADII());
-				updatePMDValues(qc_PMD.getnDCI(), qc_PMD.getnDII(), qc_PMD.getnADCI(), qc_PMD.getnADII());
-			}
-
-		});
-		quality_report.add(updateButton, BorderLayout.SOUTH);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		quality_report.add(scrollPane, BorderLayout.CENTER);
+		quality_report.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		qualityReportTable = new JTable();
-		scrollPane.setViewportView(qualityReportTable);
-		qualityReportTable.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		qualityReportTable.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"iPlasma", iPlasma_DCI , iPlasma_DII, iPlasma_ADCI, iPlasma_ADII},
-				{"PMD", PMD_DCI, PMD_DII, PMD_ADCI, PMD_ADII},
-				{"User", user_DCI, user_DII, user_ADCI, user_ADII},
-			},
-			new String[] {
-				"Tools", "DCI", "DII", "ADCI", "ADII"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, Integer.class, Integer.class, Integer.class, Integer.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
-	}
-	
-	private void updateiPlasmaValues(int nDCI, int nDII, int nADCI, int nADII) {
-		qualityReportTable.setValueAt(nDCI, 0, 1);
-		qualityReportTable.setValueAt(nDII, 0, 2);
-		qualityReportTable.setValueAt(nADCI, 0, 3);
-		qualityReportTable.setValueAt(nADII, 0, 4);
-	}
-	
-	private void updatePMDValues(int nDCI, int nDII, int nADCI, int nADII) {
-		qualityReportTable.setValueAt(nDCI, 1, 1);
-		qualityReportTable.setValueAt(nDII, 1, 2);
-		qualityReportTable.setValueAt(nADCI, 1, 3);
-		qualityReportTable.setValueAt(nADII, 1, 4);
+		quality_report.add(qualityReportTable);
 	}
 
 }
