@@ -120,7 +120,7 @@ public class GUI extends JFrame {
 		
 		filePath = new JTextField();
 		fileSearchPanel.add(filePath);
-		filePath.setColumns(20);
+		filePath.setColumns(50);
 		
 		JButton searchFileButton = new JButton("Search File");
 		searchFileButton.addActionListener(new ActionListener() {
@@ -128,6 +128,7 @@ public class GUI extends JFrame {
 				int result = selecionadorFicheiro.showOpenDialog(contentPane);
 				if (result == JFileChooser.APPROVE_OPTION) {
 				    ficheiroSelecionado = selecionadorFicheiro.getSelectedFile();
+				    filePath.setText(ficheiroSelecionado.getAbsolutePath());
 				    System.out.println("selecionou o ficheiro: " + ficheiroSelecionado.getAbsolutePath());
 				}
 			}
