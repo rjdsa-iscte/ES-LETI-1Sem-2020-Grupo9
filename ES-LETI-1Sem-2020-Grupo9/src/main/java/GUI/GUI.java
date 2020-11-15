@@ -342,6 +342,7 @@ public class GUI extends JFrame {
 		JButton loadButton = new JButton("Load");
 		loadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+//				Rule_file_handler.load_file();
 			}
 		});
 		GridBagConstraints gbc_loadButton = new GridBagConstraints();
@@ -349,6 +350,18 @@ public class GUI extends JFrame {
 		gbc_loadButton.gridx = 8;
 		gbc_loadButton.gridy = 8;
 		rules.add(loadButton, gbc_loadButton);
+		
+		JButton newFile_rules = new JButton("New");
+		newFile_rules.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Rule_file_handler.create_new();
+				}
+		});
+		GridBagConstraints gbc_newFile_rules = new GridBagConstraints();
+		gbc_newFile_rules.insets = new Insets(0, 0, 0, 5);
+		gbc_newFile_rules.gridx = 9;
+		gbc_newFile_rules.gridy = 8;
+		rules.add(newFile_rules, gbc_newFile_rules);
 		GridBagConstraints gbc_runButton = new GridBagConstraints();
 		gbc_runButton.fill = GridBagConstraints.BOTH;
 		gbc_runButton.insets = new Insets(0, 0, 0, 5);
