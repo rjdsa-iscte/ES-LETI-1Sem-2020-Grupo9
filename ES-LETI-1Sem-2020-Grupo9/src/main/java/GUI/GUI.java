@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridBagLayout;
 
@@ -7,23 +8,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
+import javax.swing.JSeparator;
 import javax.swing.JTabbedPane;
 import java.awt.GridLayout;
+import javax.swing.JSplitPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
-<<<<<<< HEAD
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.Vector;
-=======
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
->>>>>>> refs/remotes/origin/rules_handler
+import java.util.Iterator;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -33,7 +32,12 @@ import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
-<<<<<<< HEAD
+import java.awt.Font;
+import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -44,15 +48,6 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.poifs.filesystem.FileMagic; 
 
-
-=======
-import java.awt.Font;
-import java.awt.FlowLayout;
-import javax.swing.BoxLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.SwingConstants;
->>>>>>> refs/remotes/origin/rules_handler
 
 public class GUI extends JFrame {
 
@@ -70,9 +65,7 @@ public class GUI extends JFrame {
 	private static Vector<Vector<Object>> matrizExcel;
 	private static Vector<Object> colunasExcel;
 	final static JFileChooser selecionadorFicheiro = new JFileChooser();
-<<<<<<< HEAD
 	private static JTable jtable;
-=======
 	private int iPlasma_DCI = 0;
 	private int iPlasma_DII = 0;
 	private int iPlasma_ADCI = 0;
@@ -86,7 +79,6 @@ public class GUI extends JFrame {
 	private int user_ADCI = 0;
 	private int user_ADII = 0;
 	public ArrayList<String> rules_list = new ArrayList();
->>>>>>> refs/remotes/origin/rules_handler
 
 	/**
 	 * Launch the application.
@@ -133,9 +125,9 @@ public class GUI extends JFrame {
         gbc_fileDisplay.gridx = 1;
         gbc_fileDisplay.gridy = 0;
         jtable = new JTable(matrizExcel, colunasExcel);
-        JScrollPane scrollPane = new JScrollPane(jtable);
+        JScrollPane scrollPane_1 = new JScrollPane(jtable);
         jtable.setFillsViewportHeight(true);
-    	excel.add(scrollPane, gbc_fileDisplay);
+    	excel.add(scrollPane_1, gbc_fileDisplay);
 		
 		loadedFile = new JTable();
 		GridBagConstraints gbc_loadedFile = new GridBagConstraints();
@@ -519,10 +511,73 @@ public class GUI extends JFrame {
 		
 		JPanel quality_report = new JPanel();
 		tabbedPane.addTab("Quality Report", null, quality_report, null);
-		quality_report.setLayout(new GridLayout(1, 0, 0, 0));
+		quality_report.setLayout(new BorderLayout(0, 0));
+		
+		JButton updateButton = new JButton("Update");
+		updateButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				QualityChecker qc_iPlasma = new QualityChecker(9);
+				QualityChecker qc_PMD = new QualityChecker(10);
+				qc_iPlasma.start();
+				qc_PMD.start();
+				try {
+					qc_iPlasma.join();
+					qc_PMD.join();
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				updateiPlasmaValues(qc_iPlasma.getnDCI(), qc_iPlasma.getnDII(), qc_iPlasma.getnADCI(), qc_iPlasma.getnADII());
+				updatePMDValues(qc_PMD.getnDCI(), qc_PMD.getnDII(), qc_PMD.getnADCI(), qc_PMD.getnADII());
+			}
+
+		});
+		quality_report.add(updateButton, BorderLayout.SOUTH);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		quality_report.add(scrollPane, BorderLayout.CENTER);
 		
 		qualityReportTable = new JTable();
-		quality_report.add(qualityReportTable);
+		scrollPane.setViewportView(qualityReportTable);
+		qualityReportTable.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		qualityReportTable.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"iPlasma", iPlasma_DCI , iPlasma_DII, iPlasma_ADCI, iPlasma_ADII},
+				{"PMD", PMD_DCI, PMD_DII, PMD_ADCI, PMD_ADII},
+				{"User", user_DCI, user_DII, user_ADCI, user_ADII},
+			},
+			new String[] {
+				"Tools", "DCI", "DII", "ADCI", "ADII"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, Integer.class, Integer.class, Integer.class, Integer.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+			boolean[] columnEditables = new boolean[] {
+				false, false, false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+	}
+	
+	private void updateiPlasmaValues(int nDCI, int nDII, int nADCI, int nADII) {
+		qualityReportTable.setValueAt(nDCI, 0, 1);
+		qualityReportTable.setValueAt(nDII, 0, 2);
+		qualityReportTable.setValueAt(nADCI, 0, 3);
+		qualityReportTable.setValueAt(nADII, 0, 4);
+	}
+	
+	private void updatePMDValues(int nDCI, int nDII, int nADCI, int nADII) {
+		qualityReportTable.setValueAt(nDCI, 1, 1);
+		qualityReportTable.setValueAt(nDII, 1, 2);
+		qualityReportTable.setValueAt(nADCI, 1, 3);
+		qualityReportTable.setValueAt(nADII, 1, 4);
 	}
 
 }
