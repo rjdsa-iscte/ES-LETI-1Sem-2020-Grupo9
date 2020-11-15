@@ -27,9 +27,11 @@ public class Rule_file_handler {
 	return temp;
 	}
 	
+	
+	//////////////////under development
 	public static void load_file() {
 		file = new File ("rules.txt");
-		//String [][] matrix = new String [4][4];
+		String [][] matrix = new String [4][4];
 		Scanner sc = null;
 		try {
 			sc = new Scanner(file);
@@ -38,7 +40,7 @@ public class Rule_file_handler {
 	                for ( int column = 0; column <= 4; column ++ ) {
 	                   	String current_word = sc.next();
 	                	System.out.println("line:" + row + "  column:" + column + "  valor:"  + current_word );
-	                 //matrix [ row ] [ column ] = current_word;
+	                 matrix [ row ] [ column ] = current_word;
 	                 
 	                     
 	                }
