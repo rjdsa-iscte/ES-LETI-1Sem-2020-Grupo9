@@ -13,17 +13,27 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
+<<<<<<< HEAD
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Vector;
+=======
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+>>>>>>> refs/remotes/origin/rules_handler
 import java.awt.event.ActionEvent;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.List;
+
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
+<<<<<<< HEAD
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
@@ -35,6 +45,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.poifs.filesystem.FileMagic; 
 
 
+=======
+import java.awt.Font;
+import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
+>>>>>>> refs/remotes/origin/rules_handler
 
 public class GUI extends JFrame {
 
@@ -43,7 +61,6 @@ public class GUI extends JFrame {
 	private JTable loadedFile;
 	private JTextField threshold_2;
 	private JTextField threshold_1;
-	private JTextField rulesFilePath;
 	private JTextField threshold_3;
 	private JTextField threshold_4;
 	private JTextField threshold_5;
@@ -53,7 +70,23 @@ public class GUI extends JFrame {
 	private static Vector<Vector<Object>> matrizExcel;
 	private static Vector<Object> colunasExcel;
 	final static JFileChooser selecionadorFicheiro = new JFileChooser();
+<<<<<<< HEAD
 	private static JTable jtable;
+=======
+	private int iPlasma_DCI = 0;
+	private int iPlasma_DII = 0;
+	private int iPlasma_ADCI = 0;
+	private int iPlasma_ADII = 0;
+	private int PMD_DCI = 0;
+	private int PMD_DII = 0;
+	private int PMD_ADCI = 0;
+	private int PMD_ADII = 0;
+	private int user_DCI = 0;
+	private int user_DII = 0;
+	private int user_ADCI = 0;
+	private int user_ADII = 0;
+	public ArrayList<String> rules_list = new ArrayList();
+>>>>>>> refs/remotes/origin/rules_handler
 
 	/**
 	 * Launch the application.
@@ -205,7 +238,7 @@ public class GUI extends JFrame {
 		gbc_rulesList.gridy = 0;
 		rules.add(rulesList, gbc_rulesList);
 		
-		JComboBox metric_1 = new JComboBox();
+		final JComboBox metric_1 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_1 = new GridBagConstraints();
 		gbc_metric_1.gridwidth = 5;
 		gbc_metric_1.insets = new Insets(0, 0, 5, 5);
@@ -214,7 +247,8 @@ public class GUI extends JFrame {
 		gbc_metric_1.gridy = 2;
 		rules.add(metric_1, gbc_metric_1);
 		
-		JComboBox signal_1 = new JComboBox();
+		
+		final JComboBox signal_1 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_1 = new GridBagConstraints();
 		gbc_signal_1.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_1.fill = GridBagConstraints.HORIZONTAL;
@@ -231,7 +265,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_1, gbc_threshold_1);
 		threshold_1.setColumns(10);
 		
-		JComboBox logicOp_1 = new JComboBox();
+		final JComboBox logicOp_1 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_1 = new GridBagConstraints();
 		gbc_logicOp_1.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_1.fill = GridBagConstraints.HORIZONTAL;
@@ -239,7 +273,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_1.gridy = 2;
 		rules.add(logicOp_1, gbc_logicOp_1);
 		
-		JComboBox metric_2 = new JComboBox();
+		final JComboBox metric_2 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_2 = new GridBagConstraints();
 		gbc_metric_2.gridwidth = 5;
 		gbc_metric_2.insets = new Insets(0, 0, 5, 5);
@@ -248,7 +282,7 @@ public class GUI extends JFrame {
 		gbc_metric_2.gridy = 3;
 		rules.add(metric_2, gbc_metric_2);
 		
-		JComboBox signal_2 = new JComboBox();
+		final JComboBox signal_2 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_2 = new GridBagConstraints();
 		gbc_signal_2.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_2.fill = GridBagConstraints.HORIZONTAL;
@@ -265,7 +299,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_2, gbc_threshold_2);
 		threshold_2.setColumns(10);
 		
-		JComboBox logicOp_2 = new JComboBox();
+		final JComboBox logicOp_2 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_2 = new GridBagConstraints();
 		gbc_logicOp_2.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_2.fill = GridBagConstraints.HORIZONTAL;
@@ -273,7 +307,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_2.gridy = 3;
 		rules.add(logicOp_2, gbc_logicOp_2);
 		
-		JComboBox metric_3 = new JComboBox();
+		final JComboBox metric_3 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_3 = new GridBagConstraints();
 		gbc_metric_3.gridwidth = 5;
 		gbc_metric_3.insets = new Insets(0, 0, 5, 5);
@@ -282,7 +316,7 @@ public class GUI extends JFrame {
 		gbc_metric_3.gridy = 4;
 		rules.add(metric_3, gbc_metric_3);
 		
-		JComboBox signal_3 = new JComboBox();
+		final JComboBox signal_3 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_3 = new GridBagConstraints();
 		gbc_signal_3.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_3.fill = GridBagConstraints.HORIZONTAL;
@@ -299,7 +333,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_3, gbc_threshold_3);
 		threshold_3.setColumns(10);
 		
-		JComboBox logicOp_3 = new JComboBox();
+		final JComboBox logicOp_3 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_3 = new GridBagConstraints();
 		gbc_logicOp_3.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_3.fill = GridBagConstraints.HORIZONTAL;
@@ -307,18 +341,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_3.gridy = 4;
 		rules.add(logicOp_3, gbc_logicOp_3);
 		
-		JButton saveButton = new JButton("Save");
-		saveButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		GridBagConstraints gbc_saveButton = new GridBagConstraints();
-		gbc_saveButton.insets = new Insets(0, 0, 5, 5);
-		gbc_saveButton.gridx = 11;
-		gbc_saveButton.gridy = 4;
-		rules.add(saveButton, gbc_saveButton);
-		
-		JComboBox metric_4 = new JComboBox();
+		final JComboBox metric_4 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_4 = new GridBagConstraints();
 		gbc_metric_4.gridwidth = 5;
 		gbc_metric_4.insets = new Insets(0, 0, 5, 5);
@@ -327,7 +350,7 @@ public class GUI extends JFrame {
 		gbc_metric_4.gridy = 5;
 		rules.add(metric_4, gbc_metric_4);
 		
-		JComboBox signal_4 = new JComboBox();
+		final JComboBox signal_4 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_4 = new GridBagConstraints();
 		gbc_signal_4.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_4.fill = GridBagConstraints.HORIZONTAL;
@@ -344,7 +367,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_4, gbc_threshold_4);
 		threshold_4.setColumns(10);
 		
-		JComboBox logicOp_4 = new JComboBox();
+		final JComboBox logicOp_4 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_4 = new GridBagConstraints();
 		gbc_logicOp_4.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_4.fill = GridBagConstraints.HORIZONTAL;
@@ -352,19 +375,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_4.gridy = 5;
 		rules.add(logicOp_4, gbc_logicOp_4);
 		
-		JButton deleteAllButton = new JButton("Delete all");
-		deleteAllButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		GridBagConstraints gbc_deleteAllButton = new GridBagConstraints();
-		gbc_deleteAllButton.anchor = GridBagConstraints.WEST;
-		gbc_deleteAllButton.insets = new Insets(0, 0, 5, 5);
-		gbc_deleteAllButton.gridx = 11;
-		gbc_deleteAllButton.gridy = 5;
-		rules.add(deleteAllButton, gbc_deleteAllButton);
-		
-		JComboBox metric_5 = new JComboBox();
+		final JComboBox metric_5 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_5 = new GridBagConstraints();
 		gbc_metric_5.gridwidth = 5;
 		gbc_metric_5.insets = new Insets(0, 0, 5, 5);
@@ -373,7 +384,7 @@ public class GUI extends JFrame {
 		gbc_metric_5.gridy = 6;
 		rules.add(metric_5, gbc_metric_5);
 		
-		JComboBox signal_5 = new JComboBox();
+		final JComboBox signal_5 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_5 = new GridBagConstraints();
 		gbc_signal_5.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_5.fill = GridBagConstraints.HORIZONTAL;
@@ -390,23 +401,13 @@ public class GUI extends JFrame {
 		rules.add(threshold_5, gbc_threshold_5);
 		threshold_5.setColumns(10);
 		
-		JComboBox logicOp_5 = new JComboBox();
+		final JComboBox logicOp_5 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_5 = new GridBagConstraints();
 		gbc_logicOp_5.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_5.fill = GridBagConstraints.HORIZONTAL;
 		gbc_logicOp_5.gridx = 9;
 		gbc_logicOp_5.gridy = 6;
 		rules.add(logicOp_5, gbc_logicOp_5);
-		
-		rulesFilePath = new JTextField();
-		GridBagConstraints gbc_rulesFilePath = new GridBagConstraints();
-		gbc_rulesFilePath.gridwidth = 5;
-		gbc_rulesFilePath.insets = new Insets(0, 0, 0, 5);
-		gbc_rulesFilePath.fill = GridBagConstraints.HORIZONTAL;
-		gbc_rulesFilePath.gridx = 3;
-		gbc_rulesFilePath.gridy = 8;
-		rules.add(rulesFilePath, gbc_rulesFilePath);
-		rulesFilePath.setColumns(10);
 		
 		JButton runButton = new JButton("RUN");
 		runButton.addActionListener(new ActionListener() {
@@ -417,13 +418,91 @@ public class GUI extends JFrame {
 		JButton loadButton = new JButton("Load");
 		loadButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+//				Rule_file_handler.load_file();
 			}
 		});
 		GridBagConstraints gbc_loadButton = new GridBagConstraints();
 		gbc_loadButton.insets = new Insets(0, 0, 0, 5);
-		gbc_loadButton.gridx = 8;
+		gbc_loadButton.gridx = 3;
 		gbc_loadButton.gridy = 8;
 		rules.add(loadButton, gbc_loadButton);
+		
+		JButton saveButton = new JButton("Save");
+		saveButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				rules_list.add(metric_1.getSelectedItem().toString());
+				rules_list.add(signal_1.getSelectedItem().toString());
+				rules_list.add(threshold_1.getText().toString());
+				rules_list.add(logicOp_1.getSelectedItem().toString());
+				
+				if(logicOp_1.getSelectedItem().toString()!="END") {
+				rules_list.add(metric_2.getSelectedItem().toString());
+				rules_list.add(signal_2.getSelectedItem().toString());
+				rules_list.add(threshold_2.getText().toString());
+				rules_list.add(logicOp_2.getSelectedItem().toString());
+				}
+				
+				if(logicOp_2.getSelectedItem().toString() !="END") {
+				rules_list.add(metric_3.getSelectedItem().toString());
+				rules_list.add(signal_3.getSelectedItem().toString());
+				rules_list.add(threshold_3.getText().toString());
+				rules_list.add(logicOp_3.getSelectedItem().toString());
+				}
+				if(logicOp_3.getSelectedItem().toString()!="END") {
+				rules_list.add(metric_4.getSelectedItem().toString());
+				rules_list.add(signal_4.getSelectedItem().toString());
+				rules_list.add(threshold_4.getText().toString());
+				rules_list.add(logicOp_4.getSelectedItem().toString());
+				}									
+				if(logicOp_4.getSelectedItem().toString()!="END") {
+					rules_list.add(metric_5.getSelectedItem().toString());
+					rules_list.add(signal_5.getSelectedItem().toString());
+					rules_list.add(threshold_5.getText().toString());
+					rules_list.add(logicOp_5.getSelectedItem().toString());
+					}	
+				rules_list.remove(rules_list.size()-1);
+				System.out.println(rules_list);
+				
+				
+				try
+				{
+					FileWriter writer = new FileWriter("custom_rules.txt"); 
+					for(String str: rules_list) {
+					  writer.write(str +" ");
+					 
+					}
+					
+					writer.close();
+
+
+				}
+				catch ( IOException e)
+				{
+				}
+				
+			}
+			
+		});
+		GridBagConstraints gbc_saveButton = new GridBagConstraints();
+		gbc_saveButton.insets = new Insets(0, 0, 0, 5);
+		gbc_saveButton.gridx = 5;
+		gbc_saveButton.gridy = 8;
+		rules.add(saveButton, gbc_saveButton);
+		
+		JButton deleteAllButton = new JButton("Delete all");
+		deleteAllButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				rules_list.clear();
+				System.out.println("list deleted");
+			}
+		});
+		GridBagConstraints gbc_deleteAllButton = new GridBagConstraints();
+		gbc_deleteAllButton.anchor = GridBagConstraints.WEST;
+		gbc_deleteAllButton.insets = new Insets(0, 0, 0, 5);
+		gbc_deleteAllButton.gridx = 7;
+		gbc_deleteAllButton.gridy = 8;
+		rules.add(deleteAllButton, gbc_deleteAllButton);
 		GridBagConstraints gbc_runButton = new GridBagConstraints();
 		gbc_runButton.fill = GridBagConstraints.BOTH;
 		gbc_runButton.insets = new Insets(0, 0, 0, 5);
