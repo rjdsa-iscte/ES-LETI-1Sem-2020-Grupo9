@@ -16,10 +16,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Vector;
@@ -35,6 +38,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
 import java.awt.FlowLayout;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
@@ -61,6 +66,8 @@ public class GUI extends JFrame {
 	private JTextField threshold_5;
 	private JTable resultsTable;
 	private JTable qualityReportTable;
+	DefaultListModel<String> rules_dlmodel = new DefaultListModel<>();
+	JList<String> rulesList = new JList<>(rules_dlmodel);
 	private File ficheiroSelecionado;
 	private static Vector<Vector<Object>> matrizExcel;
 	private static Vector<Object> colunasExcel;
@@ -220,7 +227,7 @@ public class GUI extends JFrame {
 		gbl_rules.rowWeights = new double[]{1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		rules.setLayout(gbl_rules);
 		
-		JList rulesList = new JList();
+		rulesList = new JList<>(rules_dlmodel);
 		GridBagConstraints gbc_rulesList = new GridBagConstraints();
 		gbc_rulesList.gridheight = 2;
 		gbc_rulesList.gridwidth = 13;
@@ -408,11 +415,25 @@ public class GUI extends JFrame {
 		});
 		
 		JButton loadButton = new JButton("Load");
-		loadButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-//				Rule_file_handler.load_file();
+		loadButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				rules_dlmodel.clear();
+				try { 
+					BufferedReader br = new BufferedReader(new FileReader("custom_rules.txt"));
+					String line;
+					while ((line = br.readLine()) != null) {
+						rules_dlmodel.addElement(line);
+					}
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 		});
+
+
 		GridBagConstraints gbc_loadButton = new GridBagConstraints();
 		gbc_loadButton.insets = new Insets(0, 0, 0, 5);
 		gbc_loadButton.gridx = 3;
@@ -459,14 +480,14 @@ public class GUI extends JFrame {
 				
 				try
 				{
-					FileWriter writer = new FileWriter("custom_rules.txt"); 
-					for(String str: rules_list) {
-					  writer.write(str +" ");
-					 
+					FileWriter writer = new FileWriter("custom_rules.txt",true);
+					BufferedWriter bw = new BufferedWriter(writer);
+			    	for(String str: rules_list) {
+					  bw.write(str +" ");
 					}
-					
-					writer.close();
-
+			    	bw.write("\n");
+					bw.close();
+					rules_list.clear();
 
 				}
 				catch ( IOException e)
