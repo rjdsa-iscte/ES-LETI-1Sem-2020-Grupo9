@@ -19,12 +19,16 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Scanner;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.GridBagConstraints;
@@ -44,6 +48,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SwingConstants;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.LineIterator;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
@@ -414,32 +420,6 @@ public class GUI extends JFrame {
 			}
 		});
 		
-		JButton loadButton = new JButton("Load");
-		loadButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				rules_dlmodel.clear();
-				try { 
-					BufferedReader br = new BufferedReader(new FileReader("custom_rules.txt"));
-					String line;
-					while ((line = br.readLine()) != null) {
-						rules_dlmodel.addElement(line);
-					}
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-			}
-		});
-
-
-		GridBagConstraints gbc_loadButton = new GridBagConstraints();
-		gbc_loadButton.insets = new Insets(0, 0, 0, 5);
-		gbc_loadButton.gridx = 3;
-		gbc_loadButton.gridy = 8;
-		rules.add(loadButton, gbc_loadButton);
-		
 		JButton saveButton = new JButton("Save");
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -488,6 +468,7 @@ public class GUI extends JFrame {
 			    	bw.write("\n");
 					bw.close();
 					rules_list.clear();
+					loadRulesfromFile();
 
 				}
 				catch ( IOException e)
@@ -497,6 +478,98 @@ public class GUI extends JFrame {
 			}
 			
 		});
+		
+		JButton loadButton = new JButton("Load");
+		loadButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				loadRulesfromFile();				
+			}
+		});
+		
+		
+				GridBagConstraints gbc_loadButton = new GridBagConstraints();
+				gbc_loadButton.insets = new Insets(0, 0, 0, 5);
+				gbc_loadButton.gridx = 0;
+				gbc_loadButton.gridy = 8;
+				rules.add(loadButton, gbc_loadButton);
+		
+		JButton editButton = new JButton("Edit");
+		editButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				//GETS SELECTED RULE TO STRING ARRAY
+				
+				String a = rulesList.getSelectedValue().toString();
+				String[] words = new String[20];
+				String[] aux = a.split(" ");;
+				
+				for (int i = 0; i < aux.length; i++) {
+					words[i] = aux[i];
+				}
+				
+				words[aux.length] = "END";
+				
+				//DELETES RULE FROM FILE AND UPDATES GUI
+				
+				try {
+					removeLineFromFile(a, new File("custom_rules.txt"));
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				loadRulesfromFile();
+				
+				//SHOWS SELECTED RULE ON GUI
+				
+				metric_1.setSelectedItem(rules_list_functions.valueOf(words[0]));
+				signal_1.setSelectedItem(rules_list_operators.valueOf(words[1]));
+				threshold_1.setText(words[2]);
+				logicOp_1.setSelectedItem(rules_list_logical.valueOf(words[3]));
+				
+				if(aux.length > 4) {
+				metric_2.setSelectedItem(rules_list_functions.valueOf(words[4]));
+				signal_2.setSelectedItem(rules_list_operators.valueOf(words[5]));
+				threshold_2.setText(words[6]);
+				logicOp_2.setSelectedItem(rules_list_logical.valueOf(words[7]));
+				}
+				
+				if(aux.length > 8) {
+				metric_3.setSelectedItem(rules_list_functions.valueOf(words[8]));
+				signal_3.setSelectedItem(rules_list_operators.valueOf(words[9]));
+				threshold_3.setText(words[10]);
+				logicOp_3.setSelectedItem(rules_list_logical.valueOf(words[11]));
+				}
+				
+				if(aux.length > 12) {
+				metric_4.setSelectedItem(rules_list_functions.valueOf(words[12]));
+				signal_4.setSelectedItem(rules_list_operators.valueOf(words[13]));
+				threshold_4.setText(words[14]);
+				logicOp_4.setSelectedItem(rules_list_logical.valueOf(words[15]));
+				}
+				
+				if(aux.length > 16) {
+				metric_5.setSelectedItem(rules_list_functions.valueOf(words[16]));
+				signal_5.setSelectedItem(rules_list_operators.valueOf(words[17]));
+				threshold_5.setText(words[18]);
+				logicOp_5.setSelectedItem(rules_list_logical.valueOf(words[19]));
+				}
+				
+						
+			}
+		});
+		
+		
+		GridBagConstraints gbc_editButton = new GridBagConstraints();
+		gbc_editButton.insets = new Insets(0, 0, 0, 5);
+		gbc_editButton.gridx = 3;
+		gbc_editButton.gridy = 8;
+		rules.add(editButton, gbc_editButton);
 		GridBagConstraints gbc_saveButton = new GridBagConstraints();
 		gbc_saveButton.insets = new Insets(0, 0, 0, 5);
 		gbc_saveButton.gridx = 5;
@@ -600,5 +673,42 @@ public class GUI extends JFrame {
 		qualityReportTable.setValueAt(nADCI, 1, 3);
 		qualityReportTable.setValueAt(nADII, 1, 4);
 	}
+	
+	private void loadRulesfromFile() {
+		rules_dlmodel.clear();
+		try { 
+			BufferedReader br = new BufferedReader(new FileReader("custom_rules.txt"));
+			String line;
+			while ((line = br.readLine()) != null) {
+				rules_dlmodel.addElement(line);
+			}
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+	}
+	
+	private void removeLineFromFile(String lineToRemove, File f) throws FileNotFoundException, IOException{
+	    //Reading File Content and storing it to a StringBuilder variable ( skips lineToRemove)
+	    StringBuilder sb = new StringBuilder();
+	    try (Scanner sc = new Scanner(f)) {
+	        String currentLine;
+	        while(sc.hasNext()){
+	            currentLine = sc.nextLine();
+	            if(currentLine.equals(lineToRemove)){
+	                continue; //skips lineToRemove
+	            }
+	            sb.append(currentLine).append("\n");
+	        }
+	    }
+	    //Delete File Content
+	    PrintWriter pw = new PrintWriter(f);
+	    pw.close();
 
+	    BufferedWriter writer = new BufferedWriter(new FileWriter(f, true));
+	    writer.append(sb.toString());
+	    writer.close();
+	}
+	
 }
