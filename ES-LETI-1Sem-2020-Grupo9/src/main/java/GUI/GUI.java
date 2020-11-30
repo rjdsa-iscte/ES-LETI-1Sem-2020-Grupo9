@@ -57,7 +57,9 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.poi.poifs.filesystem.FileMagic; 
+import org.apache.poi.poifs.filesystem.FileMagic;
+import javax.swing.JLabel;
+import javax.swing.DefaultComboBoxModel; 
 
 
 public class GUI extends JFrame {
@@ -65,15 +67,33 @@ public class GUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField filePath;
 	private JTable loadedFile;
-	private JTextField threshold_2;
 	private JTextField threshold_1;
+	private JTextField threshold_2;
 	private JTextField threshold_3;
 	private JTextField threshold_4;
 	private JTextField threshold_5;
+	private JComboBox metric_1;
+	private JComboBox signal_1;
+	private JComboBox logicOp_1;
+	private JComboBox metric_2;
+	private JComboBox signal_2;
+	private JComboBox logicOp_2;
+	private JComboBox metric_3;
+	private JComboBox signal_3;
+	private JComboBox logicOp_3;
+	private JComboBox metric_4;
+	private JComboBox signal_4;
+	private JComboBox logicOp_4;
+	private JComboBox metric_5;
+	private JComboBox signal_5;
+	private JComboBox logicOp_5;
+	private JComboBox<String> codeSmellCB;
 	private JTable resultsTable;
 	private JTable qualityReportTable;
-	DefaultListModel<String> rules_dlmodel = new DefaultListModel<>();
-	JList<String> rulesList = new JList<>(rules_dlmodel);
+	private DefaultListModel<String> longMethodRules_dlmodel = new DefaultListModel<>();
+	private JList<String> longMethodRulesList;
+	private DefaultListModel<String> featureEnvyRules_dlmodel = new DefaultListModel<>();
+	private JList<String> featureEnvyRulesList;
 	private File ficheiroSelecionado;
 	private static Vector<Vector<Object>> matrizExcel;
 	private static Vector<Object> colunasExcel;
@@ -229,21 +249,45 @@ public class GUI extends JFrame {
 		GridBagLayout gbl_rules = new GridBagLayout();
 		gbl_rules.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gbl_rules.rowHeights = new int[]{0, 0, 35, 35, 35, 35, 35, 0, 0, 0};
-		gbl_rules.columnWeights = new double[]{1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_rules.columnWeights = new double[]{1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		gbl_rules.rowWeights = new double[]{1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		rules.setLayout(gbl_rules);
 		
-		rulesList = new JList<>(rules_dlmodel);
-		GridBagConstraints gbc_rulesList = new GridBagConstraints();
-		gbc_rulesList.gridheight = 2;
-		gbc_rulesList.gridwidth = 13;
-		gbc_rulesList.insets = new Insets(0, 0, 5, 0);
-		gbc_rulesList.fill = GridBagConstraints.BOTH;
-		gbc_rulesList.gridx = 0;
-		gbc_rulesList.gridy = 0;
-		rules.add(rulesList, gbc_rulesList);
+		JLabel longMethodRulesLabel = new JLabel("LONG_METHOD CODE SMELL RULES");
+		GridBagConstraints gbc_longMethodRulesLabel = new GridBagConstraints();
+		gbc_longMethodRulesLabel.gridwidth = 6;
+		gbc_longMethodRulesLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_longMethodRulesLabel.gridx = 0;
+		gbc_longMethodRulesLabel.gridy = 0;
+		rules.add(longMethodRulesLabel, gbc_longMethodRulesLabel);
 		
-		final JComboBox metric_1 = new JComboBox(rules_list_functions.values());
+		JLabel featureEnvyRulesLabel = new JLabel("FEATURE_ENVY CODE SMELL RULES");
+		GridBagConstraints gbc_featureEnvyRulesLabel = new GridBagConstraints();
+		gbc_featureEnvyRulesLabel.gridwidth = 4;
+		gbc_featureEnvyRulesLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_featureEnvyRulesLabel.gridx = 6;
+		gbc_featureEnvyRulesLabel.gridy = 0;
+		rules.add(featureEnvyRulesLabel, gbc_featureEnvyRulesLabel);
+		
+		longMethodRulesList = new JList<>(longMethodRules_dlmodel);
+		GridBagConstraints gbc_longMethodRulesList = new GridBagConstraints();
+		gbc_longMethodRulesList.gridwidth = 6;
+		gbc_longMethodRulesList.insets = new Insets(0, 0, 5, 5);
+		gbc_longMethodRulesList.fill = GridBagConstraints.BOTH;
+		gbc_longMethodRulesList.gridx = 0;
+		gbc_longMethodRulesList.gridy = 1;
+		rules.add(longMethodRulesList, gbc_longMethodRulesList);
+		
+		featureEnvyRulesList = new JList<>(featureEnvyRules_dlmodel);
+		GridBagConstraints gbc_featureEnvyRulesList = new GridBagConstraints();
+		gbc_featureEnvyRulesList.gridwidth = 4;
+		gbc_featureEnvyRulesList.insets = new Insets(0, 0, 5, 5);
+		gbc_featureEnvyRulesList.fill = GridBagConstraints.BOTH;
+		gbc_featureEnvyRulesList.gridx = 6;
+		gbc_featureEnvyRulesList.gridy = 1;
+		rules.add(featureEnvyRulesList, gbc_featureEnvyRulesList);
+		
+		metric_1 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_1 = new GridBagConstraints();
 		gbc_metric_1.gridwidth = 5;
 		gbc_metric_1.insets = new Insets(0, 0, 5, 5);
@@ -253,7 +297,7 @@ public class GUI extends JFrame {
 		rules.add(metric_1, gbc_metric_1);
 		
 		
-		final JComboBox signal_1 = new JComboBox(rules_list_operators.values());
+		signal_1 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_1 = new GridBagConstraints();
 		gbc_signal_1.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_1.fill = GridBagConstraints.HORIZONTAL;
@@ -270,7 +314,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_1, gbc_threshold_1);
 		threshold_1.setColumns(10);
 		
-		final JComboBox logicOp_1 = new JComboBox(rules_list_logical.values());
+		logicOp_1 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_1 = new GridBagConstraints();
 		gbc_logicOp_1.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_1.fill = GridBagConstraints.HORIZONTAL;
@@ -278,7 +322,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_1.gridy = 2;
 		rules.add(logicOp_1, gbc_logicOp_1);
 		
-		final JComboBox metric_2 = new JComboBox(rules_list_functions.values());
+		metric_2 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_2 = new GridBagConstraints();
 		gbc_metric_2.gridwidth = 5;
 		gbc_metric_2.insets = new Insets(0, 0, 5, 5);
@@ -287,7 +331,7 @@ public class GUI extends JFrame {
 		gbc_metric_2.gridy = 3;
 		rules.add(metric_2, gbc_metric_2);
 		
-		final JComboBox signal_2 = new JComboBox(rules_list_operators.values());
+		signal_2 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_2 = new GridBagConstraints();
 		gbc_signal_2.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_2.fill = GridBagConstraints.HORIZONTAL;
@@ -304,7 +348,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_2, gbc_threshold_2);
 		threshold_2.setColumns(10);
 		
-		final JComboBox logicOp_2 = new JComboBox(rules_list_logical.values());
+		logicOp_2 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_2 = new GridBagConstraints();
 		gbc_logicOp_2.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_2.fill = GridBagConstraints.HORIZONTAL;
@@ -312,7 +356,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_2.gridy = 3;
 		rules.add(logicOp_2, gbc_logicOp_2);
 		
-		final JComboBox metric_3 = new JComboBox(rules_list_functions.values());
+		metric_3 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_3 = new GridBagConstraints();
 		gbc_metric_3.gridwidth = 5;
 		gbc_metric_3.insets = new Insets(0, 0, 5, 5);
@@ -321,7 +365,7 @@ public class GUI extends JFrame {
 		gbc_metric_3.gridy = 4;
 		rules.add(metric_3, gbc_metric_3);
 		
-		final JComboBox signal_3 = new JComboBox(rules_list_operators.values());
+		signal_3 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_3 = new GridBagConstraints();
 		gbc_signal_3.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_3.fill = GridBagConstraints.HORIZONTAL;
@@ -338,7 +382,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_3, gbc_threshold_3);
 		threshold_3.setColumns(10);
 		
-		final JComboBox logicOp_3 = new JComboBox(rules_list_logical.values());
+		logicOp_3 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_3 = new GridBagConstraints();
 		gbc_logicOp_3.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_3.fill = GridBagConstraints.HORIZONTAL;
@@ -346,7 +390,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_3.gridy = 4;
 		rules.add(logicOp_3, gbc_logicOp_3);
 		
-		final JComboBox metric_4 = new JComboBox(rules_list_functions.values());
+		metric_4 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_4 = new GridBagConstraints();
 		gbc_metric_4.gridwidth = 5;
 		gbc_metric_4.insets = new Insets(0, 0, 5, 5);
@@ -355,7 +399,7 @@ public class GUI extends JFrame {
 		gbc_metric_4.gridy = 5;
 		rules.add(metric_4, gbc_metric_4);
 		
-		final JComboBox signal_4 = new JComboBox(rules_list_operators.values());
+		signal_4 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_4 = new GridBagConstraints();
 		gbc_signal_4.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_4.fill = GridBagConstraints.HORIZONTAL;
@@ -372,7 +416,7 @@ public class GUI extends JFrame {
 		rules.add(threshold_4, gbc_threshold_4);
 		threshold_4.setColumns(10);
 		
-		final JComboBox logicOp_4 = new JComboBox(rules_list_logical.values());
+		logicOp_4 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_4 = new GridBagConstraints();
 		gbc_logicOp_4.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_4.fill = GridBagConstraints.HORIZONTAL;
@@ -380,7 +424,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_4.gridy = 5;
 		rules.add(logicOp_4, gbc_logicOp_4);
 		
-		final JComboBox metric_5 = new JComboBox(rules_list_functions.values());
+		metric_5 = new JComboBox(rules_list_functions.values());
 		GridBagConstraints gbc_metric_5 = new GridBagConstraints();
 		gbc_metric_5.gridwidth = 5;
 		gbc_metric_5.insets = new Insets(0, 0, 5, 5);
@@ -389,7 +433,7 @@ public class GUI extends JFrame {
 		gbc_metric_5.gridy = 6;
 		rules.add(metric_5, gbc_metric_5);
 		
-		final JComboBox signal_5 = new JComboBox(rules_list_operators.values());
+		signal_5 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_5 = new GridBagConstraints();
 		gbc_signal_5.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_5.fill = GridBagConstraints.HORIZONTAL;
@@ -406,13 +450,23 @@ public class GUI extends JFrame {
 		rules.add(threshold_5, gbc_threshold_5);
 		threshold_5.setColumns(10);
 		
-		final JComboBox logicOp_5 = new JComboBox(rules_list_logical.values());
+		logicOp_5 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_5 = new GridBagConstraints();
 		gbc_logicOp_5.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_5.fill = GridBagConstraints.HORIZONTAL;
 		gbc_logicOp_5.gridx = 9;
 		gbc_logicOp_5.gridy = 6;
 		rules.add(logicOp_5, gbc_logicOp_5);
+		
+		codeSmellCB = new JComboBox();
+		codeSmellCB.setModel(new DefaultComboBoxModel(new String[] {"LONG_METHOD", "FEATURE_ENVY"}));
+		GridBagConstraints gbc_codeSmellCB = new GridBagConstraints();
+		gbc_codeSmellCB.gridwidth = 5;
+		gbc_codeSmellCB.insets = new Insets(0, 0, 5, 5);
+		gbc_codeSmellCB.fill = GridBagConstraints.HORIZONTAL;
+		gbc_codeSmellCB.gridx = 0;
+		gbc_codeSmellCB.gridy = 7;
+		rules.add(codeSmellCB, gbc_codeSmellCB);
 		
 		JButton runButton = new JButton("RUN");
 		runButton.addActionListener(new ActionListener() {
@@ -442,6 +496,7 @@ public class GUI extends JFrame {
 				rules_list.add(threshold_3.getText().toString());
 				rules_list.add(logicOp_3.getSelectedItem().toString());
 				}
+				
 				if(logicOp_3.getSelectedItem().toString()!="END") {
 				rules_list.add(metric_4.getSelectedItem().toString());
 				rules_list.add(signal_4.getSelectedItem().toString());
@@ -458,9 +513,13 @@ public class GUI extends JFrame {
 				System.out.println(rules_list);
 				
 				
-				try
-				{
-					FileWriter writer = new FileWriter("custom_rules.txt",true);
+				try {
+					String aux;
+					if(codeSmellCB.getSelectedItem().equals("LONG_METHOD"))
+						aux = "long_method_rules.txt";
+					else 
+						aux = "feature_envy_rules.txt";
+					FileWriter writer = new FileWriter(aux,true);
 					BufferedWriter bw = new BufferedWriter(writer);
 			    	for(String str: rules_list) {
 					  bw.write(str +" ");
@@ -486,22 +545,28 @@ public class GUI extends JFrame {
 				loadRulesfromFile();				
 			}
 		});
+				
 		
-		
-				GridBagConstraints gbc_loadButton = new GridBagConstraints();
-				gbc_loadButton.insets = new Insets(0, 0, 0, 5);
-				gbc_loadButton.gridx = 0;
-				gbc_loadButton.gridy = 8;
-				rules.add(loadButton, gbc_loadButton);
+		GridBagConstraints gbc_loadButton = new GridBagConstraints();
+		gbc_loadButton.insets = new Insets(0, 0, 0, 5);
+		gbc_loadButton.gridx = 0;
+		gbc_loadButton.gridy = 8;
+		rules.add(loadButton, gbc_loadButton);
 		
 		JButton editButton = new JButton("Edit");
 		editButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
+				clearRulesGUI();
+				
 				//GETS SELECTED RULE TO STRING ARRAY
 				
-				String a = rulesList.getSelectedValue().toString();
+				String a;
+				if(longMethodRulesList.isSelectionEmpty())
+					a = featureEnvyRulesList.getSelectedValue().toString();
+				else
+					a = longMethodRulesList.getSelectedValue().toString();
 				String[] words = new String[20];
 				String[] aux = a.split(" ");;
 				
@@ -514,7 +579,10 @@ public class GUI extends JFrame {
 				//DELETES RULE FROM FILE AND UPDATES GUI
 				
 				try {
-					removeLineFromFile(a, new File("custom_rules.txt"));
+					if(longMethodRulesList.isSelectionEmpty())
+						removeLineFromFile(a, new File("feature_envy_rules.txt"));
+					else
+						removeLineFromFile(a, new File("long_method_rules.txt"));
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -674,13 +742,48 @@ public class GUI extends JFrame {
 		qualityReportTable.setValueAt(nADII, 1, 4);
 	}
 	
+	private void clearRulesGUI() {
+		metric_1.setSelectedIndex(-1);
+		signal_1.setSelectedIndex(-1);
+		threshold_1.setText("");
+		logicOp_1.setSelectedIndex(0);
+		metric_2.setSelectedIndex(-1);
+		signal_2.setSelectedIndex(-1);
+		threshold_2.setText("");
+		logicOp_2.setSelectedIndex(0);
+		metric_3.setSelectedIndex(-1);
+		signal_3.setSelectedIndex(-1);
+		threshold_3.setText("");
+		logicOp_3.setSelectedIndex(0);
+		metric_4.setSelectedIndex(-1);
+		signal_4.setSelectedIndex(-1);
+		threshold_4.setText("");
+		logicOp_4.setSelectedIndex(0);
+		metric_5.setSelectedIndex(-1);
+		signal_5.setSelectedIndex(-1);
+		threshold_5.setText("");
+		logicOp_5.setSelectedIndex(0);
+	}
+	
 	private void loadRulesfromFile() {
-		rules_dlmodel.clear();
+		longMethodRules_dlmodel.clear();
+		featureEnvyRules_dlmodel.clear();
 		try { 
-			BufferedReader br = new BufferedReader(new FileReader("custom_rules.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("long_method_rules.txt"));
 			String line;
 			while ((line = br.readLine()) != null) {
-				rules_dlmodel.addElement(line);
+				longMethodRules_dlmodel.addElement(line);
+			}
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		try { 
+			BufferedReader br = new BufferedReader(new FileReader("feature_envy_rules.txt"));
+			String line;
+			while ((line = br.readLine()) != null) {
+				featureEnvyRules_dlmodel.addElement(line);
 			}
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block

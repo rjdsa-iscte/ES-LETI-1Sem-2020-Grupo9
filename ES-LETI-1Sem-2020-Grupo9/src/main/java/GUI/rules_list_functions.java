@@ -5,13 +5,7 @@ public enum rules_list_functions {
 	LOC,
 	CYCLO,
 	ATFD,
-	LAA,
-	NOFA,
-	WMCNAMM,
-	NOMNAMM,
-	RFC,
-	NOAM,
-	NIM;
+	LAA;
 	
 
     @Override
