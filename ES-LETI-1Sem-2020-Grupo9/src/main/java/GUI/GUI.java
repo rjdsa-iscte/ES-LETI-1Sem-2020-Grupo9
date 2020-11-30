@@ -611,8 +611,8 @@ public class GUI extends JFrame {
 		updateButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				QualityChecker qc_iPlasma = new QualityChecker(9);
-				QualityChecker qc_PMD = new QualityChecker(10);
+				QualityChecker qc_iPlasma = new QualityChecker(9, filePath.getText());
+				QualityChecker qc_PMD = new QualityChecker(10, filePath.getText());
 				qc_iPlasma.start();
 				qc_PMD.start();
 				try {
