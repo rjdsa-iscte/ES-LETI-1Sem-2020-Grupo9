@@ -4,36 +4,28 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-
-import javax.swing.JTable;
-import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.util.SystemOutLogger;
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class QualityChecker extends Thread {
 
-	private JTable table;
 	private int nColumn;
+	private String filePath;
 	private int nDCI;
 	private int nDII;
 	private int nADCI;
 	private int nADII;
 	
-	public QualityChecker(int nColumn) {
+	public QualityChecker(int nColumn, String filePath) {
 		this.nColumn = nColumn;
+		this.filePath = filePath;
 	}
 
 	@Override
 	public void run() {
 	
 		try {
-			InputStream ExcelFileToRead = new FileInputStream("Defeitos.xlsx");
+			InputStream ExcelFileToRead = new FileInputStream(filePath);
 	        XSSFWorkbook  wb = new XSSFWorkbook(ExcelFileToRead);
 	        XSSFSheet sheet = wb.getSheetAt(0);
 	        for (int i = 1; i < 421; i++) {
@@ -51,8 +43,7 @@ public class QualityChecker extends Thread {
 				}
 	        }
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("No file selected or wrong path to file !!!");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
