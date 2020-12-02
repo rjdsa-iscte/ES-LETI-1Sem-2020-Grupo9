@@ -71,6 +71,10 @@ public class GUI extends JFrame {
 	private JTextField threshold_2;
 	private JTextField threshold_3;
 	private JTextField threshold_4;
+	private JComboBox signal_1;
+	private JComboBox signal_2;
+	private JComboBox signal_3;
+	private JComboBox signal_4;
 	private JComboBox logicOp_1;
 	private JComboBox logicOp_2;
 	private JTable resultsTable;
@@ -286,7 +290,7 @@ public class GUI extends JFrame {
 		rules.add(metric_1, gbc_metric_1);
 		
 		
-		JLabel signal_1 = new JLabel("BIGGER THAN");
+		signal_1 = new JComboBox(rules_list_operators.values());;
 		GridBagConstraints gbc_signal_1 = new GridBagConstraints();
 		gbc_signal_1.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_1.fill = GridBagConstraints.HORIZONTAL;
@@ -320,13 +324,14 @@ public class GUI extends JFrame {
 		gbc_metric_2.gridy = 3;
 		rules.add(metric_2, gbc_metric_2);
 		
-		JLabel signal_2 = new JLabel("BIGGER THAN");
+		signal_2 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_2 = new GridBagConstraints();
 		gbc_signal_2.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_2.fill = GridBagConstraints.HORIZONTAL;
 		gbc_signal_2.gridx = 6;
 		gbc_signal_2.gridy = 3;
 		rules.add(signal_2, gbc_signal_2);
+		rules_list_operators.values();
 		
 		threshold_2 = new JTextField();
 		GridBagConstraints gbc_threshold_2 = new GridBagConstraints();
@@ -346,7 +351,7 @@ public class GUI extends JFrame {
 		gbc_metric_3.gridy = 4;
 		rules.add(metric_3, gbc_metric_3);
 		
-		JLabel signal_3 = new JLabel("BIGGER THAN");
+		signal_3 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_3 = new GridBagConstraints();
 		gbc_signal_3.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_3.fill = GridBagConstraints.HORIZONTAL;
@@ -380,7 +385,7 @@ public class GUI extends JFrame {
 		gbc_metric_4.gridy = 5;
 		rules.add(metric_4, gbc_metric_4);
 		
-		JLabel signal_4 = new JLabel("SMALLER THAN");
+		signal_4 = new JComboBox(rules_list_operators.values());
 		GridBagConstraints gbc_signal_4 = new GridBagConstraints();
 		gbc_signal_4.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_4.fill = GridBagConstraints.HORIZONTAL;
@@ -409,7 +414,6 @@ public class GUI extends JFrame {
 						int cyclo = (int) Double.parseDouble(matrizExcel.get(x).get(5).toString());
 						int atfd = (int) Double.parseDouble(matrizExcel.get(x).get(6).toString());
 						double laa = Double.parseDouble(matrizExcel.get(x).get(7).toString());
-						System.out.println(longMethodRules_dlmodel);
 						if(longMethodRules_dlmodel.size() > 0) {							
 							defeitosMetodoIDX.add(isLongMethod(loc, cyclo));							
 						}
@@ -418,7 +422,10 @@ public class GUI extends JFrame {
 						}
 						defeitosPorMetodo.add(defeitosMetodoIDX);
 					}
-					System.out.println(defeitosPorMetodo); // cada vetor de indice i deste vetor de vetores guarda os valores booleanos de isLongMethod e isFeatureEnvy, nessa ordem, para o método com ID = i + 1 
+					for(int i = 0; i < 420; i++) {
+						int y = i + 1;
+						System.out.println(y + " isLongMethod,hasFeatureEnvy:" + defeitosPorMetodo.get(i));
+					}
 				}else {
 					System.out.println("Ficheiro Excel não foi carregado, por favor carrege o ficheiro e tente outra vez");
 				}
@@ -436,14 +443,14 @@ public class GUI extends JFrame {
 					Integer.parseInt(threshold_1.getText().toString());
 					longMethodRules.clear();
 					longMethodRules.add("LOC");
-					longMethodRules.add("BIGGER_THAN");
+					longMethodRules.add(signal_1.getSelectedItem().toString());
 					longMethodRules.add(threshold_1.getText().toString());					
 					if(logicOp_1.getSelectedItem().toString()!="END") {				
 						try {
 							Integer.parseInt(threshold_2.getText().toString());
 							longMethodRules.add(logicOp_1.getSelectedItem().toString());
 							longMethodRules.add("CYCLO");
-							longMethodRules.add("BIGGER_THAN");
+							longMethodRules.add(signal_2.getSelectedItem().toString());
 							longMethodRules.add(threshold_2.getText().toString());
 						}catch(NumberFormatException t2) {
 							System.out.println("user defined a logical operator but did not define one of the conditions");
@@ -454,7 +461,7 @@ public class GUI extends JFrame {
 						Integer.parseInt(threshold_2.getText().toString());
 						longMethodRules.clear();
 						longMethodRules.add("CYCLO");
-						longMethodRules.add("BIGGER_THAN");
+						longMethodRules.add(signal_2.getSelectedItem().toString());
 						longMethodRules.add(threshold_2.getText().toString());
 					}catch(NumberFormatException t2) {
 						longMethodRulesDefined = false;
@@ -464,14 +471,14 @@ public class GUI extends JFrame {
 					Integer.parseInt(threshold_3.getText().toString());
 					featureEnvyRules.clear();
 					featureEnvyRules.add("ATFD");
-					featureEnvyRules.add("BIGGER_THAN");
+					featureEnvyRules.add(signal_3.getSelectedItem().toString());
 					featureEnvyRules.add(threshold_3.getText().toString());
 					if(logicOp_2.getSelectedItem().toString()!="END") {
 						try {
 							Double.parseDouble(threshold_4.getText().toString());						
 							featureEnvyRules.add(logicOp_2.getSelectedItem().toString());
 							featureEnvyRules.add("LAA");
-							featureEnvyRules.add("SMALLER_THAN");
+							featureEnvyRules.add(signal_4.getSelectedItem().toString());
 							featureEnvyRules.add(threshold_4.getText().toString());
 						}catch(NumberFormatException t4) {
 							System.out.println("user defined a logical operator but did not define one of the conditions");
@@ -482,7 +489,7 @@ public class GUI extends JFrame {
 						Double.parseDouble(threshold_4.getText().toString());						
 						featureEnvyRules.clear();
 						featureEnvyRules.add("LAA");
-						featureEnvyRules.add("SMALLER_THAN");
+						featureEnvyRules.add(signal_4.getSelectedItem().toString());
 						featureEnvyRules.add(threshold_4.getText().toString());
 					}catch(NumberFormatException t4) {
 						featureEnvyRulesDefined = false;
@@ -721,6 +728,8 @@ public class GUI extends JFrame {
 		int locTreshold = 0;
 		int cycloTreshold = 0;
 		int islocTreshold = -1; //if 1, the next number parsed will be the locTreshold, if 0, the next number parsed will be the cyclo treshold
+		boolean locBiggerThan = false;
+		boolean cycloBiggerThan = false;
 		for(int i = 0; i < longMethodRules.size(); i++) {
 			try {
 			  Integer.parseInt(longMethodRules.get(i));
@@ -738,21 +747,58 @@ public class GUI extends JFrame {
 					islocTreshold = 0;
 				}else if (longMethodRules.get(i).equals("AND")) {
 					isAND = true;
+				}else if (longMethodRules.get(i).equals("BIGGER_THAN")) {
+					if(islocTreshold == 1) {
+						locBiggerThan = true;
+					}
+					if(islocTreshold == 0) {
+						cycloBiggerThan = true;
+					}
 				}
 			}
 		}
 		if(rules > 1 && cycloTreshold != 0 && locTreshold != 0) {
-			if(isAND && cyclo > cycloTreshold && loc > locTreshold) {
-				return true;
+			if(isAND) {
+				if(cycloBiggerThan && locBiggerThan) {
+					return((cyclo > cycloTreshold && loc > locTreshold));
+				}
+				if(cycloBiggerThan && !locBiggerThan) {
+					return(cyclo > cycloTreshold && loc < locTreshold);
+				}
+				if(!cycloBiggerThan && !locBiggerThan) {
+					return(cyclo < cycloTreshold && loc < locTreshold);
+				}
+				if(!cycloBiggerThan && locBiggerThan) {
+					return(cyclo < cycloTreshold && loc > locTreshold);
+				}
 			}
-			if(!isAND && (cyclo > cycloTreshold || loc > locTreshold)) {
-				return true;
+			if(!isAND) {
+				if(cycloBiggerThan && locBiggerThan) {
+					return(cyclo > cycloTreshold || loc > locTreshold);
+				}
+				if(cycloBiggerThan && !locBiggerThan) {
+					return(cyclo > cycloTreshold || loc < locTreshold);
+				}
+				if(!cycloBiggerThan && !locBiggerThan) {
+					return(cyclo < cycloTreshold || loc < locTreshold);
+				}
+				if(!cycloBiggerThan && locBiggerThan) {
+					return(cyclo < cycloTreshold || loc > locTreshold);
+				}
 			}
 		}else if(rules > 0) {
-			if(cyclo > cycloTreshold && cycloTreshold != 0) {
-				return true;
-			}else if(loc > locTreshold && locTreshold != 0) {
-				return true;
+			if(locTreshold != 0) {
+				if(locBiggerThan) {
+					return(loc > locTreshold);
+				}else {
+					return(loc < locTreshold);
+				}
+			}else {
+				if(cycloBiggerThan) {
+					return(cyclo > cycloTreshold);
+				}else {
+					return(cyclo < cycloTreshold);
+				}
 			}
 		}
 		return false;
@@ -765,6 +811,8 @@ public class GUI extends JFrame {
 		double laaTreshold = 0;
 		int atfdTreshold = 0;
 		int islaaTreshold = -1; //if 1, the next number parsed will be the laaTreshold, if 0, the next number parsed will be the atfd treshold
+		boolean atfdBiggerThan = false;
+		boolean laaBiggerThan = false;
 		for(int i = 0; i < featureEnvyRules.size(); i++) {
 			try {
 			  Double.parseDouble(featureEnvyRules.get(i));
@@ -782,23 +830,60 @@ public class GUI extends JFrame {
 					islaaTreshold = 0;
 				}else if (featureEnvyRules.get(i).equals("AND")) {
 					isAND = true;
+				}else if (featureEnvyRules.get(i).equals("BIGGER_THAN")) {
+					if(islaaTreshold == 1) {
+						laaBiggerThan = true;
+					}
+					if(islaaTreshold == 0) {
+						atfdBiggerThan = true;
+					}
 				}
 			}
 		}
 		if(rules > 1 && atfdTreshold != 0 && laaTreshold != 0) {
-			if(isAND && atfd > atfdTreshold && laa < laaTreshold) {
-				return true;
+			if(isAND) {
+				if(atfdBiggerThan && laaBiggerThan) {
+					return(atfd > atfdTreshold && laa > laaTreshold);
+				}
+				if(atfdBiggerThan && !laaBiggerThan) {
+					return(atfd > atfdTreshold && laa < laaTreshold);
+				}
+				if(!atfdBiggerThan && !laaBiggerThan) {
+					return(atfd < atfdTreshold && laa < laaTreshold);
+				}
+				if(!atfdBiggerThan && laaBiggerThan) {
+					return(atfd < atfdTreshold && laa > laaTreshold);
+				}
 			}
-			if(!isAND && (atfd > atfdTreshold || laa < laaTreshold)) {
-				return true;
-			}
+			if(!isAND) {
+				if(atfdBiggerThan && laaBiggerThan) {
+					return(atfd > atfdTreshold || laa > laaTreshold);
+				}
+				if(atfdBiggerThan && !laaBiggerThan) {
+					return(atfd > atfdTreshold || laa < laaTreshold);
+				}
+				if(!atfdBiggerThan && !laaBiggerThan) {
+					return(atfd < atfdTreshold || laa < laaTreshold);
+				}
+				if(!atfdBiggerThan && laaBiggerThan) {
+					return(atfd < atfdTreshold || laa > laaTreshold);
+				}
+			}	
 		}else if(rules > 0) {
-			if(atfd > atfdTreshold && atfdTreshold != 0) {
-				return true;
-			}else if(laa < laaTreshold && laaTreshold != 0) {
-				return true;
+			if(laaTreshold != 0) {
+				if(laaBiggerThan) {
+					return(laa > laaTreshold);
+				}else {
+					return(laa < laaTreshold);
+				}
+			}else {
+				if(atfdBiggerThan) {
+					return(atfd > atfdTreshold);
+				}else {
+					return(atfd < atfdTreshold);
+				}
 			}
-		}
+		}			
 		return false;
 	}
 
