@@ -71,23 +71,12 @@ public class GUI extends JFrame {
 	private JTextField threshold_2;
 	private JTextField threshold_3;
 	private JTextField threshold_4;
-	private JTextField threshold_5;
-	private JComboBox metric_1;
 	private JComboBox signal_1;
-	private JComboBox logicOp_1;
-	private JComboBox metric_2;
 	private JComboBox signal_2;
-	private JComboBox logicOp_2;
-	private JComboBox metric_3;
 	private JComboBox signal_3;
-	private JComboBox logicOp_3;
-	private JComboBox metric_4;
 	private JComboBox signal_4;
-	private JComboBox logicOp_4;
-	private JComboBox metric_5;
-	private JComboBox signal_5;
-	private JComboBox logicOp_5;
-	private JComboBox<String> codeSmellCB;
+	private JComboBox logicOp_1;
+	private JComboBox logicOp_2;
 	private JTable resultsTable;
 	private JTable qualityReportTable;
 	private DefaultListModel<String> longMethodRules_dlmodel = new DefaultListModel<>();
@@ -96,6 +85,7 @@ public class GUI extends JFrame {
 	private JList<String> featureEnvyRulesList;
 	private File ficheiroSelecionado;
 	private static Vector<Vector<Object>> matrizExcel;
+	private static Vector<Vector<Boolean>> defeitosPorMetodo;
 	private static Vector<Object> colunasExcel;
 	final static JFileChooser selecionadorFicheiro = new JFileChooser();
 	private static JTable jtable;
@@ -111,7 +101,8 @@ public class GUI extends JFrame {
 	private int user_DII = 0;
 	private int user_ADCI = 0;
 	private int user_ADII = 0;
-	public ArrayList<String> rules_list = new ArrayList();
+	public ArrayList<String> longMethodRules = new ArrayList<String>();
+	public ArrayList<String> featureEnvyRules = new ArrayList<String>();
 
 	/**
 	 * Launch the application.
@@ -119,6 +110,7 @@ public class GUI extends JFrame {
 	public static void main(String[] args) {		
 		matrizExcel = new Vector<Vector<Object>>();
 		colunasExcel = new Vector<Object>();
+		defeitosPorMetodo = new Vector<Vector<Boolean>>();
 		selecionadorFicheiro.setCurrentDirectory(new File(System.getProperty("user.home")));
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -232,6 +224,7 @@ public class GUI extends JFrame {
 			                }
 			                iter++;
 			            }
+			            workbook.close();
 			            ((DefaultTableModel)jtable.getModel()).fireTableStructureChanged();
 					}
 				} catch (IOException e) {
@@ -287,7 +280,7 @@ public class GUI extends JFrame {
 		gbc_featureEnvyRulesList.gridy = 1;
 		rules.add(featureEnvyRulesList, gbc_featureEnvyRulesList);
 		
-		metric_1 = new JComboBox(rules_list_functions.values());
+		JLabel metric_1 = new JLabel("LINES OF CODE - LOC");
 		GridBagConstraints gbc_metric_1 = new GridBagConstraints();
 		gbc_metric_1.gridwidth = 5;
 		gbc_metric_1.insets = new Insets(0, 0, 5, 5);
@@ -297,7 +290,7 @@ public class GUI extends JFrame {
 		rules.add(metric_1, gbc_metric_1);
 		
 		
-		signal_1 = new JComboBox(rules_list_operators.values());
+		signal_1 = new JComboBox(rules_list_operators.values());;
 		GridBagConstraints gbc_signal_1 = new GridBagConstraints();
 		gbc_signal_1.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_1.fill = GridBagConstraints.HORIZONTAL;
@@ -322,7 +315,7 @@ public class GUI extends JFrame {
 		gbc_logicOp_1.gridy = 2;
 		rules.add(logicOp_1, gbc_logicOp_1);
 		
-		metric_2 = new JComboBox(rules_list_functions.values());
+		JLabel metric_2 = new JLabel("CYCLOMATIC COMPLEXITY - CYCLO");
 		GridBagConstraints gbc_metric_2 = new GridBagConstraints();
 		gbc_metric_2.gridwidth = 5;
 		gbc_metric_2.insets = new Insets(0, 0, 5, 5);
@@ -338,6 +331,7 @@ public class GUI extends JFrame {
 		gbc_signal_2.gridx = 6;
 		gbc_signal_2.gridy = 3;
 		rules.add(signal_2, gbc_signal_2);
+		rules_list_operators.values();
 		
 		threshold_2 = new JTextField();
 		GridBagConstraints gbc_threshold_2 = new GridBagConstraints();
@@ -347,16 +341,8 @@ public class GUI extends JFrame {
 		gbc_threshold_2.gridy = 3;
 		rules.add(threshold_2, gbc_threshold_2);
 		threshold_2.setColumns(10);
-		
-		logicOp_2 = new JComboBox(rules_list_logical.values());
-		GridBagConstraints gbc_logicOp_2 = new GridBagConstraints();
-		gbc_logicOp_2.insets = new Insets(0, 0, 5, 5);
-		gbc_logicOp_2.fill = GridBagConstraints.HORIZONTAL;
-		gbc_logicOp_2.gridx = 9;
-		gbc_logicOp_2.gridy = 3;
-		rules.add(logicOp_2, gbc_logicOp_2);
-		
-		metric_3 = new JComboBox(rules_list_functions.values());
+				
+		JLabel metric_3 = new JLabel("ACCESS TO FOREIGN DATA - ATFD");
 		GridBagConstraints gbc_metric_3 = new GridBagConstraints();
 		gbc_metric_3.gridwidth = 5;
 		gbc_metric_3.insets = new Insets(0, 0, 5, 5);
@@ -382,15 +368,15 @@ public class GUI extends JFrame {
 		rules.add(threshold_3, gbc_threshold_3);
 		threshold_3.setColumns(10);
 		
-		logicOp_3 = new JComboBox(rules_list_logical.values());
+		logicOp_2 = new JComboBox(rules_list_logical.values());
 		GridBagConstraints gbc_logicOp_3 = new GridBagConstraints();
 		gbc_logicOp_3.insets = new Insets(0, 0, 5, 5);
 		gbc_logicOp_3.fill = GridBagConstraints.HORIZONTAL;
 		gbc_logicOp_3.gridx = 9;
 		gbc_logicOp_3.gridy = 4;
-		rules.add(logicOp_3, gbc_logicOp_3);
+		rules.add(logicOp_2, gbc_logicOp_3);
 		
-		metric_4 = new JComboBox(rules_list_functions.values());
+		JLabel metric_4 = new JLabel("LOCALITY OF ATTRIBUTE ACCESSES - LAA");
 		GridBagConstraints gbc_metric_4 = new GridBagConstraints();
 		gbc_metric_4.gridwidth = 5;
 		gbc_metric_4.insets = new Insets(0, 0, 5, 5);
@@ -416,126 +402,42 @@ public class GUI extends JFrame {
 		rules.add(threshold_4, gbc_threshold_4);
 		threshold_4.setColumns(10);
 		
-		logicOp_4 = new JComboBox(rules_list_logical.values());
-		GridBagConstraints gbc_logicOp_4 = new GridBagConstraints();
-		gbc_logicOp_4.insets = new Insets(0, 0, 5, 5);
-		gbc_logicOp_4.fill = GridBagConstraints.HORIZONTAL;
-		gbc_logicOp_4.gridx = 9;
-		gbc_logicOp_4.gridy = 5;
-		rules.add(logicOp_4, gbc_logicOp_4);
-		
-		metric_5 = new JComboBox(rules_list_functions.values());
-		GridBagConstraints gbc_metric_5 = new GridBagConstraints();
-		gbc_metric_5.gridwidth = 5;
-		gbc_metric_5.insets = new Insets(0, 0, 5, 5);
-		gbc_metric_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_metric_5.gridx = 0;
-		gbc_metric_5.gridy = 6;
-		rules.add(metric_5, gbc_metric_5);
-		
-		signal_5 = new JComboBox(rules_list_operators.values());
-		GridBagConstraints gbc_signal_5 = new GridBagConstraints();
-		gbc_signal_5.insets = new Insets(0, 0, 5, 5);
-		gbc_signal_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_signal_5.gridx = 6;
-		gbc_signal_5.gridy = 6;
-		rules.add(signal_5, gbc_signal_5);
-		
-		threshold_5 = new JTextField();
-		GridBagConstraints gbc_threshold_5 = new GridBagConstraints();
-		gbc_threshold_5.insets = new Insets(0, 0, 5, 5);
-		gbc_threshold_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_threshold_5.gridx = 7;
-		gbc_threshold_5.gridy = 6;
-		rules.add(threshold_5, gbc_threshold_5);
-		threshold_5.setColumns(10);
-		
-		logicOp_5 = new JComboBox(rules_list_logical.values());
-		GridBagConstraints gbc_logicOp_5 = new GridBagConstraints();
-		gbc_logicOp_5.insets = new Insets(0, 0, 5, 5);
-		gbc_logicOp_5.fill = GridBagConstraints.HORIZONTAL;
-		gbc_logicOp_5.gridx = 9;
-		gbc_logicOp_5.gridy = 6;
-		rules.add(logicOp_5, gbc_logicOp_5);
-		
-		codeSmellCB = new JComboBox();
-		codeSmellCB.setModel(new DefaultComboBoxModel(new String[] {"LONG_METHOD", "FEATURE_ENVY"}));
-		GridBagConstraints gbc_codeSmellCB = new GridBagConstraints();
-		gbc_codeSmellCB.gridwidth = 5;
-		gbc_codeSmellCB.insets = new Insets(0, 0, 5, 5);
-		gbc_codeSmellCB.fill = GridBagConstraints.HORIZONTAL;
-		gbc_codeSmellCB.gridx = 0;
-		gbc_codeSmellCB.gridy = 7;
-		rules.add(codeSmellCB, gbc_codeSmellCB);
 		
 		JButton runButton = new JButton("RUN");
 		runButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(matrizExcel.size() > 0) {					
+					defeitosPorMetodo.clear();
+					for(int x = 0; x < 420; x++) {
+						Vector<Boolean> defeitosMetodoIDX = new Vector<Boolean>();
+						int loc = (int) Double.parseDouble(matrizExcel.get(x).get(4).toString());
+						int cyclo = (int) Double.parseDouble(matrizExcel.get(x).get(5).toString());
+						int atfd = (int) Double.parseDouble(matrizExcel.get(x).get(6).toString());
+						double laa = Double.parseDouble(matrizExcel.get(x).get(7).toString());
+						if(longMethodRules_dlmodel.size() > 0) {							
+							defeitosMetodoIDX.add(isLongMethod(loc, cyclo));							
+						}
+						if(featureEnvyRules_dlmodel.size() > 0) {
+							defeitosMetodoIDX.add(hasFeatureEnvy(atfd, laa));
+						}
+						defeitosPorMetodo.add(defeitosMetodoIDX);
+					}
+					for(int i = 0; i < 420; i++) {
+						int y = i + 1;
+						System.out.println(y + " isLongMethod,hasFeatureEnvy:" + defeitosPorMetodo.get(i));
+					}
+				}else {
+					System.out.println("Ficheiro Excel não foi carregado, por favor carrege o ficheiro e tente outra vez");
+				}
+			
 			}
 		});
-		
+				
 		JButton saveButton = new JButton("Save");
 		saveButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				rules_list.add(metric_1.getSelectedItem().toString());
-				rules_list.add(signal_1.getSelectedItem().toString());
-				rules_list.add(threshold_1.getText().toString());
-				rules_list.add(logicOp_1.getSelectedItem().toString());
-				
-				if(logicOp_1.getSelectedItem().toString()!="END") {
-				rules_list.add(metric_2.getSelectedItem().toString());
-				rules_list.add(signal_2.getSelectedItem().toString());
-				rules_list.add(threshold_2.getText().toString());
-				rules_list.add(logicOp_2.getSelectedItem().toString());
-				}
-				
-				if(logicOp_2.getSelectedItem().toString() !="END") {
-				rules_list.add(metric_3.getSelectedItem().toString());
-				rules_list.add(signal_3.getSelectedItem().toString());
-				rules_list.add(threshold_3.getText().toString());
-				rules_list.add(logicOp_3.getSelectedItem().toString());
-				}
-				
-				if(logicOp_3.getSelectedItem().toString()!="END") {
-				rules_list.add(metric_4.getSelectedItem().toString());
-				rules_list.add(signal_4.getSelectedItem().toString());
-				rules_list.add(threshold_4.getText().toString());
-				rules_list.add(logicOp_4.getSelectedItem().toString());
-				}									
-				if(logicOp_4.getSelectedItem().toString()!="END") {
-					rules_list.add(metric_5.getSelectedItem().toString());
-					rules_list.add(signal_5.getSelectedItem().toString());
-					rules_list.add(threshold_5.getText().toString());
-					rules_list.add(logicOp_5.getSelectedItem().toString());
-					}	
-				rules_list.remove(rules_list.size()-1);
-				System.out.println(rules_list);
-				
-				
-				try {
-					String aux;
-					if(codeSmellCB.getSelectedItem().equals("LONG_METHOD"))
-						aux = "long_method_rules.txt";
-					else 
-						aux = "feature_envy_rules.txt";
-					FileWriter writer = new FileWriter(aux,true);
-					BufferedWriter bw = new BufferedWriter(writer);
-			    	for(String str: rules_list) {
-					  bw.write(str +" ");
-					}
-			    	bw.write("\n");
-					bw.close();
-					rules_list.clear();
-					loadRulesfromFile();
-
-				}
-				catch ( IOException e)
-				{
-				}
-				
-			}
-			
+			public void actionPerformed(ActionEvent arg0) {				
+				save();				
+			}			
 		});
 		
 		JButton loadButton = new JButton("Load");
@@ -557,78 +459,40 @@ public class GUI extends JFrame {
 		editButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				clearRulesGUI();
-				
-				//GETS SELECTED RULE TO STRING ARRAY
-				
-				String a;
-				if(longMethodRulesList.isSelectionEmpty())
-					a = featureEnvyRulesList.getSelectedValue().toString();
-				else
-					a = longMethodRulesList.getSelectedValue().toString();
-				String[] words = new String[20];
-				String[] aux = a.split(" ");;
-				
-				for (int i = 0; i < aux.length; i++) {
-					words[i] = aux[i];
+												
+				boolean ruleSelected = false;
+				boolean isLongMethodRule = true;
+				if(longMethodRulesList.getSelectedValue() != null) {
+					ruleSelected = true;
+				}else if(featureEnvyRulesList.getSelectedValue() != null){
+					ruleSelected = true;
+					isLongMethodRule = false;
 				}
-				
-				words[aux.length] = "END";
-				
-				//DELETES RULE FROM FILE AND UPDATES GUI
-				
-				try {
-					if(longMethodRulesList.isSelectionEmpty())
-						removeLineFromFile(a, new File("feature_envy_rules.txt"));
-					else
-						removeLineFromFile(a, new File("long_method_rules.txt"));
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				loadRulesfromFile();
-				
-				//SHOWS SELECTED RULE ON GUI
-				
-				metric_1.setSelectedItem(rules_list_functions.valueOf(words[0]));
-				signal_1.setSelectedItem(rules_list_operators.valueOf(words[1]));
-				threshold_1.setText(words[2]);
-				logicOp_1.setSelectedItem(rules_list_logical.valueOf(words[3]));
-				
-				if(aux.length > 4) {
-				metric_2.setSelectedItem(rules_list_functions.valueOf(words[4]));
-				signal_2.setSelectedItem(rules_list_operators.valueOf(words[5]));
-				threshold_2.setText(words[6]);
-				logicOp_2.setSelectedItem(rules_list_logical.valueOf(words[7]));
-				}
-				
-				if(aux.length > 8) {
-				metric_3.setSelectedItem(rules_list_functions.valueOf(words[8]));
-				signal_3.setSelectedItem(rules_list_operators.valueOf(words[9]));
-				threshold_3.setText(words[10]);
-				logicOp_3.setSelectedItem(rules_list_logical.valueOf(words[11]));
-				}
-				
-				if(aux.length > 12) {
-				metric_4.setSelectedItem(rules_list_functions.valueOf(words[12]));
-				signal_4.setSelectedItem(rules_list_operators.valueOf(words[13]));
-				threshold_4.setText(words[14]);
-				logicOp_4.setSelectedItem(rules_list_logical.valueOf(words[15]));
-				}
-				
-				if(aux.length > 16) {
-				metric_5.setSelectedItem(rules_list_functions.valueOf(words[16]));
-				signal_5.setSelectedItem(rules_list_operators.valueOf(words[17]));
-				threshold_5.setText(words[18]);
-				logicOp_5.setSelectedItem(rules_list_logical.valueOf(words[19]));
-				}
-				
-						
+				if(ruleSelected != false) {
+					if(isLongMethodRule) {
+						if(textFieldIsEmpty(threshold_3) && textFieldIsEmpty(threshold_4)) {
+							if(!textFieldIsEmpty(threshold_1) || !textFieldIsEmpty(threshold_2)) {
+								save();
+							}else {
+								System.out.println("Please insert at least one value for any metric of the rule you are editing!");
+							}
+						}else {
+							System.out.println("Please ensure all values except the ones you can and want to change for the rule you are editing are clear!");
+						}
+					}else {
+						if(textFieldIsEmpty(threshold_1) && textFieldIsEmpty(threshold_2)) {
+							if(!textFieldIsEmpty(threshold_3) || !textFieldIsEmpty(threshold_4)) {
+								save();
+							}else {
+								System.out.println("Please insert at least one value for any metric of the rule you are editing!");
+							}
+						}else {
+							System.out.println("Please ensure all values except the ones you can and want to change for the rule you are editing are clear!");
+						}
+					}
+				}else {
+					System.out.println("A rule must be selected for editing to be possible!");
+				}	
 			}
 		});
 		
@@ -638,6 +502,7 @@ public class GUI extends JFrame {
 		gbc_editButton.gridx = 3;
 		gbc_editButton.gridy = 8;
 		rules.add(editButton, gbc_editButton);
+		
 		GridBagConstraints gbc_saveButton = new GridBagConstraints();
 		gbc_saveButton.insets = new Insets(0, 0, 0, 5);
 		gbc_saveButton.gridx = 5;
@@ -647,7 +512,8 @@ public class GUI extends JFrame {
 		JButton deleteAllButton = new JButton("Delete all");
 		deleteAllButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				rules_list.clear();
+				longMethodRules.clear();
+				featureEnvyRules.clear();
 				System.out.println("list deleted");
 			}
 		});
@@ -728,6 +594,172 @@ public class GUI extends JFrame {
 		});
 	}
 	
+	private boolean isLongMethod(int loc, int cyclo) {
+		//defined by LOC and CYCLO
+		boolean isAND = false; //if rule contains an AND, this will be true, if false, rule contains an OR
+		int rules = 0;
+		int locTreshold = 0;
+		int cycloTreshold = 0;
+		int islocTreshold = -1; //if 1, the next number parsed will be the locTreshold, if 0, the next number parsed will be the cyclo treshold
+		boolean locBiggerThan = false;
+		boolean cycloBiggerThan = false;
+		for(int i = 0; i < longMethodRules.size(); i++) {
+			try {
+			  Integer.parseInt(longMethodRules.get(i));
+			  if(islocTreshold == 1) {
+				  locTreshold = Integer.parseInt(longMethodRules.get(i));
+			  }else if(islocTreshold == 0){
+				  cycloTreshold = Integer.parseInt(longMethodRules.get(i));
+			  }
+			}catch(NumberFormatException e) {
+				if(longMethodRules.get(i).equals("LOC")) {
+					rules++;
+					islocTreshold = 1;
+				}else if(longMethodRules.get(i).equals("CYCLO")) {
+					rules++;
+					islocTreshold = 0;
+				}else if (longMethodRules.get(i).equals("AND")) {
+					isAND = true;
+				}else if (longMethodRules.get(i).equals("BIGGER_THAN")) {
+					if(islocTreshold == 1) {
+						locBiggerThan = true;
+					}
+					if(islocTreshold == 0) {
+						cycloBiggerThan = true;
+					}
+				}
+			}
+		}
+		if(rules > 1 && cycloTreshold != 0 && locTreshold != 0) {
+			if(isAND) {
+				if(cycloBiggerThan && locBiggerThan) {
+					return((cyclo > cycloTreshold && loc > locTreshold));
+				}
+				if(cycloBiggerThan && !locBiggerThan) {
+					return(cyclo > cycloTreshold && loc < locTreshold);
+				}
+				if(!cycloBiggerThan && !locBiggerThan) {
+					return(cyclo < cycloTreshold && loc < locTreshold);
+				}
+				if(!cycloBiggerThan && locBiggerThan) {
+					return(cyclo < cycloTreshold && loc > locTreshold);
+				}
+			}
+			if(!isAND) {
+				if(cycloBiggerThan && locBiggerThan) {
+					return(cyclo > cycloTreshold || loc > locTreshold);
+				}
+				if(cycloBiggerThan && !locBiggerThan) {
+					return(cyclo > cycloTreshold || loc < locTreshold);
+				}
+				if(!cycloBiggerThan && !locBiggerThan) {
+					return(cyclo < cycloTreshold || loc < locTreshold);
+				}
+				if(!cycloBiggerThan && locBiggerThan) {
+					return(cyclo < cycloTreshold || loc > locTreshold);
+				}
+			}
+		}else if(rules > 0) {
+			if(locTreshold != 0) {
+				if(locBiggerThan) {
+					return(loc > locTreshold);
+				}else {
+					return(loc < locTreshold);
+				}
+			}else {
+				if(cycloBiggerThan) {
+					return(cyclo > cycloTreshold);
+				}else {
+					return(cyclo < cycloTreshold);
+				}
+			}
+		}
+		return false;
+	}
+	
+	private boolean hasFeatureEnvy(int atfd, double laa) {
+		//defined by LOC and CYCLO
+		boolean isAND = false; //if rule contains an AND, this will be true, if false, rule contains an OR
+		int rules = 0;
+		double laaTreshold = 0;
+		int atfdTreshold = 0;
+		int islaaTreshold = -1; //if 1, the next number parsed will be the laaTreshold, if 0, the next number parsed will be the atfd treshold
+		boolean atfdBiggerThan = false;
+		boolean laaBiggerThan = false;
+		for(int i = 0; i < featureEnvyRules.size(); i++) {
+			try {
+			  Double.parseDouble(featureEnvyRules.get(i));
+			  if(islaaTreshold == 1) {
+				  laaTreshold = Double.parseDouble(featureEnvyRules.get(i));
+			  }else {
+				  atfdTreshold = Integer.parseInt(featureEnvyRules.get(i));
+			  }
+			}catch(NumberFormatException e) {
+				if(featureEnvyRules.get(i).equals("LAA")) {
+					rules++;
+					islaaTreshold = 1;
+				}else if(featureEnvyRules.get(i).equals("ATFD")) {
+					rules++;
+					islaaTreshold = 0;
+				}else if (featureEnvyRules.get(i).equals("AND")) {
+					isAND = true;
+				}else if (featureEnvyRules.get(i).equals("BIGGER_THAN")) {
+					if(islaaTreshold == 1) {
+						laaBiggerThan = true;
+					}
+					if(islaaTreshold == 0) {
+						atfdBiggerThan = true;
+					}
+				}
+			}
+		}
+		if(rules > 1 && atfdTreshold != 0 && laaTreshold != 0) {
+			if(isAND) {
+				if(atfdBiggerThan && laaBiggerThan) {
+					return(atfd > atfdTreshold && laa > laaTreshold);
+				}
+				if(atfdBiggerThan && !laaBiggerThan) {
+					return(atfd > atfdTreshold && laa < laaTreshold);
+				}
+				if(!atfdBiggerThan && !laaBiggerThan) {
+					return(atfd < atfdTreshold && laa < laaTreshold);
+				}
+				if(!atfdBiggerThan && laaBiggerThan) {
+					return(atfd < atfdTreshold && laa > laaTreshold);
+				}
+			}
+			if(!isAND) {
+				if(atfdBiggerThan && laaBiggerThan) {
+					return(atfd > atfdTreshold || laa > laaTreshold);
+				}
+				if(atfdBiggerThan && !laaBiggerThan) {
+					return(atfd > atfdTreshold || laa < laaTreshold);
+				}
+				if(!atfdBiggerThan && !laaBiggerThan) {
+					return(atfd < atfdTreshold || laa < laaTreshold);
+				}
+				if(!atfdBiggerThan && laaBiggerThan) {
+					return(atfd < atfdTreshold || laa > laaTreshold);
+				}
+			}	
+		}else if(rules > 0) {
+			if(laaTreshold != 0) {
+				if(laaBiggerThan) {
+					return(laa > laaTreshold);
+				}else {
+					return(laa < laaTreshold);
+				}
+			}else {
+				if(atfdBiggerThan) {
+					return(atfd > atfdTreshold);
+				}else {
+					return(atfd < atfdTreshold);
+				}
+			}
+		}			
+		return false;
+	}
+
 	private void updateiPlasmaValues(int nDCI, int nDII, int nADCI, int nADII) {
 		qualityReportTable.setValueAt(nDCI, 0, 1);
 		qualityReportTable.setValueAt(nDII, 0, 2);
@@ -743,37 +775,34 @@ public class GUI extends JFrame {
 	}
 	
 	private void clearRulesGUI() {
-		metric_1.setSelectedIndex(-1);
-		signal_1.setSelectedIndex(-1);
-		threshold_1.setText("");
-		logicOp_1.setSelectedIndex(0);
-		metric_2.setSelectedIndex(-1);
-		signal_2.setSelectedIndex(-1);
+		threshold_1.setText("");		
 		threshold_2.setText("");
-		logicOp_2.setSelectedIndex(0);
-		metric_3.setSelectedIndex(-1);
-		signal_3.setSelectedIndex(-1);
 		threshold_3.setText("");
-		logicOp_3.setSelectedIndex(0);
-		metric_4.setSelectedIndex(-1);
-		signal_4.setSelectedIndex(-1);
 		threshold_4.setText("");
-		logicOp_4.setSelectedIndex(0);
-		metric_5.setSelectedIndex(-1);
-		signal_5.setSelectedIndex(-1);
-		threshold_5.setText("");
-		logicOp_5.setSelectedIndex(0);
-	}
+		signal_1.setSelectedIndex(0);
+		signal_2.setSelectedIndex(0);
+		signal_3.setSelectedIndex(0);
+		signal_4.setSelectedIndex(0);
+		logicOp_1.setSelectedIndex(0);
+		logicOp_2.setSelectedIndex(0);		
+	}	
 	
 	private void loadRulesfromFile() {
 		longMethodRules_dlmodel.clear();
 		featureEnvyRules_dlmodel.clear();
+		longMethodRules.clear();
+		featureEnvyRules.clear();
 		try { 
 			BufferedReader br = new BufferedReader(new FileReader("long_method_rules.txt"));
 			String line;
 			while ((line = br.readLine()) != null) {
+				String[] splitted = line.split(" ");
+				for(int i = 0; i < splitted.length; i++) {
+					longMethodRules.add(splitted[i]);
+				}
 				longMethodRules_dlmodel.addElement(line);
 			}
+			br.close();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -783,13 +812,122 @@ public class GUI extends JFrame {
 			BufferedReader br = new BufferedReader(new FileReader("feature_envy_rules.txt"));
 			String line;
 			while ((line = br.readLine()) != null) {
+				String[] splitted = line.split(" ");
+				for(int i = 0; i < splitted.length; i++) {
+					featureEnvyRules.add(splitted[i]);
+				}
 				featureEnvyRules_dlmodel.addElement(line);
 			}
+			br.close();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		
+		
+	}
+	
+	private boolean textFieldIsEmpty(JTextField tf) {
+		try {
+			tf.getText();
+			if(tf.getText().isBlank()) {
+				return true;
+			}
+		}catch(NullPointerException np) {
+			return true;
+		}
+		return false;
+	}
+	
+	private void save() {
+		boolean longMethodRulesDefined = true;
+		boolean featureEnvyRulesDefined = true;
+		try {
+			Integer.parseInt(threshold_1.getText().toString());
+			longMethodRules.clear();
+			longMethodRules.add("LOC");
+			longMethodRules.add(signal_1.getSelectedItem().toString());
+			longMethodRules.add(threshold_1.getText().toString());					
+			if(logicOp_1.getSelectedItem().toString()!="END") {				
+				try {
+					Integer.parseInt(threshold_2.getText().toString());
+					longMethodRules.add(logicOp_1.getSelectedItem().toString());
+					longMethodRules.add("CYCLO");
+					longMethodRules.add(signal_2.getSelectedItem().toString());
+					longMethodRules.add(threshold_2.getText().toString());
+				}catch(NumberFormatException t2) {
+					System.out.println("user defined a logical operator but did not define one of the conditions");
+				}
+			}
+		}catch(NumberFormatException t1) {
+			try {
+				Integer.parseInt(threshold_2.getText().toString());
+				longMethodRules.clear();
+				longMethodRules.add("CYCLO");
+				longMethodRules.add(signal_2.getSelectedItem().toString());
+				longMethodRules.add(threshold_2.getText().toString());
+			}catch(NumberFormatException t2) {
+				longMethodRulesDefined = false;
+			}
+		}																
+		try {
+			Integer.parseInt(threshold_3.getText().toString());
+			featureEnvyRules.clear();
+			featureEnvyRules.add("ATFD");
+			featureEnvyRules.add(signal_3.getSelectedItem().toString());
+			featureEnvyRules.add(threshold_3.getText().toString());
+			if(logicOp_2.getSelectedItem().toString()!="END") {
+				try {
+					Double.parseDouble(threshold_4.getText().toString());						
+					featureEnvyRules.add(logicOp_2.getSelectedItem().toString());
+					featureEnvyRules.add("LAA");
+					featureEnvyRules.add(signal_4.getSelectedItem().toString());
+					featureEnvyRules.add(threshold_4.getText().toString());
+				}catch(NumberFormatException t4) {
+					System.out.println("user defined a logical operator but did not define one of the conditions");
+				}
+			}											
+		}catch(NumberFormatException t3) {
+			try {
+				Double.parseDouble(threshold_4.getText().toString());						
+				featureEnvyRules.clear();
+				featureEnvyRules.add("LAA");
+				featureEnvyRules.add(signal_4.getSelectedItem().toString());
+				featureEnvyRules.add(threshold_4.getText().toString());
+			}catch(NumberFormatException t4) {
+				featureEnvyRulesDefined = false;
+			}
+		}														
+		System.out.println(longMethodRules);
+		System.out.println(featureEnvyRules);				
+		try {
+			if(longMethodRulesDefined) {
+				FileWriter writer1 = new FileWriter("long_method_rules.txt", false);
+				BufferedWriter bw1 = new BufferedWriter(writer1);
+				for(String str: longMethodRules) {
+					bw1.write(str +" ");
+				}
+				bw1.write("\n");
+				bw1.close();
+				longMethodRules.clear();
+			}
+			if(featureEnvyRulesDefined) {
+				FileWriter writer2 = new FileWriter("feature_envy_rules.txt", false);
+				BufferedWriter bw2 = new BufferedWriter(writer2);
+				for(String str: featureEnvyRules) {
+					bw2.write(str +" ");
+				}
+				bw2.write("\n");
+				bw2.close();
+				featureEnvyRules.clear();
+			}
+			if(longMethodRulesDefined || featureEnvyRulesDefined) {
+				loadRulesfromFile();
+			}
+		}
+		catch ( IOException e)
+		{
+		}
 	}
 	
 	private void removeLineFromFile(String lineToRemove, File f) throws FileNotFoundException, IOException{
