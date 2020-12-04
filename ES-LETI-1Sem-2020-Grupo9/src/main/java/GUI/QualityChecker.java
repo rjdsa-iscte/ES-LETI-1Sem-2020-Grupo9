@@ -28,17 +28,25 @@ public class QualityChecker extends Thread {
 			InputStream ExcelFileToRead = new FileInputStream(filePath);
 	        XSSFWorkbook  wb = new XSSFWorkbook(ExcelFileToRead);
 	        XSSFSheet sheet = wb.getSheetAt(0);
+	        
+	        int aux;
+	        String auxS = sheet.getRow(0).getCell(nColumn).getStringCellValue();
+	        if(auxS.equals("PMD") || auxS.equals("iPlasma") || auxS.equals("user_long"))
+	        	aux = 8;
+	        else
+	        	aux = 11;
+	        		
 	        for (int i = 1; i < 421; i++) {
-				if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == true && sheet.getRow(i).getCell(8).getBooleanCellValue() == true) {
+				if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == true && sheet.getRow(i).getCell(aux).getBooleanCellValue() == true) {
 					nDCI = nDCI + 1;					
 				}
-				else if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == true && sheet.getRow(i).getCell(8).getBooleanCellValue() == false) {
+				else if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == true && sheet.getRow(i).getCell(aux).getBooleanCellValue() == false) {
 					nDII = nDII + 1;
 				}
-				else if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == false && sheet.getRow(i).getCell(8).getBooleanCellValue() == false) {
+				else if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == false && sheet.getRow(i).getCell(aux).getBooleanCellValue() == false) {
 					nADCI = nADCI + 1;
 				}
-				else if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == false && sheet.getRow(i).getCell(8).getBooleanCellValue() == true) {
+				else if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == false && sheet.getRow(i).getCell(aux).getBooleanCellValue() == true) {
 					nADII = nADII +1;
 				}
 	        }

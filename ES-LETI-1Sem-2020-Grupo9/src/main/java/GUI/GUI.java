@@ -19,7 +19,9 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -50,12 +52,16 @@ import javax.swing.SwingConstants;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.poifs.filesystem.FileMagic;
 import javax.swing.JLabel;
@@ -547,17 +553,21 @@ public class GUI extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				QualityChecker qc_iPlasma = new QualityChecker(9, filePath.getText());
 				QualityChecker qc_PMD = new QualityChecker(10, filePath.getText());
+				QualityChecker qc_User = new QualityChecker(12, filePath.getText());
 				qc_iPlasma.start();
 				qc_PMD.start();
+				qc_User.start();
 				try {
 					qc_iPlasma.join();
 					qc_PMD.join();
+					qc_User.join();
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				updateiPlasmaValues(qc_iPlasma.getnDCI(), qc_iPlasma.getnDII(), qc_iPlasma.getnADCI(), qc_iPlasma.getnADII());
 				updatePMDValues(qc_PMD.getnDCI(), qc_PMD.getnDII(), qc_PMD.getnADCI(), qc_PMD.getnADII());
+				updateUserValues(qc_User.getnDCI(), qc_User.getnDII(), qc_User.getnADCI(), qc_User.getnADII());
 			}
 
 		});
@@ -774,6 +784,13 @@ public class GUI extends JFrame {
 		qualityReportTable.setValueAt(nADII, 1, 4);
 	}
 	
+	private void updateUserValues(int nDCI, int nDII, int nADCI, int nADII) {
+		qualityReportTable.setValueAt(nDCI, 2, 1);
+		qualityReportTable.setValueAt(nDII, 2, 2);
+		qualityReportTable.setValueAt(nADCI, 2, 3);
+		qualityReportTable.setValueAt(nADII, 2, 4);
+	}
+	
 	private void clearRulesGUI() {
 		threshold_1.setText("");		
 		threshold_2.setText("");
@@ -950,6 +967,36 @@ public class GUI extends JFrame {
 	    BufferedWriter writer = new BufferedWriter(new FileWriter(f, true));
 	    writer.append(sb.toString());
 	    writer.close();
+	}
+	
+	private void resultToFile(String result, int index) throws IOException {
+		
+		
+			
+			FileInputStream fsIP= new FileInputStream(new File(filePath.getText())); //Read the spreadsheet that needs to be updated
+		
+			HSSFWorkbook wb = new HSSFWorkbook(fsIP); //Access the workbook
+          
+			HSSFSheet worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
+          
+			Cell cell = null; // declare a Cell object
+        
+			cell = worksheet.getRow(index).getCell(12);   // Access the second cell in second row to update the value
+          
+			cell.setCellValue(result);  // Get current cell value value and overwrite the value
+          
+			fsIP.close(); //Close the InputStream
+         
+			FileOutputStream output_file = new FileOutputStream(new File(filePath.getText()));  //Open FileOutputStream to write updates
+          
+			wb.write(output_file); //write changes
+          
+			output_file.close();  //close the stream 
+        
+		
+		
+		
+        
 	}
 	
 }
