@@ -84,6 +84,7 @@ public class GUI extends JFrame {
 	private JComboBox logicOp_1;
 	private JComboBox logicOp_2;
 	private JTable resultsTable;
+	private DefaultTableModel dtm;
 	private JTable qualityReportTable;
 	private DefaultListModel<String> longMethodRules_dlmodel = new DefaultListModel<>();
 	private JList<String> longMethodRulesList;
@@ -233,6 +234,8 @@ public class GUI extends JFrame {
 			            workbook.close();
 			            ((DefaultTableModel)jtable.getModel()).fireTableStructureChanged();
 					}
+					System.out.println("ESTA É A MATRIZ "+matrizExcel);
+					System.out.println("ESTA É A COLUNA 0 DA MATRIZ "+matrizExcel.get(0).get(8));
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (InvalidFormatException e) {
@@ -430,6 +433,9 @@ public class GUI extends JFrame {
 					}
 					for(int i = 0; i < 420; i++) {
 						int y = i + 1;
+						dtm.setValueAt(y, i, 0);
+						dtm.setValueAt(defeitosPorMetodo.get(i).get(0), i, 1);
+						dtm.setValueAt(defeitosPorMetodo.get(i).get(1), i, 2);
 						System.out.println(y + " isLongMethod,hasFeatureEnvy:" + defeitosPorMetodo.get(i));
 					}
 				}else {
@@ -540,8 +546,18 @@ public class GUI extends JFrame {
 		tabbedPane.addTab("Results", null, results, null);
 		results.setLayout(new GridLayout(0, 1, 0, 0));
 		
+		JScrollPane resultsScrollPane = new JScrollPane();
+		results.add(resultsScrollPane);
+		
 		resultsTable = new JTable();
-		results.add(resultsTable);
+		dtm = (DefaultTableModel) resultsTable.getModel();
+		dtm.setRowCount(420);
+		dtm.addColumn("MethodID");
+		dtm.addColumn("User_long");
+		dtm.addColumn("User_feature");
+		resultsTable.setModel(dtm);
+		
+		resultsScrollPane.setViewportView(resultsTable);
 		
 		JPanel quality_report = new JPanel();
 		tabbedPane.addTab("Quality Report", null, quality_report, null);
@@ -553,21 +569,25 @@ public class GUI extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				QualityChecker qc_iPlasma = new QualityChecker(9, filePath.getText());
 				QualityChecker qc_PMD = new QualityChecker(10, filePath.getText());
-				QualityChecker qc_User = new QualityChecker(12, filePath.getText());
+				UserQualityChecker qc_User_Long = new UserQualityChecker("user_long",matrizExcel, dtm);
+				UserQualityChecker qc_User_Feature = new UserQualityChecker("user_feature",matrizExcel, dtm);
 				qc_iPlasma.start();
 				qc_PMD.start();
-				qc_User.start();
+				qc_User_Long.start();
+				qc_User_Feature.start();
 				try {
 					qc_iPlasma.join();
 					qc_PMD.join();
-					qc_User.join();
+					qc_User_Long.join();
+					qc_User_Feature.join();
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				updateiPlasmaValues(qc_iPlasma.getnDCI(), qc_iPlasma.getnDII(), qc_iPlasma.getnADCI(), qc_iPlasma.getnADII());
-				updatePMDValues(qc_PMD.getnDCI(), qc_PMD.getnDII(), qc_PMD.getnADCI(), qc_PMD.getnADII());
-				updateUserValues(qc_User.getnDCI(), qc_User.getnDII(), qc_User.getnADCI(), qc_User.getnADII());
+				updateQualityValues(0, qc_iPlasma.getnDCI(), qc_iPlasma.getnDII(), qc_iPlasma.getnADCI(), qc_iPlasma.getnADII());
+				updateQualityValues(1, qc_PMD.getnDCI(), qc_PMD.getnDII(), qc_PMD.getnADCI(), qc_PMD.getnADII());
+				updateQualityValues(2, qc_User_Long.getnDCI(), qc_User_Long.getnDII(), qc_User_Long.getnADCI(), qc_User_Long.getnADII());
+				updateQualityValues(3, qc_User_Feature.getnDCI(), qc_User_Feature.getnDII(), qc_User_Feature.getnADCI(), qc_User_Feature.getnADII());
 			}
 
 		});
@@ -581,9 +601,10 @@ public class GUI extends JFrame {
 		qualityReportTable.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		qualityReportTable.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"iPlasma", iPlasma_DCI , iPlasma_DII, iPlasma_ADCI, iPlasma_ADII},
-				{"PMD", PMD_DCI, PMD_DII, PMD_ADCI, PMD_ADII},
-				{"User", user_DCI, user_DII, user_ADCI, user_ADII},
+				{"iPlasma", new Integer(0), new Integer(0), new Integer(0), new Integer(0)},
+				{"PMD", new Integer(0), new Integer(0), new Integer(0), new Integer(0)},
+				{"User_long", new Integer(0), new Integer(0), new Integer(0), new Integer(0)},
+				{"User_feature", new Integer(0), new Integer(0), new Integer(0), new Integer(0)},
 			},
 			new String[] {
 				"Tools", "DCI", "DII", "ADCI", "ADII"
@@ -594,12 +615,6 @@ public class GUI extends JFrame {
 			};
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
-			}
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
 			}
 		});
 	}
@@ -770,25 +785,11 @@ public class GUI extends JFrame {
 		return false;
 	}
 
-	private void updateiPlasmaValues(int nDCI, int nDII, int nADCI, int nADII) {
-		qualityReportTable.setValueAt(nDCI, 0, 1);
-		qualityReportTable.setValueAt(nDII, 0, 2);
-		qualityReportTable.setValueAt(nADCI, 0, 3);
-		qualityReportTable.setValueAt(nADII, 0, 4);
-	}
-	
-	private void updatePMDValues(int nDCI, int nDII, int nADCI, int nADII) {
-		qualityReportTable.setValueAt(nDCI, 1, 1);
-		qualityReportTable.setValueAt(nDII, 1, 2);
-		qualityReportTable.setValueAt(nADCI, 1, 3);
-		qualityReportTable.setValueAt(nADII, 1, 4);
-	}
-	
-	private void updateUserValues(int nDCI, int nDII, int nADCI, int nADII) {
-		qualityReportTable.setValueAt(nDCI, 2, 1);
-		qualityReportTable.setValueAt(nDII, 2, 2);
-		qualityReportTable.setValueAt(nADCI, 2, 3);
-		qualityReportTable.setValueAt(nADII, 2, 4);
+	private void updateQualityValues(int index, int nDCI, int nDII, int nADCI, int nADII) {
+		qualityReportTable.setValueAt(nDCI, index, 1);
+		qualityReportTable.setValueAt(nDII, index, 2);
+		qualityReportTable.setValueAt(nADCI, index, 3);
+		qualityReportTable.setValueAt(nADII, index, 4);
 	}
 	
 	private void clearRulesGUI() {
@@ -947,56 +948,6 @@ public class GUI extends JFrame {
 		}
 	}
 	
-	private void removeLineFromFile(String lineToRemove, File f) throws FileNotFoundException, IOException{
-	    //Reading File Content and storing it to a StringBuilder variable ( skips lineToRemove)
-	    StringBuilder sb = new StringBuilder();
-	    try (Scanner sc = new Scanner(f)) {
-	        String currentLine;
-	        while(sc.hasNext()){
-	            currentLine = sc.nextLine();
-	            if(currentLine.equals(lineToRemove)){
-	                continue; //skips lineToRemove
-	            }
-	            sb.append(currentLine).append("\n");
-	        }
-	    }
-	    //Delete File Content
-	    PrintWriter pw = new PrintWriter(f);
-	    pw.close();
 
-	    BufferedWriter writer = new BufferedWriter(new FileWriter(f, true));
-	    writer.append(sb.toString());
-	    writer.close();
-	}
-	
-	private void resultToFile(String result, int index) throws IOException {
-		
-		
-			
-			FileInputStream fsIP= new FileInputStream(new File(filePath.getText())); //Read the spreadsheet that needs to be updated
-		
-			HSSFWorkbook wb = new HSSFWorkbook(fsIP); //Access the workbook
-          
-			HSSFSheet worksheet = wb.getSheetAt(0); //Access the worksheet, so that we can update / modify it.
-          
-			Cell cell = null; // declare a Cell object
-        
-			cell = worksheet.getRow(index).getCell(12);   // Access the second cell in second row to update the value
-          
-			cell.setCellValue(result);  // Get current cell value value and overwrite the value
-          
-			fsIP.close(); //Close the InputStream
-         
-			FileOutputStream output_file = new FileOutputStream(new File(filePath.getText()));  //Open FileOutputStream to write updates
-          
-			wb.write(output_file); //write changes
-          
-			output_file.close();  //close the stream 
-        
-		
-		
-		
-        
-	}
 	
 }

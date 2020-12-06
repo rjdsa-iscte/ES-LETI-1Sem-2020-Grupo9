@@ -50,6 +50,9 @@ public class QualityChecker extends Thread {
 					nADII = nADII +1;
 				}
 	        }
+	        
+	        wb.close();
+	        ExcelFileToRead.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("No file selected or wrong path to file !!!");
 		} catch (IOException e) {
