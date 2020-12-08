@@ -68,51 +68,136 @@ import javax.swing.JLabel;
 import javax.swing.DefaultComboBoxModel; 
 
 
+
+/**
+ * The Class GUI (MAIN CLASS)
+ */
 public class GUI extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The file path. */
 	private JTextField filePath;
+	
+	/** The loaded file. */
 	private JTable loadedFile;
+	
+	/** The threshold 1. */
 	private JTextField threshold_1;
+	
+	/** The threshold 2. */
 	private JTextField threshold_2;
+	
+	/** The threshold 3. */
 	private JTextField threshold_3;
+	
+	/** The threshold 4. */
 	private JTextField threshold_4;
+	
+	/** The signal 1. */
 	private JComboBox signal_1;
+	
+	/** The signal 2. */
 	private JComboBox signal_2;
+	
+	/** The signal 3. */
 	private JComboBox signal_3;
+	
+	/** The signal 4. */
 	private JComboBox signal_4;
+	
+	/** The logic op 1. */
 	private JComboBox logicOp_1;
+	
+	/** The logic op 2. */
 	private JComboBox logicOp_2;
+	
+	/** The results table. */
 	private JTable resultsTable;
+	
+	/** The Default Table Model. */
 	private DefaultTableModel dtm;
+	
+	/** The quality report table. */
 	private JTable qualityReportTable;
+	
+	/** The long method rules ListModel. */
 	private DefaultListModel<String> longMethodRules_dlmodel = new DefaultListModel<>();
+	
+	/** The long method rules list. */
 	private JList<String> longMethodRulesList;
+	
+	/** The feature envy rules ListModel. */
 	private DefaultListModel<String> featureEnvyRules_dlmodel = new DefaultListModel<>();
+	
+	/** The feature envy rules list. */
 	private JList<String> featureEnvyRulesList;
+	
+	/** The selected file. */
 	private File ficheiroSelecionado;
+	
+	/** The excel matrix. */
 	private static Vector<Vector<Object>> matrizExcel;
+	
+	/** The defect by method boolean bector. */
 	private static Vector<Vector<Boolean>> defeitosPorMetodo;
+	
+	/** The columns from excel. */
 	private static Vector<Object> colunasExcel;
+	
+	/** The File Chooser for a given file. */
 	final static JFileChooser selecionadorFicheiro = new JFileChooser();
+	
+	/** The auxialiar table. */
 	private static JTable jtable;
+	
+	/** The i plasma DCI. */
 	private int iPlasma_DCI = 0;
+	
+	/** The i plasma DII. */
 	private int iPlasma_DII = 0;
+	
+	/** The i plasma ADCI. */
 	private int iPlasma_ADCI = 0;
+	
+	/** The i plasma ADII. */
 	private int iPlasma_ADII = 0;
+	
+	/** The pmd dci. */
 	private int PMD_DCI = 0;
+	
+	/** The pmd dii. */
 	private int PMD_DII = 0;
+	
+	/** The pmd adci. */
 	private int PMD_ADCI = 0;
+	
+	/** The pmd adii. */
 	private int PMD_ADII = 0;
+	
+	/** The user DCI. */
 	private int user_DCI = 0;
+	
+	/** The user DII. */
 	private int user_DII = 0;
+	
+	/** The user ADCI. */
 	private int user_ADCI = 0;
+	
+	/** The user ADII. */
 	private int user_ADII = 0;
+	
+	/** The long method rules. */
 	public ArrayList<String> longMethodRules = new ArrayList<String>();
+	
+	/** The feature envy rules. */
 	public ArrayList<String> featureEnvyRules = new ArrayList<String>();
 
 	/**
-	 * Launch the application.
+	 * Launch the application initializing all vectors required.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {		
 		matrizExcel = new Vector<Vector<Object>>();
@@ -132,7 +217,7 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the frame with panels, buttons and grids.
 	 */
 	public GUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -444,14 +529,18 @@ public class GUI extends JFrame {
 			
 			}
 		});
-				
+		/**
+		 * button to save the configurations
+		 */
 		JButton saveButton = new JButton("Save");
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {				
 				save();				
 			}			
 		});
-		
+		/**
+		 * loads configurations from a given file
+		 */
 		JButton loadButton = new JButton("Load");
 		loadButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -619,6 +708,13 @@ public class GUI extends JFrame {
 		});
 	}
 	
+	/**
+	 * given the number of lines of codes and the cyclomatic complexity of the method size checks if the method isLongMethod.
+	 *
+	 * @param loc the number of lines of code
+	 * @param cyclo the cyclomatic complexity of the method
+	 * @return true, if is long method
+	 */
 	private boolean isLongMethod(int loc, int cyclo) {
 		//defined by LOC and CYCLO
 		boolean isAND = false; //if rule contains an AND, this will be true, if false, rule contains an OR
@@ -702,6 +798,13 @@ public class GUI extends JFrame {
 		return false;
 	}
 	
+	/**
+	 * given two parameters checks if the code has heature envy.
+	 *
+	 * @param atfd the acessos do método a métodos de outras classes
+	 * @param laa the  acessos do método a atributos da própria classe
+	 * @return true, if successful
+	 */
 	private boolean hasFeatureEnvy(int atfd, double laa) {
 		//defined by LOC and CYCLO
 		boolean isAND = false; //if rule contains an AND, this will be true, if false, rule contains an OR
@@ -784,7 +887,16 @@ public class GUI extends JFrame {
 		}			
 		return false;
 	}
-
+	
+	/**
+	 * updates values to excel file.
+	 *
+	 * @param index the index
+	 * @param nDCI the n DCI
+	 * @param nDII the n DII
+	 * @param nADCI the n ADCI
+	 * @param nADII the n ADII
+	 */
 	private void updateQualityValues(int index, int nDCI, int nDII, int nADCI, int nADII) {
 		qualityReportTable.setValueAt(nDCI, index, 1);
 		qualityReportTable.setValueAt(nDII, index, 2);
@@ -792,6 +904,9 @@ public class GUI extends JFrame {
 		qualityReportTable.setValueAt(nADII, index, 4);
 	}
 	
+	/**
+	 * resets rules on the GUI.
+	 */
 	private void clearRulesGUI() {
 		threshold_1.setText("");		
 		threshold_2.setText("");
@@ -805,6 +920,9 @@ public class GUI extends JFrame {
 		logicOp_2.setSelectedIndex(0);		
 	}	
 	
+	/**
+	 * Loads rules from txt file.
+	 */
 	private void loadRulesfromFile() {
 		longMethodRules_dlmodel.clear();
 		featureEnvyRules_dlmodel.clear();
@@ -845,6 +963,12 @@ public class GUI extends JFrame {
 		
 	}
 	
+	/**
+	 * checks if text field is empty.
+	 *
+	 * @param tf the textfield
+	 * @return true, if successful
+	 */
 	private boolean textFieldIsEmpty(JTextField tf) {
 		try {
 			tf.getText();
@@ -857,6 +981,9 @@ public class GUI extends JFrame {
 		return false;
 	}
 	
+	/**
+	 * saves the current configuration.
+	 */
 	private void save() {
 		boolean longMethodRulesDefined = true;
 		boolean featureEnvyRulesDefined = true;
