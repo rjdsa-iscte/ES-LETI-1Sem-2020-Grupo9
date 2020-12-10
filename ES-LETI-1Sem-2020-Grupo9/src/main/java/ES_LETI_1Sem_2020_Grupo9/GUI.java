@@ -1,5 +1,10 @@
 package ES_LETI_1Sem_2020_Grupo9;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridBagLayout;
@@ -63,6 +68,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.jupiter.api.Test;
 import org.apache.poi.poifs.filesystem.FileMagic;
 import javax.swing.JLabel;
 import javax.swing.DefaultComboBoxModel; 
@@ -214,8 +220,10 @@ public class GUI extends JFrame {
 				}
 			}
 		});
+		
 	}
 
+	
 	/**
 	 * Create the frame with panels, buttons and grids.
 	 */
@@ -1073,6 +1081,206 @@ public class GUI extends JFrame {
 		catch ( IOException e)
 		{
 		}
+	}
+
+/////////////////////GETERS FOR TESTS ////////////////////
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+
+	public JTextField getFilePath() {
+		return filePath;
+	}
+
+
+	public JTable getLoadedFile() {
+		return loadedFile;
+	}
+
+
+	public JTextField getThreshold_1() {
+		return threshold_1;
+	}
+
+
+	public JTextField getThreshold_2() {
+		return threshold_2;
+	}
+
+
+	public JTextField getThreshold_3() {
+		return threshold_3;
+	}
+
+
+	public JTextField getThreshold_4() {
+		return threshold_4;
+	}
+
+
+	public JComboBox getSignal_1() {
+		return signal_1;
+	}
+
+
+	public JComboBox getSignal_2() {
+		return signal_2;
+	}
+
+
+	public JComboBox getSignal_3() {
+		return signal_3;
+	}
+
+
+	public JComboBox getSignal_4() {
+		return signal_4;
+	}
+
+
+	public JComboBox getLogicOp_1() {
+		return logicOp_1;
+	}
+
+
+	public JComboBox getLogicOp_2() {
+		return logicOp_2;
+	}
+
+
+	public JTable getResultsTable() {
+		return resultsTable;
+	}
+
+
+	public DefaultTableModel getDtm() {
+		return dtm;
+	}
+
+
+	public JTable getQualityReportTable() {
+		return qualityReportTable;
+	}
+
+
+	public DefaultListModel<String> getLongMethodRules_dlmodel() {
+		return longMethodRules_dlmodel;
+	}
+
+
+	public JList<String> getLongMethodRulesList() {
+		return longMethodRulesList;
+	}
+
+
+	public DefaultListModel<String> getFeatureEnvyRules_dlmodel() {
+		return featureEnvyRules_dlmodel;
+	}
+
+
+	public JList<String> getFeatureEnvyRulesList() {
+		return featureEnvyRulesList;
+	}
+
+
+	public File getFicheiroSelecionado() {
+		return ficheiroSelecionado;
+	}
+
+
+	public static Vector<Vector<Object>> getMatrizExcel() {
+		return matrizExcel;
+	}
+
+
+	public static Vector<Vector<Boolean>> getDefeitosPorMetodo() {
+		return defeitosPorMetodo;
+	}
+
+
+	public static Vector<Object> getColunasExcel() {
+		return colunasExcel;
+	}
+
+
+	public static JFileChooser getSelecionadorficheiro() {
+		return selecionadorFicheiro;
+	}
+
+
+	public static JTable getJtable() {
+		return jtable;
+	}
+
+
+	public int getiPlasma_DCI() {
+		return iPlasma_DCI;
+	}
+
+
+	public int getiPlasma_DII() {
+		return iPlasma_DII;
+	}
+
+
+	public int getiPlasma_ADCI() {
+		return iPlasma_ADCI;
+	}
+
+
+	public int getiPlasma_ADII() {
+		return iPlasma_ADII;
+	}
+
+
+	public int getPMD_DCI() {
+		return PMD_DCI;
+	}
+
+
+	public int getPMD_DII() {
+		return PMD_DII;
+	}
+
+
+	public int getPMD_ADCI() {
+		return PMD_ADCI;
+	}
+
+
+	public int getPMD_ADII() {
+		return PMD_ADII;
+	}
+
+
+	public int getUser_DCI() {
+		return user_DCI;
+	}
+
+
+	public int getUser_DII() {
+		return user_DII;
+	}
+
+
+	public int getUser_ADCI() {
+		return user_ADCI;
+	}
+
+
+	public int getUser_ADII() {
+		return user_ADII;
+	}
+
+
+	public ArrayList<String> getLongMethodRules() {
+		return longMethodRules;
+	}
+
+
+	public ArrayList<String> getFeatureEnvyRules() {
+		return featureEnvyRules;
 	}
 	
 
