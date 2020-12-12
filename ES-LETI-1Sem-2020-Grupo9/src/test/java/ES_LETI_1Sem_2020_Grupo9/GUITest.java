@@ -3,7 +3,10 @@ package ES_LETI_1Sem_2020_Grupo9;
 import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.awt.Robot;
 import java.util.ArrayList;
+
+import javax.swing.JTextField;
 
 import org.junit.jupiter.api.Test;
 
@@ -447,6 +450,85 @@ class GUITest extends GUI {
 		assertEquals("BIGGER_THAN", aux.get(1));
 		assertEquals("20", aux.get(2));
 	}
+	
+	@Test
+	void editTest() {
+		test.getThreshold_1().setText("20");
+		test.getSignal_1().setSelectedIndex(0);
+		test.save();
+		test.getLongMethodRulesList().setSelectedIndex(0);
+		test.getThreshold_1().setText("30");
+		test.getSignal_1().setSelectedIndex(1);
+		test.edit();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getLongMethodRules();
+		assertEquals("LOC", aux.get(0));
+		assertEquals("SMALLER_THAN", aux.get(1));
+		assertEquals("30", aux.get(2));
+	}
+	
+	@Test
+	void editTestv1() {
+		test.getThreshold_3().setText("20");
+		test.getSignal_3().setSelectedIndex(0);
+		test.save();
+		test.getFeatureEnvyRulesList().setSelectedIndex(0);
+		test.getThreshold_3().setText("30");
+		test.getSignal_3().setSelectedIndex(1);
+		test.edit();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getFeatureEnvyRules();
+		assertEquals("ATFD", aux.get(0));
+		assertEquals("SMALLER_THAN", aux.get(1));
+		assertEquals("30", aux.get(2));
+	}
+	
+	@Test
+	void editTestv2() {
+		test.getThreshold_1().setText("20");
+		test.getSignal_1().setSelectedIndex(0);
+		test.save();
+		test.getLongMethodRulesList().setSelectedIndex(0);
+		test.getThreshold_3().setText("30");
+		test.getSignal_3().setSelectedIndex(1);
+		test.edit();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getLongMethodRules();
+		assertEquals("LOC", aux.get(0));
+		assertEquals("BIGGER_THAN", aux.get(1));
+		assertEquals("20", aux.get(2));
+	}
+	
+	@Test
+	void editTestv3() {
+		test.getThreshold_3().setText("20");
+		test.getSignal_3().setSelectedIndex(0);
+		test.save();
+		test.getFeatureEnvyRulesList().setSelectedIndex(0);
+		test.getThreshold_2().setText("30");
+		test.getSignal_2().setSelectedIndex(1);
+		test.edit();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getFeatureEnvyRules();
+		assertEquals("ATFD", aux.get(0));
+		assertEquals("BIGGER_THAN", aux.get(1));
+		assertEquals("20", aux.get(2));
+	}
+	
+	@Test
+	void editTestv4() {
+		test.getThreshold_3().setText("20");
+		test.getSignal_3().setSelectedIndex(0);
+		test.save();
+		test.edit();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getFeatureEnvyRules();
+		assertEquals("ATFD", aux.get(0));
+		assertEquals("BIGGER_THAN", aux.get(1));
+		assertEquals("20", aux.get(2));
+	}
+	
+	
 	
 		 @Test
 		  void feature_envy_exists() {
