@@ -8,34 +8,35 @@ import javax.swing.table.DefaultTableModel;
  * The Class UserQualityChecker.
  */
 public class UserQualityChecker extends Thread {
-	
+
 	/** The type. */
 	private String type;
-	
+
 	/** The matrix. */
 	private Vector<Vector<Object>> matriz;
-	
+
 	/** The results. */
 	private DefaultTableModel results;
-	
+
 	/** The n Defeitos Corretamente Identificados. */
 	private int nDCI;
-	
+
 	/** The n Defeitos Incorretamente Identificados . */
 	private int nDII;
-	
-	/** The n Ausências de Defeitos Corretamente
-Identificadas. */
+
+	/**
+	 * The n Ausências de Defeitos Corretamente Identificadas.
+	 */
 	private int nADCI;
-	
+
 	/** The n Ausências de Defeitos Incorretamente Identificadas. */
 	private int nADII;
-	
+
 	/**
 	 * Instantiates a new user quality checker.
 	 *
-	 * @param type the type
-	 * @param matriz the matriz
+	 * @param type    the type
+	 * @param matriz  the matriz
 	 * @param results the results
 	 */
 	public UserQualityChecker(String type, Vector<Vector<Object>> matriz, DefaultTableModel results) {
@@ -43,40 +44,40 @@ Identificadas. */
 		this.matriz = matriz;
 		this.results = results;
 	}
-	
+
 	/**
 	 * function to sum the numbers on a given file.
 	 */
 	@Override
 	public void run() {
-		
+
 		int excelColumn;
 		int resultsColumn;
-		
-		if(type.equals("user_long")) {
+
+		if (type.equals("user_long")) {
 			excelColumn = 8;
 			resultsColumn = 1;
-		}
-		else {
+		} else {
 			excelColumn = 11;
 			resultsColumn = 2;
 		}
-		
+
 		for (int i = 0; i < 420; i++) {
-			
-			if ((boolean) results.getValueAt(i, resultsColumn) == true && (boolean) matriz.get(i).get(excelColumn) == true) {
-				nDCI = nDCI + 1;					
-			}
-			else if ((boolean) results.getValueAt(i, resultsColumn) == true && (boolean) matriz.get(i).get(excelColumn) == false) {
+
+			if ((boolean) results.getValueAt(i, resultsColumn) == true
+					&& (boolean) matriz.get(i).get(excelColumn) == true) {
+				nDCI = nDCI + 1;
+			} else if ((boolean) results.getValueAt(i, resultsColumn) == true
+					&& (boolean) matriz.get(i).get(excelColumn) == false) {
 				nDII = nDII + 1;
-			}
-			else if ((boolean) results.getValueAt(i, resultsColumn) == false && (boolean) matriz.get(i).get(excelColumn) == false) {
+			} else if ((boolean) results.getValueAt(i, resultsColumn) == false
+					&& (boolean) matriz.get(i).get(excelColumn) == false) {
 				nADCI = nADCI + 1;
+			} else if ((boolean) results.getValueAt(i, resultsColumn) == false
+					&& (boolean) matriz.get(i).get(excelColumn) == true) {
+				nADII = nADII + 1;
 			}
-			else if ((boolean) results.getValueAt(i, resultsColumn) == false && (boolean) matriz.get(i).get(excelColumn) == true) {
-				nADII = nADII +1;
-			}
-        }
+		}
 	}
 
 	/**
@@ -152,49 +153,41 @@ Identificadas. */
 	}
 
 	/**
-	 * Gets the number of Ausências de Defeitos Corretamente
-Identificadas.
+	 * Gets the number of Ausências de Defeitos Corretamente Identificadas.
 	 *
-	 * @return the number of Ausências de Defeitos Corretamente
-Identificadas
+	 * @return the number of Ausências de Defeitos Corretamente Identificadas
 	 */
 	public int getnADCI() {
 		return nADCI;
 	}
 
 	/**
-	 * Sets the number of Ausências de Defeitos Corretamente
-Identificadas.
+	 * Sets the number of Ausências de Defeitos Corretamente Identificadas.
 	 *
 	 * @param nADCI the new number of Ausências de Defeitos Corretamente
-Identificadas
+	 *              Identificadas
 	 */
 	public void setnADCI(int nADCI) {
 		this.nADCI = nADCI;
 	}
 
 	/**
-	 * Gets the number of Ausências de Defeitos Corretamente
-Identificadas.
+	 * Gets the number of Ausências de Defeitos Corretamente Identificadas.
 	 *
-	 * @return the number of Ausências de Defeitos Corretamente
-Identificadas
+	 * @return the number of Ausências de Defeitos Corretamente Identificadas
 	 */
 	public int getnADII() {
 		return nADII;
 	}
 
 	/**
-	 * Sets the number of Ausências de Defeitos Corretamente
-Identificadas.
+	 * Sets the number of Ausências de Defeitos Corretamente Identificadas.
 	 *
 	 * @param nADII the new number of Ausências de Defeitos Corretamente
-Identificadas
+	 *              Identificadas
 	 */
 	public void setnADII(int nADII) {
 		this.nADII = nADII;
 	}
-	
-	
 
 }

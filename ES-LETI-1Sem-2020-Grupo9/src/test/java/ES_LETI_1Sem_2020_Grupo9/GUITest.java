@@ -12,12 +12,11 @@ import org.junit.jupiter.api.Test;
 
 class GUITest extends GUI {
 
-	
 	private GUI test = new GUI();
-	
+
 	@Test
-	  void updateQualityTable() {
-		test.updateQualityValues(0,1,2,3,4);
+	void updateQualityTable() {
+		test.updateQualityValues(0, 1, 2, 3, 4);
 		int output_1 = (int) test.getQualityReportTable().getValueAt(0, 1);
 		int output_2 = (int) test.getQualityReportTable().getValueAt(0, 2);
 		int output_3 = (int) test.getQualityReportTable().getValueAt(0, 3);
@@ -26,8 +25,8 @@ class GUITest extends GUI {
 		assertEquals(2, output_2);
 		assertEquals(3, output_3);
 		assertEquals(4, output_4);
-	 }
-	
+	}
+
 	@Test
 	void clearRulesInput() {
 		test.clearRulesGUI();
@@ -52,7 +51,7 @@ class GUITest extends GUI {
 		assertEquals("END", l1);
 		assertEquals("END", l2);
 	}
-	
+
 	@Test
 	void featureMethod() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -66,7 +65,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(11, 2.4));
 	}
-	
+
 	@Test
 	void featureMethodv1() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -77,10 +76,11 @@ class GUITest extends GUI {
 		aux.add("LAA");
 		aux.add("SMALLER_THAN");
 		aux.add("3.5");
-		test.setFeatureEnvyRules(aux);;
-		assertTrue(test.hasFeatureEnvy(20,2));
+		test.setFeatureEnvyRules(aux);
+		;
+		assertTrue(test.hasFeatureEnvy(20, 2));
 	}
-	
+
 	@Test
 	void featureMethodv2() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -94,7 +94,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(9, 2));
 	}
-	
+
 	@Test
 	void featureMethodv3() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -108,7 +108,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(9, 2));
 	}
-	
+
 	@Test
 	void featureMethodv4() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -122,7 +122,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(4, 2));
 	}
-	
+
 	@Test
 	void featureMethodv5() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -136,7 +136,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(4, 2));
 	}
-	
+
 	@Test
 	void featureMethodv6() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -150,7 +150,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(20, 2));
 	}
-	
+
 	@Test
 	void featureMethodv7() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -164,7 +164,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(20, 2));
 	}
-	
+
 	@Test
 	void featureMethodv8() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -175,7 +175,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(20, 2));
 	}
-	
+
 	@Test
 	void featureMethodv9() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -186,7 +186,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(9, 20));
 	}
-	
+
 	@Test
 	void featureMethodv10() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -197,7 +197,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(1, 8));
 	}
-	
+
 	@Test
 	void featureMethod11() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -208,7 +208,7 @@ class GUITest extends GUI {
 		test.setFeatureEnvyRules(aux);
 		assertTrue(test.hasFeatureEnvy(2, 15));
 	}
-	
+
 	@Test
 	void longMethod() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -222,7 +222,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(20, 2));
 	}
-	
+
 	@Test
 	void longMethodv1() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -236,7 +236,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(20, 2));
 	}
-	
+
 	@Test
 	void longMethodv2() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -250,7 +250,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(9, 2));
 	}
-	
+
 	@Test
 	void longMethodv3() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -264,7 +264,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(9, 2));
 	}
-	
+
 	@Test
 	void longMethodv4() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -278,7 +278,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(20, 2));
 	}
-	
+
 	@Test
 	void longMethodv5() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -292,7 +292,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(20, 2));
 	}
-	
+
 	@Test
 	void longMethodv6() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -306,7 +306,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(9, 2));
 	}
-	
+
 	@Test
 	void longMethodv7() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -320,7 +320,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(9, 2));
 	}
-	
+
 	@Test
 	void longMethodv8() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -331,7 +331,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(20, 0));
 	}
-	
+
 	@Test
 	void longMethodv9() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -342,7 +342,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(9, 1));
 	}
-	
+
 	@Test
 	void longMethodv10() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -353,7 +353,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(9, 1));
 	}
-	
+
 	@Test
 	void longMethodv11() {
 		ArrayList<String> aux = new ArrayList<String>();
@@ -364,7 +364,7 @@ class GUITest extends GUI {
 		test.setLongMethodRules(aux);
 		assertTrue(test.isLongMethod(11, 12));
 	}
-	
+
 	@Test
 	void saveTofile() {
 		test.getThreshold_1().setText("20");
@@ -376,7 +376,7 @@ class GUITest extends GUI {
 		assertEquals("BIGGER_THAN", aux.get(1));
 		assertEquals("20", aux.get(2));
 	}
-	
+
 	@Test
 	void saveTofilev1() {
 		test.getThreshold_1().setText("20");
@@ -395,7 +395,7 @@ class GUITest extends GUI {
 		assertEquals("BIGGER_THAN", aux.get(5));
 		assertEquals("20", aux.get(6));
 	}
-	
+
 	@Test
 	void saveTofilev2() {
 		test.getThreshold_2().setText("20");
@@ -407,7 +407,7 @@ class GUITest extends GUI {
 		assertEquals("BIGGER_THAN", aux.get(1));
 		assertEquals("20", aux.get(2));
 	}
-	
+
 	@Test
 	void saveTofilev3() {
 		test.getThreshold_3().setText("20");
@@ -419,7 +419,7 @@ class GUITest extends GUI {
 		assertEquals("BIGGER_THAN", aux.get(1));
 		assertEquals("20", aux.get(2));
 	}
-	
+
 	@Test
 	void saveTofilev4() {
 		test.getThreshold_3().setText("20");
@@ -438,7 +438,7 @@ class GUITest extends GUI {
 		assertEquals("BIGGER_THAN", aux.get(5));
 		assertEquals("20", aux.get(6));
 	}
-	
+
 	@Test
 	void saveTofilev5() {
 		test.getThreshold_4().setText("20");
@@ -450,7 +450,7 @@ class GUITest extends GUI {
 		assertEquals("BIGGER_THAN", aux.get(1));
 		assertEquals("20", aux.get(2));
 	}
-	
+
 	@Test
 	void editTest() {
 		test.getThreshold_1().setText("20");
@@ -466,7 +466,7 @@ class GUITest extends GUI {
 		assertEquals("SMALLER_THAN", aux.get(1));
 		assertEquals("30", aux.get(2));
 	}
-	
+
 	@Test
 	void editTestv1() {
 		test.getThreshold_3().setText("20");
@@ -482,7 +482,7 @@ class GUITest extends GUI {
 		assertEquals("SMALLER_THAN", aux.get(1));
 		assertEquals("30", aux.get(2));
 	}
-	
+
 	@Test
 	void editTestv2() {
 		test.getThreshold_1().setText("20");
@@ -498,7 +498,7 @@ class GUITest extends GUI {
 		assertEquals("BIGGER_THAN", aux.get(1));
 		assertEquals("20", aux.get(2));
 	}
-	
+
 	@Test
 	void editTestv3() {
 		test.getThreshold_3().setText("20");
@@ -514,7 +514,7 @@ class GUITest extends GUI {
 		assertEquals("BIGGER_THAN", aux.get(1));
 		assertEquals("20", aux.get(2));
 	}
-	
+
 	@Test
 	void editTestv4() {
 		test.getThreshold_3().setText("20");
@@ -527,66 +527,70 @@ class GUITest extends GUI {
 		assertEquals("BIGGER_THAN", aux.get(1));
 		assertEquals("20", aux.get(2));
 	}
-	
-	
-	
-		 @Test
-		  void feature_envy_exists() {
-			 assertTrue(test.featureEnvyRules.isEmpty());
-		  
-		 }
-		 
-		 @Test
-		  void long_method_exists() {
-			 assertTrue(test.longMethodRules.isEmpty());
-		  
-		 }
-		 
-		 @Test
-		  void list_is_not_empty() {
-			 assertFalse(test.featureEnvyRules.size()!= 0);
-		  
-		 }
-		 @Test
-		  void plasma_adci() {
-			 assertFalse(test.getiPlasma_ADCI()!=0);
-			 
-		 }	 
-		 @Test
-		 void plasma_adii() {
-			 assertFalse(test.getiPlasma_ADII()!=0);
-		 
-	}
-		 @Test
-		 void plasma_dci() {
-			 assertFalse(test.getiPlasma_DCI()!=0);
-		 
-	}
-		 @Test
-		 void plasma_dii() {
-			 assertFalse(test.getiPlasma_DII()!=0);
-		 
+
+	@Test
+	void feature_envy_exists() {
+		assertTrue(test.featureEnvyRules.isEmpty());
+
 	}
 
+	@Test
+	void long_method_exists() {
+		assertTrue(test.longMethodRules.isEmpty());
 
-		 @Test
-		  void pmd_adci() {
-			 assertFalse(test.getPMD_ADCI()!=0);
-			 
-		 }	 
-		 @Test
-		 void pmd_adii() {
-			 assertFalse(test.getPMD_ADII()!=0);
-		 
 	}
-		 @Test
-		 void pmd_dci() {
-			 assertFalse(test.getPMD_DCI()!=0);
-		 
+
+	@Test
+	void list_is_not_empty() {
+		assertFalse(test.featureEnvyRules.size() != 0);
+
 	}
-		 @Test
-		 void pmd_dii() {
-			 assertFalse(test.getPMD_DII()!=0);
-		 
+
+	@Test
+	void plasma_adci() {
+		assertFalse(test.getiPlasma_ADCI() != 0);
+
+	}
+
+	@Test
+	void plasma_adii() {
+		assertFalse(test.getiPlasma_ADII() != 0);
+
+	}
+
+	@Test
+	void plasma_dci() {
+		assertFalse(test.getiPlasma_DCI() != 0);
+
+	}
+
+	@Test
+	void plasma_dii() {
+		assertFalse(test.getiPlasma_DII() != 0);
+
+	}
+
+	@Test
+	void pmd_adci() {
+		assertFalse(test.getPMD_ADCI() != 0);
+
+	}
+
+	@Test
+	void pmd_adii() {
+		assertFalse(test.getPMD_ADII() != 0);
+
+	}
+
+	@Test
+	void pmd_dci() {
+		assertFalse(test.getPMD_DCI() != 0);
+
+	}
+
+	@Test
+	void pmd_dii() {
+		assertFalse(test.getPMD_DII() != 0);
+
 	}
 }

@@ -144,7 +144,7 @@ public class GUI extends JFrame {
 	/** The excel matrix. */
 	private static Vector<Vector<Object>> matrizExcel;
 
-	/** The defect by method boolean bector. */
+	/** The defect by method boolean vector. */
 	private static Vector<Vector<Boolean>> defeitosPorMetodo;
 
 	/** The columns from excel. */
@@ -153,19 +153,19 @@ public class GUI extends JFrame {
 	/** The File Chooser for a given file. */
 	final static JFileChooser selecionadorFicheiro = new JFileChooser();
 
-	/** The auxialiar table. */
+	/** The table from excel tab.*/
 	private static JTable jtable;
 
-	/** The i plasma DCI. */
+	/** The iplasma DCI. */
 	private int iPlasma_DCI = 0;
 
-	/** The i plasma DII. */
+	/** The iplasma DII. */
 	private int iPlasma_DII = 0;
 
-	/** The i plasma ADCI. */
+	/** The iplasma ADCI. */
 	private int iPlasma_ADCI = 0;
 
-	/** The i plasma ADII. */
+	/** The iplasma ADII. */
 	private int iPlasma_ADII = 0;
 
 	/** The pmd dci. */
@@ -268,6 +268,10 @@ public class GUI extends JFrame {
 		filePath = new JTextField();
 		fileSearchPanel.add(filePath);
 		filePath.setColumns(50);
+		
+		/**
+		 * Searches for the excel file
+		 */
 
 		JButton searchFileButton = new JButton("Search File");
 		searchFileButton.addActionListener(new ActionListener() {
@@ -281,6 +285,10 @@ public class GUI extends JFrame {
 			}
 		});
 		fileSearchPanel.add(searchFileButton);
+		
+		/**
+		 * Loads the excel file to the window
+		 */
 
 		JButton applyButton = new JButton("Apply");
 		applyButton.addActionListener(new ActionListener() {
@@ -325,7 +333,6 @@ public class GUI extends JFrame {
 						((DefaultTableModel) jtable.getModel()).fireTableStructureChanged();
 					}
 					System.out.println("ESTA É A MATRIZ " + matrizExcel.toString());
-					// System.out.println("ESTA É A COLUNA 0 DA MATRIZ "+matrizExcel.get(0).get(8));
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (InvalidFormatException e) {
@@ -390,7 +397,7 @@ public class GUI extends JFrame {
 		rules.add(metric_1, gbc_metric_1);
 
 		signal_1 = new JComboBox(rules_list_operators.values());
-		;
+		
 		GridBagConstraints gbc_signal_1 = new GridBagConstraints();
 		gbc_signal_1.insets = new Insets(0, 0, 5, 5);
 		gbc_signal_1.fill = GridBagConstraints.HORIZONTAL;
@@ -501,6 +508,10 @@ public class GUI extends JFrame {
 		gbc_threshold_4.gridy = 5;
 		rules.add(threshold_4, gbc_threshold_4);
 		threshold_4.setColumns(10);
+		
+		/**
+		 * Apply user defined rules to search for code smells
+		 */
 
 		JButton runButton = new JButton("RUN");
 		runButton.addActionListener(new ActionListener() {
@@ -535,18 +546,22 @@ public class GUI extends JFrame {
 
 			}
 		});
+		
 		/**
-		 * button to save the configurations
+		 * Button to save the user defined rules
 		 */
+		
 		JButton saveButton = new JButton("Save");
 		saveButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				save();
 			}
 		});
+		
 		/**
-		 * loads configurations from a given file
+		 * Loads rules from a given file
 		 */
+		
 		JButton loadButton = new JButton("Load");
 		loadButton.addMouseListener(new MouseAdapter() {
 			@Override
@@ -607,6 +622,10 @@ public class GUI extends JFrame {
 		JPanel quality_report = new JPanel();
 		tabbedPane.addTab("Quality Report", null, quality_report, null);
 		quality_report.setLayout(new BorderLayout(0, 0));
+		
+		/**
+		 * Loads the quality classification
+		 */
 
 		JButton updateButton = new JButton("Update");
 		updateButton.addMouseListener(new MouseAdapter() {
@@ -666,6 +685,10 @@ public class GUI extends JFrame {
 							}
 						});
 	}
+	
+	/**
+	 * Edits the user rule
+	 */
 
 	protected void edit() {
 		boolean ruleSelected = false;
@@ -708,7 +731,7 @@ public class GUI extends JFrame {
 	}
 
 	/**
-	 * given the number of lines of codes and the cyclomatic complexity of the
+	 * Given the number of lines of codes and the cyclomatic complexity of the
 	 * method size checks if the method isLongMethod.
 	 *
 	 * @param loc   the number of lines of code
@@ -797,14 +820,6 @@ public class GUI extends JFrame {
 			}
 		}
 		return false;
-	}
-
-	public void setLongMethodRules(ArrayList<String> longMethodRules) {
-		this.longMethodRules = longMethodRules;
-	}
-
-	public void setFeatureEnvyRules(ArrayList<String> featureEnvyRules) {
-		this.featureEnvyRules = featureEnvyRules;
 	}
 
 	/**
@@ -1080,6 +1095,14 @@ public class GUI extends JFrame {
 			}
 		} catch (IOException e) {
 		}
+	}
+	
+	public void setLongMethodRules(ArrayList<String> longMethodRules) {
+		this.longMethodRules = longMethodRules;
+	}
+
+	public void setFeatureEnvyRules(ArrayList<String> featureEnvyRules) {
+		this.featureEnvyRules = featureEnvyRules;
 	}
 
 /////////////////////GETERS FOR TESTS ////////////////////

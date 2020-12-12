@@ -10,40 +10,40 @@ class QualityCheckerTest {
 	void testRun_iPlasma() {
 		QualityChecker qc_iPlasma = new QualityChecker(9, "C:/Users/luism/Desktop/ES/Defeitos.xlsx");
 		qc_iPlasma.start();
-		try{
+		try {
 			qc_iPlasma.join();
-		}catch (InterruptedException e1){
-			
+		} catch (InterruptedException e1) {
+
 		}
 		int output_nDCI = qc_iPlasma.getnDCI();
 		int output_nDII = qc_iPlasma.getnDII();
 		int output_nADCI = qc_iPlasma.getnADCI();
 		int output_nADII = qc_iPlasma.getnADII();
 		assertEquals(140, output_nDCI);
-		assertEquals(0,output_nDII);
-		assertEquals(280,output_nADCI);
-		assertEquals(0,output_nADII);
+		assertEquals(0, output_nDII);
+		assertEquals(280, output_nADCI);
+		assertEquals(0, output_nADII);
 	}
 
 	@Test
 	void testRun_PMD() {
 		QualityChecker qc_PMD = new QualityChecker(10, "C:/Users/luism/Desktop/ES/Defeitos.xlsx");
 		qc_PMD.start();
-		try{
+		try {
 			qc_PMD.join();
-		}catch (InterruptedException e1){
-			
+		} catch (InterruptedException e1) {
+
 		}
 		int output_nDCI = qc_PMD.getnDCI();
 		int output_nDII = qc_PMD.getnDII();
 		int output_nADCI = qc_PMD.getnADCI();
 		int output_nADII = qc_PMD.getnADII();
 		assertEquals(140, output_nDCI);
-		assertEquals(18,output_nDII);
-		assertEquals(262,output_nADCI);
-		assertEquals(0,output_nADII);
+		assertEquals(18, output_nDII);
+		assertEquals(262, output_nADCI);
+		assertEquals(0, output_nADII);
 	}
-	
+
 //	@Test
 //	void testQualityChecker() {
 //		fail("Not yet implemented");
