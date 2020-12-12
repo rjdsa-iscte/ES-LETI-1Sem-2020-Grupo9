@@ -709,7 +709,7 @@ public class GUI extends JFrame {
 	 * @param cyclo the cyclomatic complexity of the method
 	 * @return true, if is long method
 	 */
-	private boolean isLongMethod(int loc, int cyclo) {
+	protected boolean isLongMethod(int loc, int cyclo) {
 		//defined by LOC and CYCLO
 		boolean isAND = false; //if rule contains an AND, this will be true, if false, rule contains an OR
 		int rules = 0;
@@ -792,6 +792,16 @@ public class GUI extends JFrame {
 		return false;
 	}
 	
+	public void setLongMethodRules(ArrayList<String> longMethodRules) {
+		this.longMethodRules = longMethodRules;
+	}
+
+
+	public void setFeatureEnvyRules(ArrayList<String> featureEnvyRules) {
+		this.featureEnvyRules = featureEnvyRules;
+	}
+
+
 	/**
 	 * given two parameters checks if the code has heature envy.
 	 *
@@ -799,7 +809,7 @@ public class GUI extends JFrame {
 	 * @param laa the  acessos do método a atributos da própria classe
 	 * @return true, if successful
 	 */
-	private boolean hasFeatureEnvy(int atfd, double laa) {
+	protected boolean hasFeatureEnvy(int atfd, double laa) {
 		//defined by LOC and CYCLO
 		boolean isAND = false; //if rule contains an AND, this will be true, if false, rule contains an OR
 		int rules = 0;
@@ -917,7 +927,7 @@ public class GUI extends JFrame {
 	/**
 	 * Loads rules from txt file.
 	 */
-	private void loadRulesfromFile() {
+	protected void loadRulesfromFile() {
 		longMethodRules_dlmodel.clear();
 		featureEnvyRules_dlmodel.clear();
 		longMethodRules.clear();
@@ -978,7 +988,7 @@ public class GUI extends JFrame {
 	/**
 	 * saves the current configuration.
 	 */
-	private void save() {
+	protected void save() {
 		boolean longMethodRulesDefined = true;
 		boolean featureEnvyRulesDefined = true;
 		try {
@@ -1142,6 +1152,26 @@ public class GUI extends JFrame {
 
 	public DefaultTableModel getDtm() {
 		return dtm;
+	}
+
+
+	public void setThreshold_1(JTextField threshold_1) {
+		this.threshold_1 = threshold_1;
+	}
+
+
+	public void setThreshold_2(JTextField threshold_2) {
+		this.threshold_2 = threshold_2;
+	}
+
+
+	public void setThreshold_3(JTextField threshold_3) {
+		this.threshold_3 = threshold_3;
+	}
+
+
+	public void setThreshold_4(JTextField threshold_4) {
+		this.threshold_4 = threshold_4;
 	}
 
 

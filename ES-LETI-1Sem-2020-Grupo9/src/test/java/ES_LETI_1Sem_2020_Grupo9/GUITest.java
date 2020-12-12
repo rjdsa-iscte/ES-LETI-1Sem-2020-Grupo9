@@ -3,6 +3,8 @@ package ES_LETI_1Sem_2020_Grupo9;
 import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 class GUITest extends GUI {
@@ -47,7 +49,405 @@ class GUITest extends GUI {
 		assertEquals("END", l1);
 		assertEquals("END", l2);
 	}
-		
+	
+	@Test
+	void featureMethod() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("ATFD");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("AND");
+		aux.add("LAA");
+		aux.add("BIGGER_THAN");
+		aux.add("2.3");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(11, 2.4));
+	}
+	
+	@Test
+	void featureMethodv1() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("ATFD");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("AND");
+		aux.add("LAA");
+		aux.add("SMALLER_THAN");
+		aux.add("3.5");
+		test.setFeatureEnvyRules(aux);;
+		assertTrue(test.hasFeatureEnvy(20,2));
+	}
+	
+	@Test
+	void featureMethodv2() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("ATFD");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("AND");
+		aux.add("LAA");
+		aux.add("SMALLER_THAN");
+		aux.add("3.2");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(9, 2));
+	}
+	
+	@Test
+	void featureMethodv3() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("ATFD");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("AND");
+		aux.add("LAA");
+		aux.add("BIGGER_THAN");
+		aux.add("1");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(9, 2));
+	}
+	
+	@Test
+	void featureMethodv4() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("ATFD");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("OR");
+		aux.add("LAA");
+		aux.add("BIGGER_THAN");
+		aux.add("1");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(4, 2));
+	}
+	
+	@Test
+	void featureMethodv5() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("ATFD");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("OR");
+		aux.add("LAA");
+		aux.add("SMALLER_THAN");
+		aux.add("3");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(4, 2));
+	}
+	
+	@Test
+	void featureMethodv6() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("ATFD");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("OR");
+		aux.add("LAA");
+		aux.add("SMALLER_THAN");
+		aux.add("3");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(20, 2));
+	}
+	
+	@Test
+	void featureMethodv7() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("ATFD");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("OR");
+		aux.add("LAA");
+		aux.add("BIGGER_THAN");
+		aux.add("1");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(20, 2));
+	}
+	
+	@Test
+	void featureMethodv8() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("ATFD");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("END");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(20, 2));
+	}
+	
+	@Test
+	void featureMethodv9() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("ATFD");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("END");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(9, 20));
+	}
+	
+	@Test
+	void featureMethodv10() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LAA");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("END");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(1, 8));
+	}
+	
+	@Test
+	void featureMethod11() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LAA");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("END");
+		test.setFeatureEnvyRules(aux);
+		assertTrue(test.hasFeatureEnvy(2, 15));
+	}
+	
+	@Test
+	void longMethod() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LOC");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("AND");
+		aux.add("CYCLO");
+		aux.add("BIGGER_THAN");
+		aux.add("1");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(20, 2));
+	}
+	
+	@Test
+	void longMethodv1() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LOC");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("AND");
+		aux.add("CYCLO");
+		aux.add("SMALLER_THAN");
+		aux.add("3");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(20, 2));
+	}
+	
+	@Test
+	void longMethodv2() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LOC");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("AND");
+		aux.add("CYCLO");
+		aux.add("SMALLER_THAN");
+		aux.add("3");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(9, 2));
+	}
+	
+	@Test
+	void longMethodv3() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LOC");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("AND");
+		aux.add("CYCLO");
+		aux.add("BIGGER_THAN");
+		aux.add("1");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(9, 2));
+	}
+	
+	@Test
+	void longMethodv4() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LOC");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("OR");
+		aux.add("CYCLO");
+		aux.add("BIGGER_THAN");
+		aux.add("1");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(20, 2));
+	}
+	
+	@Test
+	void longMethodv5() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LOC");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("OR");
+		aux.add("CYCLO");
+		aux.add("SMALLER_THAN");
+		aux.add("3");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(20, 2));
+	}
+	
+	@Test
+	void longMethodv6() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LOC");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("OR");
+		aux.add("CYCLO");
+		aux.add("SMALLER_THAN");
+		aux.add("3");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(9, 2));
+	}
+	
+	@Test
+	void longMethodv7() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LOC");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("OR");
+		aux.add("CYCLO");
+		aux.add("BIGGER_THAN");
+		aux.add("1");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(9, 2));
+	}
+	
+	@Test
+	void longMethodv8() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LOC");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("END");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(20, 0));
+	}
+	
+	@Test
+	void longMethodv9() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("LOC");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("END");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(9, 1));
+	}
+	
+	@Test
+	void longMethodv10() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("CYCLO");
+		aux.add("SMALLER_THAN");
+		aux.add("10");
+		aux.add("END");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(9, 1));
+	}
+	
+	@Test
+	void longMethodv11() {
+		ArrayList<String> aux = new ArrayList<String>();
+		aux.add("CYCLO");
+		aux.add("BIGGER_THAN");
+		aux.add("10");
+		aux.add("END");
+		test.setLongMethodRules(aux);
+		assertTrue(test.isLongMethod(11, 12));
+	}
+	
+	@Test
+	void saveTofile() {
+		test.getThreshold_1().setText("20");
+		test.getSignal_1().setSelectedIndex(0);
+		test.save();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getLongMethodRules();
+		assertEquals("LOC", aux.get(0));
+		assertEquals("BIGGER_THAN", aux.get(1));
+		assertEquals("20", aux.get(2));
+	}
+	
+	@Test
+	void saveTofilev1() {
+		test.getThreshold_1().setText("20");
+		test.getSignal_1().setSelectedIndex(0);
+		test.getLogicOp_1().setSelectedIndex(1);
+		test.getThreshold_2().setText("20");
+		test.getSignal_2().setSelectedIndex(0);
+		test.save();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getLongMethodRules();
+		assertEquals("LOC", aux.get(0));
+		assertEquals("BIGGER_THAN", aux.get(1));
+		assertEquals("20", aux.get(2));
+		assertEquals("OR", aux.get(3));
+		assertEquals("CYCLO", aux.get(4));
+		assertEquals("BIGGER_THAN", aux.get(5));
+		assertEquals("20", aux.get(6));
+	}
+	
+	@Test
+	void saveTofilev2() {
+		test.getThreshold_2().setText("20");
+		test.getSignal_2().setSelectedIndex(0);
+		test.save();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getLongMethodRules();
+		assertEquals("CYCLO", aux.get(0));
+		assertEquals("BIGGER_THAN", aux.get(1));
+		assertEquals("20", aux.get(2));
+	}
+	
+	@Test
+	void saveTofilev3() {
+		test.getThreshold_3().setText("20");
+		test.getSignal_3().setSelectedIndex(0);
+		test.save();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getFeatureEnvyRules();
+		assertEquals("ATFD", aux.get(0));
+		assertEquals("BIGGER_THAN", aux.get(1));
+		assertEquals("20", aux.get(2));
+	}
+	
+	@Test
+	void saveTofilev4() {
+		test.getThreshold_3().setText("20");
+		test.getSignal_3().setSelectedIndex(0);
+		test.getLogicOp_2().setSelectedIndex(1);
+		test.getThreshold_4().setText("20");
+		test.getSignal_4().setSelectedIndex(0);
+		test.save();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getFeatureEnvyRules();
+		assertEquals("ATFD", aux.get(0));
+		assertEquals("BIGGER_THAN", aux.get(1));
+		assertEquals("20", aux.get(2));
+		assertEquals("OR", aux.get(3));
+		assertEquals("LAA", aux.get(4));
+		assertEquals("BIGGER_THAN", aux.get(5));
+		assertEquals("20", aux.get(6));
+	}
+	
+	@Test
+	void saveTofilev5() {
+		test.getThreshold_4().setText("20");
+		test.getSignal_4().setSelectedIndex(0);
+		test.save();
+		test.loadRulesfromFile();
+		ArrayList<String> aux = test.getFeatureEnvyRules();
+		assertEquals("LAA", aux.get(0));
+		assertEquals("BIGGER_THAN", aux.get(1));
+		assertEquals("20", aux.get(2));
+	}
+	
 		 @Test
 		  void feature_envy_exists() {
 			 assertTrue(test.featureEnvyRules.isEmpty());
