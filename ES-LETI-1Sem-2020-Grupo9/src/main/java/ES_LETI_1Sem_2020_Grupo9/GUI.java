@@ -617,21 +617,6 @@ public class GUI extends JFrame {
 		gbc_saveButton.gridx = 5;
 		gbc_saveButton.gridy = 8;
 		rules.add(saveButton, gbc_saveButton);
-		
-		JButton deleteAllButton = new JButton("Delete all");
-		deleteAllButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				longMethodRules.clear();
-				featureEnvyRules.clear();
-				System.out.println("list deleted");
-			}
-		});
-		GridBagConstraints gbc_deleteAllButton = new GridBagConstraints();
-		gbc_deleteAllButton.anchor = GridBagConstraints.WEST;
-		gbc_deleteAllButton.insets = new Insets(0, 0, 0, 5);
-		gbc_deleteAllButton.gridx = 7;
-		gbc_deleteAllButton.gridy = 8;
-		rules.add(deleteAllButton, gbc_deleteAllButton);
 		GridBagConstraints gbc_runButton = new GridBagConstraints();
 		gbc_runButton.fill = GridBagConstraints.BOTH;
 		gbc_runButton.insets = new Insets(0, 0, 0, 5);
@@ -664,6 +649,7 @@ public class GUI extends JFrame {
 		updateButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				System.out.println(filePath.getText());
 				QualityChecker qc_iPlasma = new QualityChecker(9, filePath.getText());
 				QualityChecker qc_PMD = new QualityChecker(10, filePath.getText());
 				UserQualityChecker qc_User_Long = new UserQualityChecker("user_long",matrizExcel, dtm);
@@ -905,7 +891,7 @@ public class GUI extends JFrame {
 	 * @param nADCI the n ADCI
 	 * @param nADII the n ADII
 	 */
-	private void updateQualityValues(int index, int nDCI, int nDII, int nADCI, int nADII) {
+	protected void updateQualityValues(int index, int nDCI, int nDII, int nADCI, int nADII) {
 		qualityReportTable.setValueAt(nDCI, index, 1);
 		qualityReportTable.setValueAt(nDII, index, 2);
 		qualityReportTable.setValueAt(nADCI, index, 3);
@@ -915,7 +901,7 @@ public class GUI extends JFrame {
 	/**
 	 * resets rules on the GUI.
 	 */
-	private void clearRulesGUI() {
+	protected void clearRulesGUI() {
 		threshold_1.setText("");		
 		threshold_2.setText("");
 		threshold_3.setText("");

@@ -63,7 +63,7 @@ Identificadas. */
 		}
 		
 		for (int i = 0; i < 420; i++) {
-		
+			
 			if ((boolean) results.getValueAt(i, resultsColumn) == true && (boolean) matriz.get(i).get(excelColumn) == true) {
 				nDCI = nDCI + 1;					
 			}
