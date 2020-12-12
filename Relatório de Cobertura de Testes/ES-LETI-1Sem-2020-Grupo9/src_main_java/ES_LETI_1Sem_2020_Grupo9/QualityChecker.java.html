@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>QualityChecker.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ES-LETI-1Sem-2020-Grupo9 (12/12/2020 15:11:41)</a> &gt; <a href="../../index.html" class="el_group">ES-LETI-1Sem-2020-Grupo9</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">ES_LETI_1Sem_2020_Grupo9</a> &gt; <span class="el_source">QualityChecker.java</span></div><h1>QualityChecker.java</h1><pre class="source lang-java linenums">package ES_LETI_1Sem_2020_Grupo9;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+
+/**
+ * The Class QualityChecker.
+ */
+public class QualityChecker extends Thread {
+
+	/** The n column. */
+	private int nColumn;
+	
+	/** The file path. */
+	private String filePath;
+	
+	/** The número de Ausências de Defeitos Corretamente
+Identificadas */
+	private int nDCI;
+	
+	/** The número de Ausências de Defeitos Incorretamente Identificadas */
+	private int nDII;
+	
+	/** The número de Ausências de Defeitos Corretamente
+Identificadas */
+	private int nADCI;
+	
+	/** The número de Ausências de Defeitos Incorretamente Identificadas */
+	private int nADII;
+	
+	/**
+	 * receives two parameters and sets values.
+	 *
+	 * @param nColumn the n column
+	 * @param filePath the file path
+	 */
+<span class="fc" id="L42">	public QualityChecker(int nColumn, String filePath) {</span>
+<span class="fc" id="L43">		this.nColumn = nColumn;</span>
+<span class="fc" id="L44">		this.filePath = filePath;</span>
+<span class="fc" id="L45">	}</span>
+	
+	/**
+	 * Reads excel file and sets variable values.
+	 */
+	@Override
+	public void run() {
+	
+		try {
+<span class="fc" id="L54">			InputStream ExcelFileToRead = new FileInputStream(filePath);</span>
+<span class="fc" id="L55">	        XSSFWorkbook  wb = new XSSFWorkbook(ExcelFileToRead);</span>
+<span class="fc" id="L56">	        XSSFSheet sheet = wb.getSheetAt(0);</span>
+	        
+	        int aux;
+<span class="fc" id="L59">	        String auxS = sheet.getRow(0).getCell(nColumn).getStringCellValue();</span>
+<span class="pc bpc" id="L60" title="3 of 6 branches missed.">	        if(auxS.equals(&quot;PMD&quot;) || auxS.equals(&quot;iPlasma&quot;) || auxS.equals(&quot;user_long&quot;))</span>
+<span class="fc" id="L61">	        	aux = 8;</span>
+	        else
+<span class="nc" id="L63">	        	aux = 11;</span>
+	        		
+<span class="fc bfc" id="L65" title="All 2 branches covered.">	        for (int i = 1; i &lt; 421; i++) {</span>
+<span class="fc bfc" id="L66" title="All 4 branches covered.">				if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == true &amp;&amp; sheet.getRow(i).getCell(aux).getBooleanCellValue() == true) {</span>
+<span class="fc" id="L67">					nDCI = nDCI + 1;					</span>
+<span class="fc" id="L68">				}</span>
+<span class="pc bpc" id="L69" title="1 of 4 branches missed.">				else if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == true &amp;&amp; sheet.getRow(i).getCell(aux).getBooleanCellValue() == false) {</span>
+<span class="fc" id="L70">					nDII = nDII + 1;</span>
+<span class="fc" id="L71">				}</span>
+<span class="pc bpc" id="L72" title="2 of 4 branches missed.">				else if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == false &amp;&amp; sheet.getRow(i).getCell(aux).getBooleanCellValue() == false) {</span>
+<span class="fc" id="L73">					nADCI = nADCI + 1;</span>
+<span class="fc" id="L74">				}</span>
+<span class="nc bnc" id="L75" title="All 4 branches missed.">				else if (sheet.getRow(i).getCell(nColumn).getBooleanCellValue() == false &amp;&amp; sheet.getRow(i).getCell(aux).getBooleanCellValue() == true) {</span>
+<span class="nc" id="L76">					nADII = nADII +1;</span>
+				}
+	        }
+	        
+<span class="fc" id="L80">	        wb.close();</span>
+<span class="fc" id="L81">	        ExcelFileToRead.close();</span>
+<span class="pc" id="L82">		} catch (FileNotFoundException e) {</span>
+<span class="nc" id="L83">			System.out.println(&quot;No file selected or wrong path to file !!!&quot;);</span>
+<span class="nc" id="L84">		} catch (IOException e) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L86">			e.printStackTrace();</span>
+		}
+<span class="fc" id="L88">	}</span>
+	
+	/**
+	 * Gets the column.
+	 *
+	 * @return the column
+	 */
+	public int getnColumn() {
+<span class="fc" id="L96">		return nColumn;</span>
+	}
+	
+	/**
+	 * Sets the n column.
+	 *
+	 * @param nColumn the new n column
+	 */
+	public void setnColumn(int nColumn) {
+<span class="nc" id="L105">		this.nColumn = nColumn;</span>
+<span class="nc" id="L106">	}</span>
+
+	/**
+	 * Gets the número de Defeitos Corretamente Identificados
+	 *
+	 * @return the número de Defeitos Corretamente Identificados
+	 */
+	public int getnDCI() {
+<span class="fc" id="L114">		return nDCI;</span>
+	}
+
+	/**
+	 * Sets the número de Defeitos Corretamente Identificados
+	 *
+	 * @param nDCI the new número de Defeitos Corretamente Identificados
+	 */
+	public void setnDCI(int nDCI) {
+<span class="fc" id="L123">		this.nDCI = nDCI;</span>
+<span class="fc" id="L124">	}</span>
+
+	/**
+	 * Gets the número de Defeitos Incorretamente Identificados
+	 *
+	 * @return the número de Defeitos Incorretamente Identificados
+	 */
+	public int getnDII() {
+<span class="fc" id="L132">		return nDII;</span>
+	}
+
+	/**
+	 * Sets the número de Defeitos Incorretamente Identificados
+	 *
+	 * @param nDII the new número de Defeitos Incorretamente Identificados
+	 */
+	public void setnDII(int nDII) {
+<span class="fc" id="L141">		this.nDII = nDII;</span>
+<span class="fc" id="L142">	}</span>
+
+	/**
+	 * Gets the número de Ausências de Defeitos Corretamente
+Identificadas
+	 *
+	 * @return the número de Ausências de Defeitos Corretamente
+Identificadas
+	 */
+	public int getnADCI() {
+<span class="fc" id="L152">		return nADCI;</span>
+	}
+
+	/**
+	 * Sets the número de Ausências de Defeitos Corretamente
+Identificadas
+	 *
+	 * @param nADCI the new número de Ausências de Defeitos Corretamente
+Identificadas
+	 */
+	public void setnADCI(int nADCI) {
+<span class="fc" id="L163">		this.nADCI = nADCI;</span>
+<span class="fc" id="L164">	}</span>
+
+	/**
+	 * Gets the número de Ausências de Defeitos Incorretamente Identificadas
+	 *
+	 * @return the número de Ausências de Defeitos Incorretamente Identificadas
+	 */
+	public int getnADII() {
+<span class="fc" id="L172">		return nADII;</span>
+	}
+
+	/**
+	 * Sets the número de Ausências de Defeitos Incorretamente Identificadas
+	 *
+	 * @param nADII the new número de Ausências de Defeitos Incorretamente Identificadas
+	 */
+	public void setnADII(int nADII) {
+<span class="fc" id="L181">		this.nADII = nADII;</span>
+<span class="fc" id="L182">	}</span>
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>ES-LETI-1Sem-2020-Grupo9 (12/12/2020 15:11:41)</div></body></html>

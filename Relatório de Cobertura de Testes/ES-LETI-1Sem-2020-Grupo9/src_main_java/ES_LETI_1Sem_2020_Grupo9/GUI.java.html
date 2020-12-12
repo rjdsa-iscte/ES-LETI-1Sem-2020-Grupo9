@@ -1,0 +1,1227 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>GUI.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ES-LETI-1Sem-2020-Grupo9 (12/12/2020 15:11:41)</a> &gt; <a href="../../index.html" class="el_group">ES-LETI-1Sem-2020-Grupo9</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">ES_LETI_1Sem_2020_Grupo9</a> &gt; <span class="el_source">GUI.java</span></div><h1>GUI.java</h1><pre class="source lang-java linenums">package ES_LETI_1Sem_2020_Grupo9;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.GridBagLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTable;
+import javax.swing.JSeparator;
+import javax.swing.JTabbedPane;
+import java.awt.GridLayout;
+import javax.swing.JSplitPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Vector;
+import java.awt.event.ActionEvent;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.List;
+
+import javax.swing.JList;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.table.DefaultTableModel;
+import java.awt.Font;
+import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
+import javax.swing.DefaultListModel;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.LineIterator;
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.jupiter.api.Test;
+import org.apache.poi.poifs.filesystem.FileMagic;
+import javax.swing.JLabel;
+import javax.swing.DefaultComboBoxModel;
+
+/**
+ * The Class GUI (MAIN CLASS)
+ */
+public class GUI extends JFrame {
+
+	/** The content pane. */
+	private JPanel contentPane;
+
+	/** The file path. */
+	private JTextField filePath;
+
+	/** The loaded file. */
+	private JTable loadedFile;
+
+	/** The threshold 1. */
+	private JTextField threshold_1;
+
+	/** The threshold 2. */
+	private JTextField threshold_2;
+
+	/** The threshold 3. */
+	private JTextField threshold_3;
+
+	/** The threshold 4. */
+	private JTextField threshold_4;
+
+	/** The signal 1. */
+	private JComboBox signal_1;
+
+	/** The signal 2. */
+	private JComboBox signal_2;
+
+	/** The signal 3. */
+	private JComboBox signal_3;
+
+	/** The signal 4. */
+	private JComboBox signal_4;
+
+	/** The logic op 1. */
+	private JComboBox logicOp_1;
+
+	/** The logic op 2. */
+	private JComboBox logicOp_2;
+
+	/** The results table. */
+	private JTable resultsTable;
+
+	/** The Default Table Model. */
+	private DefaultTableModel dtm;
+
+	/** The quality report table. */
+	private JTable qualityReportTable;
+
+	/** The long method rules ListModel. */
+<span class="fc" id="L130">	private DefaultListModel&lt;String&gt; longMethodRules_dlmodel = new DefaultListModel&lt;&gt;();</span>
+
+	/** The long method rules list. */
+	private JList&lt;String&gt; longMethodRulesList;
+
+	/** The feature envy rules ListModel. */
+<span class="fc" id="L136">	private DefaultListModel&lt;String&gt; featureEnvyRules_dlmodel = new DefaultListModel&lt;&gt;();</span>
+
+	/** The feature envy rules list. */
+	private JList&lt;String&gt; featureEnvyRulesList;
+
+	/** The selected file. */
+	private File ficheiroSelecionado;
+
+	/** The excel matrix. */
+	private static Vector&lt;Vector&lt;Object&gt;&gt; matrizExcel;
+
+	/** The defect by method boolean bector. */
+	private static Vector&lt;Vector&lt;Boolean&gt;&gt; defeitosPorMetodo;
+
+	/** The columns from excel. */
+	private static Vector&lt;Object&gt; colunasExcel;
+
+	/** The File Chooser for a given file. */
+<span class="fc" id="L154">	final static JFileChooser selecionadorFicheiro = new JFileChooser();</span>
+
+	/** The auxialiar table. */
+<span class="fc" id="L157">	private static JTable jtable;</span>
+
+	/** The i plasma DCI. */
+<span class="fc" id="L160">	private int iPlasma_DCI = 0;</span>
+
+	/** The i plasma DII. */
+<span class="fc" id="L163">	private int iPlasma_DII = 0;</span>
+
+	/** The i plasma ADCI. */
+<span class="fc" id="L166">	private int iPlasma_ADCI = 0;</span>
+
+	/** The i plasma ADII. */
+<span class="fc" id="L169">	private int iPlasma_ADII = 0;</span>
+
+	/** The pmd dci. */
+<span class="fc" id="L172">	private int PMD_DCI = 0;</span>
+
+	/** The pmd dii. */
+<span class="fc" id="L175">	private int PMD_DII = 0;</span>
+
+	/** The pmd adci. */
+<span class="fc" id="L178">	private int PMD_ADCI = 0;</span>
+
+	/** The pmd adii. */
+<span class="fc" id="L181">	private int PMD_ADII = 0;</span>
+
+	/** The user DCI. */
+<span class="fc" id="L184">	private int user_DCI = 0;</span>
+
+	/** The user DII. */
+<span class="fc" id="L187">	private int user_DII = 0;</span>
+
+	/** The user ADCI. */
+<span class="fc" id="L190">	private int user_ADCI = 0;</span>
+
+	/** The user ADII. */
+<span class="fc" id="L193">	private int user_ADII = 0;</span>
+
+	/** The long method rules. */
+<span class="fc" id="L196">	public ArrayList&lt;String&gt; longMethodRules = new ArrayList&lt;String&gt;();</span>
+
+	/** The feature envy rules. */
+<span class="fc" id="L199">	public ArrayList&lt;String&gt; featureEnvyRules = new ArrayList&lt;String&gt;();</span>
+
+	/**
+	 * Launch the application initializing all vectors required.
+	 *
+	 * @param args the arguments
+	 */
+	public static void main(String[] args) {
+<span class="nc" id="L207">		matrizExcel = new Vector&lt;Vector&lt;Object&gt;&gt;();</span>
+<span class="nc" id="L208">		colunasExcel = new Vector&lt;Object&gt;();</span>
+<span class="nc" id="L209">		defeitosPorMetodo = new Vector&lt;Vector&lt;Boolean&gt;&gt;();</span>
+<span class="nc" id="L210">		selecionadorFicheiro.setCurrentDirectory(new File(System.getProperty(&quot;user.home&quot;)));</span>
+<span class="nc" id="L211">		EventQueue.invokeLater(new Runnable() {</span>
+			public void run() {
+				try {
+<span class="nc" id="L214">					GUI frame = new GUI();</span>
+<span class="nc" id="L215">					frame.setVisible(true);</span>
+<span class="nc" id="L216">				} catch (Exception e) {</span>
+<span class="nc" id="L217">					e.printStackTrace();</span>
+				}
+<span class="nc" id="L219">			}</span>
+		});
+
+<span class="nc" id="L222">	}</span>
+
+	/**
+	 * Create the frame with panels, buttons and grids.
+	 */
+<span class="fc" id="L227">	public GUI() {</span>
+<span class="fc" id="L228">		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span>
+<span class="fc" id="L229">		setBounds(300, 100, 1000, 600);</span>
+<span class="fc" id="L230">		contentPane = new JPanel();</span>
+<span class="fc" id="L231">		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));</span>
+<span class="fc" id="L232">		setContentPane(contentPane);</span>
+<span class="fc" id="L233">		contentPane.setLayout(new GridLayout(1, 0, 0, 0));</span>
+
+<span class="fc" id="L235">		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);</span>
+<span class="fc" id="L236">		contentPane.add(tabbedPane);</span>
+
+<span class="fc" id="L238">		JPanel excel = new JPanel();</span>
+<span class="fc" id="L239">		tabbedPane.addTab(&quot;Excel&quot;, null, excel, null);</span>
+<span class="fc" id="L240">		GridBagLayout gbl_excel = new GridBagLayout();</span>
+<span class="fc" id="L241">		gbl_excel.rowWeights = new double[] { 1.0, 0.0 };</span>
+<span class="fc" id="L242">		gbl_excel.columnWeights = new double[] { 0.0, 1.0 };</span>
+<span class="fc" id="L243">		excel.setLayout(gbl_excel);</span>
+
+<span class="fc" id="L245">		GridBagConstraints gbc_fileDisplay = new GridBagConstraints();</span>
+<span class="fc" id="L246">		gbc_fileDisplay.fill = GridBagConstraints.BOTH;</span>
+<span class="fc" id="L247">		gbc_fileDisplay.gridx = 1;</span>
+<span class="fc" id="L248">		gbc_fileDisplay.gridy = 0;</span>
+<span class="fc" id="L249">		jtable = new JTable(matrizExcel, colunasExcel);</span>
+<span class="fc" id="L250">		JScrollPane scrollPane_1 = new JScrollPane(jtable);</span>
+<span class="fc" id="L251">		jtable.setFillsViewportHeight(true);</span>
+<span class="fc" id="L252">		excel.add(scrollPane_1, gbc_fileDisplay);</span>
+
+<span class="fc" id="L254">		loadedFile = new JTable();</span>
+<span class="fc" id="L255">		GridBagConstraints gbc_loadedFile = new GridBagConstraints();</span>
+<span class="fc" id="L256">		gbc_loadedFile.insets = new Insets(0, 0, 5, 0);</span>
+<span class="fc" id="L257">		gbc_loadedFile.fill = GridBagConstraints.BOTH;</span>
+<span class="fc" id="L258">		gbc_loadedFile.gridx = 1;</span>
+<span class="fc" id="L259">		gbc_loadedFile.gridy = 0;</span>
+<span class="fc" id="L260">		excel.add(loadedFile, gbc_loadedFile);</span>
+
+<span class="fc" id="L262">		JPanel fileSearchPanel = new JPanel();</span>
+<span class="fc" id="L263">		GridBagConstraints gbc_fileSearchPanel = new GridBagConstraints();</span>
+<span class="fc" id="L264">		gbc_fileSearchPanel.gridx = 1;</span>
+<span class="fc" id="L265">		gbc_fileSearchPanel.gridy = 1;</span>
+<span class="fc" id="L266">		excel.add(fileSearchPanel, gbc_fileSearchPanel);</span>
+
+<span class="fc" id="L268">		filePath = new JTextField();</span>
+<span class="fc" id="L269">		fileSearchPanel.add(filePath);</span>
+<span class="fc" id="L270">		filePath.setColumns(50);</span>
+
+<span class="fc" id="L272">		JButton searchFileButton = new JButton(&quot;Search File&quot;);</span>
+<span class="fc" id="L273">		searchFileButton.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+<span class="nc" id="L275">				int result = selecionadorFicheiro.showOpenDialog(contentPane);</span>
+<span class="nc bnc" id="L276" title="All 2 branches missed.">				if (result == JFileChooser.APPROVE_OPTION) {</span>
+<span class="nc" id="L277">					ficheiroSelecionado = selecionadorFicheiro.getSelectedFile();</span>
+<span class="nc" id="L278">					filePath.setText(ficheiroSelecionado.getAbsolutePath());</span>
+<span class="nc" id="L279">					System.out.println(&quot;selecionou o ficheiro: &quot; + ficheiroSelecionado.getAbsolutePath());</span>
+				}
+<span class="nc" id="L281">			}</span>
+		});
+<span class="fc" id="L283">		fileSearchPanel.add(searchFileButton);</span>
+
+<span class="fc" id="L285">		JButton applyButton = new JButton(&quot;Apply&quot;);</span>
+<span class="fc" id="L286">		applyButton.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+<span class="nc bnc" id="L289" title="All 4 branches missed.">					if (ficheiroSelecionado != null &amp;&amp; FileMagic.valueOf(ficheiroSelecionado).equals(FileMagic.OOXML)) {</span>
+<span class="nc" id="L290">						Workbook workbook = new XSSFWorkbook(ficheiroSelecionado);</span>
+<span class="nc" id="L291">						Sheet sheet = workbook.getSheetAt(0);</span>
+<span class="nc" id="L292">						Iterator&lt;Row&gt; iterator = sheet.iterator();</span>
+<span class="nc" id="L293">						colunasExcel.clear();</span>
+<span class="nc" id="L294">						matrizExcel.clear();</span>
+<span class="nc" id="L295">						int iter = 0;</span>
+<span class="nc bnc" id="L296" title="All 2 branches missed.">						while (iterator.hasNext()) {</span>
+<span class="nc bnc" id="L297" title="All 2 branches missed.">							if (iter &gt; 0) {</span>
+<span class="nc" id="L298">								matrizExcel.add(new Vector&lt;Object&gt;());</span>
+							}
+<span class="nc" id="L300">							Row linha = iterator.next();</span>
+<span class="nc" id="L301">							Iterator&lt;Cell&gt; iteratorCelula = linha.iterator();</span>
+<span class="nc bnc" id="L302" title="All 2 branches missed.">							while (iteratorCelula.hasNext()) {</span>
+<span class="nc" id="L303">								Cell celula = iteratorCelula.next();</span>
+<span class="nc bnc" id="L304" title="All 2 branches missed.">								if (iter == 0) {</span>
+<span class="nc bnc" id="L305" title="All 2 branches missed.">									if (celula.getCellType() == CellType.STRING) {</span>
+<span class="nc" id="L306">										colunasExcel.add(celula.getStringCellValue());</span>
+<span class="nc bnc" id="L307" title="All 2 branches missed.">									} else if (celula.getCellType() == CellType.NUMERIC) {</span>
+<span class="nc" id="L308">										colunasExcel.add(celula.getNumericCellValue());</span>
+<span class="nc bnc" id="L309" title="All 2 branches missed.">									} else if (celula.getCellType() == CellType.BOOLEAN) {</span>
+<span class="nc" id="L310">										colunasExcel.add(celula.getBooleanCellValue());</span>
+									}
+<span class="nc" id="L312">								} else {</span>
+<span class="nc bnc" id="L313" title="All 2 branches missed.">									if (celula.getCellType() == CellType.STRING) {</span>
+<span class="nc" id="L314">										matrizExcel.get(iter - 1).add(celula.getStringCellValue());</span>
+<span class="nc bnc" id="L315" title="All 2 branches missed.">									} else if (celula.getCellType() == CellType.NUMERIC) {</span>
+<span class="nc" id="L316">										matrizExcel.get(iter - 1).add(celula.getNumericCellValue());</span>
+<span class="nc bnc" id="L317" title="All 2 branches missed.">									} else if (celula.getCellType() == CellType.BOOLEAN) {</span>
+<span class="nc" id="L318">										matrizExcel.get(iter - 1).add(celula.getBooleanCellValue());</span>
+									}
+								}
+							}
+<span class="nc" id="L322">							iter++;</span>
+						}
+<span class="nc" id="L324">						workbook.close();</span>
+<span class="nc" id="L325">						((DefaultTableModel) jtable.getModel()).fireTableStructureChanged();</span>
+					}
+<span class="nc" id="L327">					System.out.println(&quot;ESTA É A MATRIZ &quot; + matrizExcel.toString());</span>
+					// System.out.println(&quot;ESTA É A COLUNA 0 DA MATRIZ &quot;+matrizExcel.get(0).get(8));
+<span class="nc" id="L329">				} catch (IOException e) {</span>
+<span class="nc" id="L330">					e.printStackTrace();</span>
+<span class="nc" id="L331">				} catch (InvalidFormatException e) {</span>
+					// TODO Auto-generated catch block
+<span class="nc" id="L333">					e.printStackTrace();</span>
+				}
+<span class="nc" id="L335">			}</span>
+		});
+<span class="fc" id="L337">		fileSearchPanel.add(applyButton);</span>
+
+<span class="fc" id="L339">		JPanel rules = new JPanel();</span>
+<span class="fc" id="L340">		tabbedPane.addTab(&quot;Rules&quot;, null, rules, null);</span>
+<span class="fc" id="L341">		GridBagLayout gbl_rules = new GridBagLayout();</span>
+<span class="fc" id="L342">		gbl_rules.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };</span>
+<span class="fc" id="L343">		gbl_rules.rowHeights = new int[] { 0, 0, 35, 35, 35, 35, 35, 0, 0, 0 };</span>
+<span class="fc" id="L344">		gbl_rules.columnWeights = new double[] { 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 0.0,</span>
+<span class="fc" id="L345">				Double.MIN_VALUE };</span>
+<span class="fc" id="L346">		gbl_rules.rowWeights = new double[] { 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };</span>
+<span class="fc" id="L347">		rules.setLayout(gbl_rules);</span>
+
+<span class="fc" id="L349">		JLabel longMethodRulesLabel = new JLabel(&quot;LONG_METHOD CODE SMELL RULES&quot;);</span>
+<span class="fc" id="L350">		GridBagConstraints gbc_longMethodRulesLabel = new GridBagConstraints();</span>
+<span class="fc" id="L351">		gbc_longMethodRulesLabel.gridwidth = 6;</span>
+<span class="fc" id="L352">		gbc_longMethodRulesLabel.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L353">		gbc_longMethodRulesLabel.gridx = 0;</span>
+<span class="fc" id="L354">		gbc_longMethodRulesLabel.gridy = 0;</span>
+<span class="fc" id="L355">		rules.add(longMethodRulesLabel, gbc_longMethodRulesLabel);</span>
+
+<span class="fc" id="L357">		JLabel featureEnvyRulesLabel = new JLabel(&quot;FEATURE_ENVY CODE SMELL RULES&quot;);</span>
+<span class="fc" id="L358">		GridBagConstraints gbc_featureEnvyRulesLabel = new GridBagConstraints();</span>
+<span class="fc" id="L359">		gbc_featureEnvyRulesLabel.gridwidth = 4;</span>
+<span class="fc" id="L360">		gbc_featureEnvyRulesLabel.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L361">		gbc_featureEnvyRulesLabel.gridx = 6;</span>
+<span class="fc" id="L362">		gbc_featureEnvyRulesLabel.gridy = 0;</span>
+<span class="fc" id="L363">		rules.add(featureEnvyRulesLabel, gbc_featureEnvyRulesLabel);</span>
+
+<span class="fc" id="L365">		longMethodRulesList = new JList&lt;&gt;(longMethodRules_dlmodel);</span>
+<span class="fc" id="L366">		GridBagConstraints gbc_longMethodRulesList = new GridBagConstraints();</span>
+<span class="fc" id="L367">		gbc_longMethodRulesList.gridwidth = 6;</span>
+<span class="fc" id="L368">		gbc_longMethodRulesList.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L369">		gbc_longMethodRulesList.fill = GridBagConstraints.BOTH;</span>
+<span class="fc" id="L370">		gbc_longMethodRulesList.gridx = 0;</span>
+<span class="fc" id="L371">		gbc_longMethodRulesList.gridy = 1;</span>
+<span class="fc" id="L372">		rules.add(longMethodRulesList, gbc_longMethodRulesList);</span>
+
+<span class="fc" id="L374">		featureEnvyRulesList = new JList&lt;&gt;(featureEnvyRules_dlmodel);</span>
+<span class="fc" id="L375">		GridBagConstraints gbc_featureEnvyRulesList = new GridBagConstraints();</span>
+<span class="fc" id="L376">		gbc_featureEnvyRulesList.gridwidth = 4;</span>
+<span class="fc" id="L377">		gbc_featureEnvyRulesList.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L378">		gbc_featureEnvyRulesList.fill = GridBagConstraints.BOTH;</span>
+<span class="fc" id="L379">		gbc_featureEnvyRulesList.gridx = 6;</span>
+<span class="fc" id="L380">		gbc_featureEnvyRulesList.gridy = 1;</span>
+<span class="fc" id="L381">		rules.add(featureEnvyRulesList, gbc_featureEnvyRulesList);</span>
+
+<span class="fc" id="L383">		JLabel metric_1 = new JLabel(&quot;LINES OF CODE - LOC&quot;);</span>
+<span class="fc" id="L384">		GridBagConstraints gbc_metric_1 = new GridBagConstraints();</span>
+<span class="fc" id="L385">		gbc_metric_1.gridwidth = 5;</span>
+<span class="fc" id="L386">		gbc_metric_1.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L387">		gbc_metric_1.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L388">		gbc_metric_1.gridx = 0;</span>
+<span class="fc" id="L389">		gbc_metric_1.gridy = 2;</span>
+<span class="fc" id="L390">		rules.add(metric_1, gbc_metric_1);</span>
+
+<span class="fc" id="L392">		signal_1 = new JComboBox(rules_list_operators.values());</span>
+		;
+<span class="fc" id="L394">		GridBagConstraints gbc_signal_1 = new GridBagConstraints();</span>
+<span class="fc" id="L395">		gbc_signal_1.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L396">		gbc_signal_1.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L397">		gbc_signal_1.gridx = 6;</span>
+<span class="fc" id="L398">		gbc_signal_1.gridy = 2;</span>
+<span class="fc" id="L399">		rules.add(signal_1, gbc_signal_1);</span>
+
+<span class="fc" id="L401">		threshold_1 = new JTextField();</span>
+<span class="fc" id="L402">		GridBagConstraints gbc_threshold_1 = new GridBagConstraints();</span>
+<span class="fc" id="L403">		gbc_threshold_1.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L404">		gbc_threshold_1.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L405">		gbc_threshold_1.gridx = 7;</span>
+<span class="fc" id="L406">		gbc_threshold_1.gridy = 2;</span>
+<span class="fc" id="L407">		rules.add(threshold_1, gbc_threshold_1);</span>
+<span class="fc" id="L408">		threshold_1.setColumns(10);</span>
+
+<span class="fc" id="L410">		logicOp_1 = new JComboBox(rules_list_logical.values());</span>
+<span class="fc" id="L411">		GridBagConstraints gbc_logicOp_1 = new GridBagConstraints();</span>
+<span class="fc" id="L412">		gbc_logicOp_1.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L413">		gbc_logicOp_1.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L414">		gbc_logicOp_1.gridx = 9;</span>
+<span class="fc" id="L415">		gbc_logicOp_1.gridy = 2;</span>
+<span class="fc" id="L416">		rules.add(logicOp_1, gbc_logicOp_1);</span>
+
+<span class="fc" id="L418">		JLabel metric_2 = new JLabel(&quot;CYCLOMATIC COMPLEXITY - CYCLO&quot;);</span>
+<span class="fc" id="L419">		GridBagConstraints gbc_metric_2 = new GridBagConstraints();</span>
+<span class="fc" id="L420">		gbc_metric_2.gridwidth = 5;</span>
+<span class="fc" id="L421">		gbc_metric_2.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L422">		gbc_metric_2.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L423">		gbc_metric_2.gridx = 0;</span>
+<span class="fc" id="L424">		gbc_metric_2.gridy = 3;</span>
+<span class="fc" id="L425">		rules.add(metric_2, gbc_metric_2);</span>
+
+<span class="fc" id="L427">		signal_2 = new JComboBox(rules_list_operators.values());</span>
+<span class="fc" id="L428">		GridBagConstraints gbc_signal_2 = new GridBagConstraints();</span>
+<span class="fc" id="L429">		gbc_signal_2.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L430">		gbc_signal_2.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L431">		gbc_signal_2.gridx = 6;</span>
+<span class="fc" id="L432">		gbc_signal_2.gridy = 3;</span>
+<span class="fc" id="L433">		rules.add(signal_2, gbc_signal_2);</span>
+<span class="fc" id="L434">		rules_list_operators.values();</span>
+
+<span class="fc" id="L436">		threshold_2 = new JTextField();</span>
+<span class="fc" id="L437">		GridBagConstraints gbc_threshold_2 = new GridBagConstraints();</span>
+<span class="fc" id="L438">		gbc_threshold_2.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L439">		gbc_threshold_2.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L440">		gbc_threshold_2.gridx = 7;</span>
+<span class="fc" id="L441">		gbc_threshold_2.gridy = 3;</span>
+<span class="fc" id="L442">		rules.add(threshold_2, gbc_threshold_2);</span>
+<span class="fc" id="L443">		threshold_2.setColumns(10);</span>
+
+<span class="fc" id="L445">		JLabel metric_3 = new JLabel(&quot;ACCESS TO FOREIGN DATA - ATFD&quot;);</span>
+<span class="fc" id="L446">		GridBagConstraints gbc_metric_3 = new GridBagConstraints();</span>
+<span class="fc" id="L447">		gbc_metric_3.gridwidth = 5;</span>
+<span class="fc" id="L448">		gbc_metric_3.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L449">		gbc_metric_3.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L450">		gbc_metric_3.gridx = 0;</span>
+<span class="fc" id="L451">		gbc_metric_3.gridy = 4;</span>
+<span class="fc" id="L452">		rules.add(metric_3, gbc_metric_3);</span>
+
+<span class="fc" id="L454">		signal_3 = new JComboBox(rules_list_operators.values());</span>
+<span class="fc" id="L455">		GridBagConstraints gbc_signal_3 = new GridBagConstraints();</span>
+<span class="fc" id="L456">		gbc_signal_3.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L457">		gbc_signal_3.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L458">		gbc_signal_3.gridx = 6;</span>
+<span class="fc" id="L459">		gbc_signal_3.gridy = 4;</span>
+<span class="fc" id="L460">		rules.add(signal_3, gbc_signal_3);</span>
+
+<span class="fc" id="L462">		threshold_3 = new JTextField();</span>
+<span class="fc" id="L463">		GridBagConstraints gbc_threshold_3 = new GridBagConstraints();</span>
+<span class="fc" id="L464">		gbc_threshold_3.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L465">		gbc_threshold_3.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L466">		gbc_threshold_3.gridx = 7;</span>
+<span class="fc" id="L467">		gbc_threshold_3.gridy = 4;</span>
+<span class="fc" id="L468">		rules.add(threshold_3, gbc_threshold_3);</span>
+<span class="fc" id="L469">		threshold_3.setColumns(10);</span>
+
+<span class="fc" id="L471">		logicOp_2 = new JComboBox(rules_list_logical.values());</span>
+<span class="fc" id="L472">		GridBagConstraints gbc_logicOp_3 = new GridBagConstraints();</span>
+<span class="fc" id="L473">		gbc_logicOp_3.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L474">		gbc_logicOp_3.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L475">		gbc_logicOp_3.gridx = 9;</span>
+<span class="fc" id="L476">		gbc_logicOp_3.gridy = 4;</span>
+<span class="fc" id="L477">		rules.add(logicOp_2, gbc_logicOp_3);</span>
+
+<span class="fc" id="L479">		JLabel metric_4 = new JLabel(&quot;LOCALITY OF ATTRIBUTE ACCESSES - LAA&quot;);</span>
+<span class="fc" id="L480">		GridBagConstraints gbc_metric_4 = new GridBagConstraints();</span>
+<span class="fc" id="L481">		gbc_metric_4.gridwidth = 5;</span>
+<span class="fc" id="L482">		gbc_metric_4.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L483">		gbc_metric_4.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L484">		gbc_metric_4.gridx = 0;</span>
+<span class="fc" id="L485">		gbc_metric_4.gridy = 5;</span>
+<span class="fc" id="L486">		rules.add(metric_4, gbc_metric_4);</span>
+
+<span class="fc" id="L488">		signal_4 = new JComboBox(rules_list_operators.values());</span>
+<span class="fc" id="L489">		GridBagConstraints gbc_signal_4 = new GridBagConstraints();</span>
+<span class="fc" id="L490">		gbc_signal_4.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L491">		gbc_signal_4.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L492">		gbc_signal_4.gridx = 6;</span>
+<span class="fc" id="L493">		gbc_signal_4.gridy = 5;</span>
+<span class="fc" id="L494">		rules.add(signal_4, gbc_signal_4);</span>
+
+<span class="fc" id="L496">		threshold_4 = new JTextField();</span>
+<span class="fc" id="L497">		GridBagConstraints gbc_threshold_4 = new GridBagConstraints();</span>
+<span class="fc" id="L498">		gbc_threshold_4.insets = new Insets(0, 0, 5, 5);</span>
+<span class="fc" id="L499">		gbc_threshold_4.fill = GridBagConstraints.HORIZONTAL;</span>
+<span class="fc" id="L500">		gbc_threshold_4.gridx = 7;</span>
+<span class="fc" id="L501">		gbc_threshold_4.gridy = 5;</span>
+<span class="fc" id="L502">		rules.add(threshold_4, gbc_threshold_4);</span>
+<span class="fc" id="L503">		threshold_4.setColumns(10);</span>
+
+<span class="fc" id="L505">		JButton runButton = new JButton(&quot;RUN&quot;);</span>
+<span class="fc" id="L506">		runButton.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+<span class="nc bnc" id="L508" title="All 2 branches missed.">				if (matrizExcel.size() &gt; 0) {</span>
+<span class="nc" id="L509">					defeitosPorMetodo.clear();</span>
+<span class="nc bnc" id="L510" title="All 2 branches missed.">					for (int x = 0; x &lt; 420; x++) {</span>
+<span class="nc" id="L511">						Vector&lt;Boolean&gt; defeitosMetodoIDX = new Vector&lt;Boolean&gt;();</span>
+<span class="nc" id="L512">						int loc = (int) Double.parseDouble(matrizExcel.get(x).get(4).toString());</span>
+<span class="nc" id="L513">						int cyclo = (int) Double.parseDouble(matrizExcel.get(x).get(5).toString());</span>
+<span class="nc" id="L514">						int atfd = (int) Double.parseDouble(matrizExcel.get(x).get(6).toString());</span>
+<span class="nc" id="L515">						double laa = Double.parseDouble(matrizExcel.get(x).get(7).toString());</span>
+<span class="nc bnc" id="L516" title="All 2 branches missed.">						if (longMethodRules_dlmodel.size() &gt; 0) {</span>
+<span class="nc" id="L517">							defeitosMetodoIDX.add(isLongMethod(loc, cyclo));</span>
+						}
+<span class="nc bnc" id="L519" title="All 2 branches missed.">						if (featureEnvyRules_dlmodel.size() &gt; 0) {</span>
+<span class="nc" id="L520">							defeitosMetodoIDX.add(hasFeatureEnvy(atfd, laa));</span>
+						}
+<span class="nc" id="L522">						defeitosPorMetodo.add(defeitosMetodoIDX);</span>
+					}
+<span class="nc bnc" id="L524" title="All 2 branches missed.">					for (int i = 0; i &lt; 420; i++) {</span>
+<span class="nc" id="L525">						int y = i + 1;</span>
+<span class="nc" id="L526">						dtm.setValueAt(y, i, 0);</span>
+<span class="nc" id="L527">						dtm.setValueAt(defeitosPorMetodo.get(i).get(0), i, 1);</span>
+<span class="nc" id="L528">						dtm.setValueAt(defeitosPorMetodo.get(i).get(1), i, 2);</span>
+<span class="nc" id="L529">						System.out.println(y + &quot; isLongMethod,hasFeatureEnvy:&quot; + defeitosPorMetodo.get(i));</span>
+					}
+<span class="nc" id="L531">				} else {</span>
+<span class="nc" id="L532">					System.out.println(</span>
+<span class="nc" id="L533">							&quot;Ficheiro Excel não foi carregado, por favor carrege o ficheiro e tente outra vez&quot;);</span>
+				}
+
+<span class="nc" id="L536">			}</span>
+		});
+		/**
+		 * button to save the configurations
+		 */
+<span class="fc" id="L541">		JButton saveButton = new JButton(&quot;Save&quot;);</span>
+<span class="fc" id="L542">		saveButton.addActionListener(new ActionListener() {</span>
+			public void actionPerformed(ActionEvent arg0) {
+<span class="nc" id="L544">				save();</span>
+<span class="nc" id="L545">			}</span>
+		});
+		/**
+		 * loads configurations from a given file
+		 */
+<span class="fc" id="L550">		JButton loadButton = new JButton(&quot;Load&quot;);</span>
+<span class="fc" id="L551">		loadButton.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L554">				loadRulesfromFile();</span>
+<span class="nc" id="L555">			}</span>
+		});
+
+<span class="fc" id="L558">		GridBagConstraints gbc_loadButton = new GridBagConstraints();</span>
+<span class="fc" id="L559">		gbc_loadButton.insets = new Insets(0, 0, 0, 5);</span>
+<span class="fc" id="L560">		gbc_loadButton.gridx = 0;</span>
+<span class="fc" id="L561">		gbc_loadButton.gridy = 8;</span>
+<span class="fc" id="L562">		rules.add(loadButton, gbc_loadButton);</span>
+
+<span class="fc" id="L564">		JButton editButton = new JButton(&quot;Edit&quot;);</span>
+<span class="fc" id="L565">		editButton.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L568">				edit();</span>
+<span class="nc" id="L569">			}</span>
+		});
+
+<span class="fc" id="L572">		GridBagConstraints gbc_editButton = new GridBagConstraints();</span>
+<span class="fc" id="L573">		gbc_editButton.insets = new Insets(0, 0, 0, 5);</span>
+<span class="fc" id="L574">		gbc_editButton.gridx = 3;</span>
+<span class="fc" id="L575">		gbc_editButton.gridy = 8;</span>
+<span class="fc" id="L576">		rules.add(editButton, gbc_editButton);</span>
+
+<span class="fc" id="L578">		GridBagConstraints gbc_saveButton = new GridBagConstraints();</span>
+<span class="fc" id="L579">		gbc_saveButton.insets = new Insets(0, 0, 0, 5);</span>
+<span class="fc" id="L580">		gbc_saveButton.gridx = 5;</span>
+<span class="fc" id="L581">		gbc_saveButton.gridy = 8;</span>
+<span class="fc" id="L582">		rules.add(saveButton, gbc_saveButton);</span>
+<span class="fc" id="L583">		GridBagConstraints gbc_runButton = new GridBagConstraints();</span>
+<span class="fc" id="L584">		gbc_runButton.fill = GridBagConstraints.BOTH;</span>
+<span class="fc" id="L585">		gbc_runButton.insets = new Insets(0, 0, 0, 5);</span>
+<span class="fc" id="L586">		gbc_runButton.gridx = 11;</span>
+<span class="fc" id="L587">		gbc_runButton.gridy = 8;</span>
+<span class="fc" id="L588">		rules.add(runButton, gbc_runButton);</span>
+
+<span class="fc" id="L590">		JPanel results = new JPanel();</span>
+<span class="fc" id="L591">		tabbedPane.addTab(&quot;Results&quot;, null, results, null);</span>
+<span class="fc" id="L592">		results.setLayout(new GridLayout(0, 1, 0, 0));</span>
+
+<span class="fc" id="L594">		JScrollPane resultsScrollPane = new JScrollPane();</span>
+<span class="fc" id="L595">		results.add(resultsScrollPane);</span>
+
+<span class="fc" id="L597">		resultsTable = new JTable();</span>
+<span class="fc" id="L598">		dtm = (DefaultTableModel) resultsTable.getModel();</span>
+<span class="fc" id="L599">		dtm.setRowCount(420);</span>
+<span class="fc" id="L600">		dtm.addColumn(&quot;MethodID&quot;);</span>
+<span class="fc" id="L601">		dtm.addColumn(&quot;User_long&quot;);</span>
+<span class="fc" id="L602">		dtm.addColumn(&quot;User_feature&quot;);</span>
+<span class="fc" id="L603">		resultsTable.setModel(dtm);</span>
+
+<span class="fc" id="L605">		resultsScrollPane.setViewportView(resultsTable);</span>
+
+<span class="fc" id="L607">		JPanel quality_report = new JPanel();</span>
+<span class="fc" id="L608">		tabbedPane.addTab(&quot;Quality Report&quot;, null, quality_report, null);</span>
+<span class="fc" id="L609">		quality_report.setLayout(new BorderLayout(0, 0));</span>
+
+<span class="fc" id="L611">		JButton updateButton = new JButton(&quot;Update&quot;);</span>
+<span class="fc" id="L612">		updateButton.addMouseListener(new MouseAdapter() {</span>
+			@Override
+			public void mouseClicked(MouseEvent e) {
+<span class="nc" id="L615">				System.out.println(filePath.getText());</span>
+<span class="nc" id="L616">				QualityChecker qc_iPlasma = new QualityChecker(9, filePath.getText());</span>
+<span class="nc" id="L617">				QualityChecker qc_PMD = new QualityChecker(10, filePath.getText());</span>
+<span class="nc" id="L618">				UserQualityChecker qc_User_Long = new UserQualityChecker(&quot;user_long&quot;, matrizExcel, dtm);</span>
+<span class="nc" id="L619">				UserQualityChecker qc_User_Feature = new UserQualityChecker(&quot;user_feature&quot;, matrizExcel, dtm);</span>
+<span class="nc" id="L620">				qc_iPlasma.start();</span>
+<span class="nc" id="L621">				qc_PMD.start();</span>
+<span class="nc" id="L622">				qc_User_Long.start();</span>
+<span class="nc" id="L623">				qc_User_Feature.start();</span>
+				try {
+<span class="nc" id="L625">					qc_iPlasma.join();</span>
+<span class="nc" id="L626">					qc_PMD.join();</span>
+<span class="nc" id="L627">					qc_User_Long.join();</span>
+<span class="nc" id="L628">					qc_User_Feature.join();</span>
+<span class="nc" id="L629">				} catch (InterruptedException e1) {</span>
+					// TODO Auto-generated catch block
+<span class="nc" id="L631">					e1.printStackTrace();</span>
+				}
+<span class="nc" id="L633">				updateQualityValues(0, qc_iPlasma.getnDCI(), qc_iPlasma.getnDII(), qc_iPlasma.getnADCI(),</span>
+<span class="nc" id="L634">						qc_iPlasma.getnADII());</span>
+<span class="nc" id="L635">				updateQualityValues(1, qc_PMD.getnDCI(), qc_PMD.getnDII(), qc_PMD.getnADCI(), qc_PMD.getnADII());</span>
+<span class="nc" id="L636">				updateQualityValues(2, qc_User_Long.getnDCI(), qc_User_Long.getnDII(), qc_User_Long.getnADCI(),</span>
+<span class="nc" id="L637">						qc_User_Long.getnADII());</span>
+<span class="nc" id="L638">				updateQualityValues(3, qc_User_Feature.getnDCI(), qc_User_Feature.getnDII(), qc_User_Feature.getnADCI(),</span>
+<span class="nc" id="L639">						qc_User_Feature.getnADII());</span>
+<span class="nc" id="L640">			}</span>
+
+		});
+<span class="fc" id="L643">		quality_report.add(updateButton, BorderLayout.SOUTH);</span>
+
+<span class="fc" id="L645">		JScrollPane scrollPane = new JScrollPane();</span>
+<span class="fc" id="L646">		quality_report.add(scrollPane, BorderLayout.CENTER);</span>
+
+<span class="fc" id="L648">		qualityReportTable = new JTable();</span>
+<span class="fc" id="L649">		scrollPane.setViewportView(qualityReportTable);</span>
+<span class="fc" id="L650">		qualityReportTable.setFont(new Font(&quot;Tahoma&quot;, Font.PLAIN, 12));</span>
+<span class="fc" id="L651">		qualityReportTable</span>
+<span class="fc" id="L652">				.setModel(</span>
+<span class="fc" id="L653">						new DefaultTableModel(</span>
+<span class="fc" id="L654">								new Object[][] {</span>
+<span class="fc" id="L655">										{ &quot;iPlasma&quot;, new Integer(0), new Integer(0), new Integer(0), new Integer(0) },</span>
+<span class="fc" id="L656">										{ &quot;PMD&quot;, new Integer(0), new Integer(0), new Integer(0), new Integer(0) },</span>
+<span class="fc" id="L657">										{ &quot;User_long&quot;, new Integer(0), new Integer(0), new Integer(0), new Integer(0) },</span>
+<span class="fc" id="L658">										{ &quot;User_feature&quot;, new Integer(0), new Integer(0), new Integer(0),</span>
+<span class="fc" id="L659">												new Integer(0) }, },</span>
+<span class="fc" id="L660">								new String[] { &quot;Tools&quot;, &quot;DCI&quot;, &quot;DII&quot;, &quot;ADCI&quot;, &quot;ADII&quot; }) {</span>
+<span class="fc" id="L661">							Class[] columnTypes = new Class[] { String.class, Integer.class, Integer.class,</span>
+<span class="fc" id="L662">									Integer.class, Integer.class };</span>
+
+							public Class getColumnClass(int columnIndex) {
+<span class="nc" id="L665">								return columnTypes[columnIndex];</span>
+							}
+						});
+<span class="fc" id="L668">	}</span>
+
+	protected void edit() {
+<span class="fc" id="L671">		boolean ruleSelected = false;</span>
+<span class="fc" id="L672">		boolean isLongMethodRule = true;</span>
+<span class="fc bfc" id="L673" title="All 2 branches covered.">		if (longMethodRulesList.getSelectedValue() != null) {</span>
+<span class="fc" id="L674">			ruleSelected = true;</span>
+<span class="fc bfc" id="L675" title="All 2 branches covered.">		} else if (featureEnvyRulesList.getSelectedValue() != null) {</span>
+<span class="fc" id="L676">			ruleSelected = true;</span>
+<span class="fc" id="L677">			isLongMethodRule = false;</span>
+		}
+<span class="fc bfc" id="L679" title="All 2 branches covered.">		if (ruleSelected != false) {</span>
+<span class="fc bfc" id="L680" title="All 2 branches covered.">			if (isLongMethodRule) {</span>
+<span class="pc bpc" id="L681" title="1 of 4 branches missed.">				if (textFieldIsEmpty(threshold_3) &amp;&amp; textFieldIsEmpty(threshold_4)) {</span>
+<span class="pc bpc" id="L682" title="3 of 4 branches missed.">					if (!textFieldIsEmpty(threshold_1) || !textFieldIsEmpty(threshold_2)) {</span>
+<span class="fc" id="L683">						save();</span>
+<span class="fc" id="L684">					} else {</span>
+<span class="nc" id="L685">						System.out.println(</span>
+<span class="nc" id="L686">								&quot;Please insert at least one value for any metric of the rule you are editing!&quot;);</span>
+					}
+<span class="nc" id="L688">				} else {</span>
+<span class="fc" id="L689">					System.out.println(</span>
+<span class="fc" id="L690">							&quot;Please ensure all values except the ones you can and want to change for the rule you are editing are clear!&quot;);</span>
+				}
+<span class="fc" id="L692">			} else {</span>
+<span class="pc bpc" id="L693" title="1 of 4 branches missed.">				if (textFieldIsEmpty(threshold_1) &amp;&amp; textFieldIsEmpty(threshold_2)) {</span>
+<span class="pc bpc" id="L694" title="3 of 4 branches missed.">					if (!textFieldIsEmpty(threshold_3) || !textFieldIsEmpty(threshold_4)) {</span>
+<span class="fc" id="L695">						save();</span>
+<span class="fc" id="L696">					} else {</span>
+<span class="nc" id="L697">						System.out.println(</span>
+<span class="nc" id="L698">								&quot;Please insert at least one value for any metric of the rule you are editing!&quot;);</span>
+					}
+<span class="nc" id="L700">				} else {</span>
+<span class="fc" id="L701">					System.out.println(</span>
+<span class="fc" id="L702">							&quot;Please ensure all values except the ones you can and want to change for the rule you are editing are clear!&quot;);</span>
+				}
+			}
+<span class="fc" id="L705">		} else {</span>
+<span class="fc" id="L706">			System.out.println(&quot;A rule must be selected for editing to be possible!&quot;);</span>
+		}
+<span class="fc" id="L708">	}</span>
+
+	/**
+	 * given the number of lines of codes and the cyclomatic complexity of the
+	 * method size checks if the method isLongMethod.
+	 *
+	 * @param loc   the number of lines of code
+	 * @param cyclo the cyclomatic complexity of the method
+	 * @return true, if is long method
+	 */
+	protected boolean isLongMethod(int loc, int cyclo) {
+		// defined by LOC and CYCLO
+<span class="fc" id="L720">		boolean isAND = false; // if rule contains an AND, this will be true, if false, rule contains an OR</span>
+<span class="fc" id="L721">		int rules = 0;</span>
+<span class="fc" id="L722">		int locTreshold = 0;</span>
+<span class="fc" id="L723">		int cycloTreshold = 0;</span>
+<span class="fc" id="L724">		int islocTreshold = -1; // if 1, the next number parsed will be the locTreshold, if 0, the next number</span>
+								// parsed will be the cyclo treshold
+<span class="fc" id="L726">		boolean locBiggerThan = false;</span>
+<span class="fc" id="L727">		boolean cycloBiggerThan = false;</span>
+<span class="fc bfc" id="L728" title="All 2 branches covered.">		for (int i = 0; i &lt; longMethodRules.size(); i++) {</span>
+			try {
+<span class="fc" id="L730">				Integer.parseInt(longMethodRules.get(i));</span>
+<span class="fc bfc" id="L731" title="All 2 branches covered.">				if (islocTreshold == 1) {</span>
+<span class="fc" id="L732">					locTreshold = Integer.parseInt(longMethodRules.get(i));</span>
+<span class="pc bpc" id="L733" title="1 of 2 branches missed.">				} else if (islocTreshold == 0) {</span>
+<span class="fc" id="L734">					cycloTreshold = Integer.parseInt(longMethodRules.get(i));</span>
+				}
+<span class="fc" id="L736">			} catch (NumberFormatException e) {</span>
+<span class="fc bfc" id="L737" title="All 2 branches covered.">				if (longMethodRules.get(i).equals(&quot;LOC&quot;)) {</span>
+<span class="fc" id="L738">					rules++;</span>
+<span class="fc" id="L739">					islocTreshold = 1;</span>
+<span class="fc bfc" id="L740" title="All 2 branches covered.">				} else if (longMethodRules.get(i).equals(&quot;CYCLO&quot;)) {</span>
+<span class="fc" id="L741">					rules++;</span>
+<span class="fc" id="L742">					islocTreshold = 0;</span>
+<span class="fc bfc" id="L743" title="All 2 branches covered.">				} else if (longMethodRules.get(i).equals(&quot;AND&quot;)) {</span>
+<span class="fc" id="L744">					isAND = true;</span>
+<span class="fc bfc" id="L745" title="All 2 branches covered.">				} else if (longMethodRules.get(i).equals(&quot;BIGGER_THAN&quot;)) {</span>
+<span class="fc bfc" id="L746" title="All 2 branches covered.">					if (islocTreshold == 1) {</span>
+<span class="fc" id="L747">						locBiggerThan = true;</span>
+					}
+<span class="fc bfc" id="L749" title="All 2 branches covered.">					if (islocTreshold == 0) {</span>
+<span class="fc" id="L750">						cycloBiggerThan = true;</span>
+					}
+				}
+			}
+		}
+<span class="pc bpc" id="L755" title="2 of 6 branches missed.">		if (rules &gt; 1 &amp;&amp; cycloTreshold != 0 &amp;&amp; locTreshold != 0) {</span>
+<span class="fc bfc" id="L756" title="All 2 branches covered.">			if (isAND) {</span>
+<span class="fc bfc" id="L757" title="All 4 branches covered.">				if (cycloBiggerThan &amp;&amp; locBiggerThan) {</span>
+<span class="pc bpc" id="L758" title="2 of 4 branches missed.">					return ((cyclo &gt; cycloTreshold &amp;&amp; loc &gt; locTreshold));</span>
+				}
+<span class="pc bpc" id="L760" title="1 of 4 branches missed.">				if (cycloBiggerThan &amp;&amp; !locBiggerThan) {</span>
+<span class="pc bpc" id="L761" title="2 of 4 branches missed.">					return (cyclo &gt; cycloTreshold &amp;&amp; loc &lt; locTreshold);</span>
+				}
+<span class="pc bpc" id="L763" title="1 of 4 branches missed.">				if (!cycloBiggerThan &amp;&amp; !locBiggerThan) {</span>
+<span class="pc bpc" id="L764" title="2 of 4 branches missed.">					return (cyclo &lt; cycloTreshold &amp;&amp; loc &lt; locTreshold);</span>
+				}
+<span class="pc bpc" id="L766" title="2 of 4 branches missed.">				if (!cycloBiggerThan &amp;&amp; locBiggerThan) {</span>
+<span class="pc bpc" id="L767" title="2 of 4 branches missed.">					return (cyclo &lt; cycloTreshold &amp;&amp; loc &gt; locTreshold);</span>
+				}
+			}
+<span class="pc bpc" id="L770" title="1 of 2 branches missed.">			if (!isAND) {</span>
+<span class="fc bfc" id="L771" title="All 4 branches covered.">				if (cycloBiggerThan &amp;&amp; locBiggerThan) {</span>
+<span class="pc bpc" id="L772" title="3 of 4 branches missed.">					return (cyclo &gt; cycloTreshold || loc &gt; locTreshold);</span>
+				}
+<span class="pc bpc" id="L774" title="1 of 4 branches missed.">				if (cycloBiggerThan &amp;&amp; !locBiggerThan) {</span>
+<span class="pc bpc" id="L775" title="3 of 4 branches missed.">					return (cyclo &gt; cycloTreshold || loc &lt; locTreshold);</span>
+				}
+<span class="pc bpc" id="L777" title="1 of 4 branches missed.">				if (!cycloBiggerThan &amp;&amp; !locBiggerThan) {</span>
+<span class="pc bpc" id="L778" title="3 of 4 branches missed.">					return (cyclo &lt; cycloTreshold || loc &lt; locTreshold);</span>
+				}
+<span class="pc bpc" id="L780" title="2 of 4 branches missed.">				if (!cycloBiggerThan &amp;&amp; locBiggerThan) {</span>
+<span class="pc bpc" id="L781" title="3 of 4 branches missed.">					return (cyclo &lt; cycloTreshold || loc &gt; locTreshold);</span>
+				}
+			}
+<span class="pc bpc" id="L784" title="1 of 2 branches missed.">		} else if (rules &gt; 0) {</span>
+<span class="fc bfc" id="L785" title="All 2 branches covered.">			if (locTreshold != 0) {</span>
+<span class="fc bfc" id="L786" title="All 2 branches covered.">				if (locBiggerThan) {</span>
+<span class="pc bpc" id="L787" title="1 of 2 branches missed.">					return (loc &gt; locTreshold);</span>
+				} else {
+<span class="pc bpc" id="L789" title="1 of 2 branches missed.">					return (loc &lt; locTreshold);</span>
+				}
+			} else {
+<span class="fc bfc" id="L792" title="All 2 branches covered.">				if (cycloBiggerThan) {</span>
+<span class="pc bpc" id="L793" title="1 of 2 branches missed.">					return (cyclo &gt; cycloTreshold);</span>
+				} else {
+<span class="pc bpc" id="L795" title="1 of 2 branches missed.">					return (cyclo &lt; cycloTreshold);</span>
+				}
+			}
+		}
+<span class="nc" id="L799">		return false;</span>
+	}
+
+	public void setLongMethodRules(ArrayList&lt;String&gt; longMethodRules) {
+<span class="fc" id="L803">		this.longMethodRules = longMethodRules;</span>
+<span class="fc" id="L804">	}</span>
+
+	public void setFeatureEnvyRules(ArrayList&lt;String&gt; featureEnvyRules) {
+<span class="fc" id="L807">		this.featureEnvyRules = featureEnvyRules;</span>
+<span class="fc" id="L808">	}</span>
+
+	/**
+	 * given two parameters checks if the code has heature envy.
+	 *
+	 * @param atfd the acessos do método a métodos de outras classes
+	 * @param laa  the acessos do método a atributos da própria classe
+	 * @return true, if successful
+	 */
+	protected boolean hasFeatureEnvy(int atfd, double laa) {
+		// defined by LOC and CYCLO
+<span class="fc" id="L819">		boolean isAND = false; // if rule contains an AND, this will be true, if false, rule contains an OR</span>
+<span class="fc" id="L820">		int rules = 0;</span>
+<span class="fc" id="L821">		double laaTreshold = 0;</span>
+<span class="fc" id="L822">		int atfdTreshold = 0;</span>
+<span class="fc" id="L823">		int islaaTreshold = -1; // if 1, the next number parsed will be the laaTreshold, if 0, the next number</span>
+								// parsed will be the atfd treshold
+<span class="fc" id="L825">		boolean atfdBiggerThan = false;</span>
+<span class="fc" id="L826">		boolean laaBiggerThan = false;</span>
+<span class="fc bfc" id="L827" title="All 2 branches covered.">		for (int i = 0; i &lt; featureEnvyRules.size(); i++) {</span>
+			try {
+<span class="fc" id="L829">				Double.parseDouble(featureEnvyRules.get(i));</span>
+<span class="fc bfc" id="L830" title="All 2 branches covered.">				if (islaaTreshold == 1) {</span>
+<span class="fc" id="L831">					laaTreshold = Double.parseDouble(featureEnvyRules.get(i));</span>
+<span class="fc" id="L832">				} else {</span>
+<span class="fc" id="L833">					atfdTreshold = Integer.parseInt(featureEnvyRules.get(i));</span>
+				}
+<span class="fc" id="L835">			} catch (NumberFormatException e) {</span>
+<span class="fc bfc" id="L836" title="All 2 branches covered.">				if (featureEnvyRules.get(i).equals(&quot;LAA&quot;)) {</span>
+<span class="fc" id="L837">					rules++;</span>
+<span class="fc" id="L838">					islaaTreshold = 1;</span>
+<span class="fc bfc" id="L839" title="All 2 branches covered.">				} else if (featureEnvyRules.get(i).equals(&quot;ATFD&quot;)) {</span>
+<span class="fc" id="L840">					rules++;</span>
+<span class="fc" id="L841">					islaaTreshold = 0;</span>
+<span class="fc bfc" id="L842" title="All 2 branches covered.">				} else if (featureEnvyRules.get(i).equals(&quot;AND&quot;)) {</span>
+<span class="fc" id="L843">					isAND = true;</span>
+<span class="fc bfc" id="L844" title="All 2 branches covered.">				} else if (featureEnvyRules.get(i).equals(&quot;BIGGER_THAN&quot;)) {</span>
+<span class="fc bfc" id="L845" title="All 2 branches covered.">					if (islaaTreshold == 1) {</span>
+<span class="fc" id="L846">						laaBiggerThan = true;</span>
+					}
+<span class="fc bfc" id="L848" title="All 2 branches covered.">					if (islaaTreshold == 0) {</span>
+<span class="fc" id="L849">						atfdBiggerThan = true;</span>
+					}
+				}
+			}
+		}
+<span class="pc bpc" id="L854" title="2 of 6 branches missed.">		if (rules &gt; 1 &amp;&amp; atfdTreshold != 0 &amp;&amp; laaTreshold != 0) {</span>
+<span class="fc bfc" id="L855" title="All 2 branches covered.">			if (isAND) {</span>
+<span class="fc bfc" id="L856" title="All 4 branches covered.">				if (atfdBiggerThan &amp;&amp; laaBiggerThan) {</span>
+<span class="pc bpc" id="L857" title="2 of 4 branches missed.">					return (atfd &gt; atfdTreshold &amp;&amp; laa &gt; laaTreshold);</span>
+				}
+<span class="pc bpc" id="L859" title="1 of 4 branches missed.">				if (atfdBiggerThan &amp;&amp; !laaBiggerThan) {</span>
+<span class="pc bpc" id="L860" title="2 of 4 branches missed.">					return (atfd &gt; atfdTreshold &amp;&amp; laa &lt; laaTreshold);</span>
+				}
+<span class="pc bpc" id="L862" title="1 of 4 branches missed.">				if (!atfdBiggerThan &amp;&amp; !laaBiggerThan) {</span>
+<span class="pc bpc" id="L863" title="2 of 4 branches missed.">					return (atfd &lt; atfdTreshold &amp;&amp; laa &lt; laaTreshold);</span>
+				}
+<span class="pc bpc" id="L865" title="2 of 4 branches missed.">				if (!atfdBiggerThan &amp;&amp; laaBiggerThan) {</span>
+<span class="pc bpc" id="L866" title="2 of 4 branches missed.">					return (atfd &lt; atfdTreshold &amp;&amp; laa &gt; laaTreshold);</span>
+				}
+			}
+<span class="pc bpc" id="L869" title="1 of 2 branches missed.">			if (!isAND) {</span>
+<span class="fc bfc" id="L870" title="All 4 branches covered.">				if (atfdBiggerThan &amp;&amp; laaBiggerThan) {</span>
+<span class="pc bpc" id="L871" title="2 of 4 branches missed.">					return (atfd &gt; atfdTreshold || laa &gt; laaTreshold);</span>
+				}
+<span class="pc bpc" id="L873" title="1 of 4 branches missed.">				if (atfdBiggerThan &amp;&amp; !laaBiggerThan) {</span>
+<span class="pc bpc" id="L874" title="2 of 4 branches missed.">					return (atfd &gt; atfdTreshold || laa &lt; laaTreshold);</span>
+				}
+<span class="pc bpc" id="L876" title="1 of 4 branches missed.">				if (!atfdBiggerThan &amp;&amp; !laaBiggerThan) {</span>
+<span class="pc bpc" id="L877" title="2 of 4 branches missed.">					return (atfd &lt; atfdTreshold || laa &lt; laaTreshold);</span>
+				}
+<span class="pc bpc" id="L879" title="2 of 4 branches missed.">				if (!atfdBiggerThan &amp;&amp; laaBiggerThan) {</span>
+<span class="pc bpc" id="L880" title="2 of 4 branches missed.">					return (atfd &lt; atfdTreshold || laa &gt; laaTreshold);</span>
+				}
+			}
+<span class="pc bpc" id="L883" title="1 of 2 branches missed.">		} else if (rules &gt; 0) {</span>
+<span class="fc bfc" id="L884" title="All 2 branches covered.">			if (laaTreshold != 0) {</span>
+<span class="fc bfc" id="L885" title="All 2 branches covered.">				if (laaBiggerThan) {</span>
+<span class="pc bpc" id="L886" title="1 of 2 branches missed.">					return (laa &gt; laaTreshold);</span>
+				} else {
+<span class="pc bpc" id="L888" title="1 of 2 branches missed.">					return (laa &lt; laaTreshold);</span>
+				}
+			} else {
+<span class="fc bfc" id="L891" title="All 2 branches covered.">				if (atfdBiggerThan) {</span>
+<span class="pc bpc" id="L892" title="1 of 2 branches missed.">					return (atfd &gt; atfdTreshold);</span>
+				} else {
+<span class="pc bpc" id="L894" title="1 of 2 branches missed.">					return (atfd &lt; atfdTreshold);</span>
+				}
+			}
+		}
+<span class="nc" id="L898">		return false;</span>
+	}
+
+	/**
+	 * updates values to excel file.
+	 *
+	 * @param index the index
+	 * @param nDCI  the n DCI
+	 * @param nDII  the n DII
+	 * @param nADCI the n ADCI
+	 * @param nADII the n ADII
+	 */
+	protected void updateQualityValues(int index, int nDCI, int nDII, int nADCI, int nADII) {
+<span class="fc" id="L911">		qualityReportTable.setValueAt(nDCI, index, 1);</span>
+<span class="fc" id="L912">		qualityReportTable.setValueAt(nDII, index, 2);</span>
+<span class="fc" id="L913">		qualityReportTable.setValueAt(nADCI, index, 3);</span>
+<span class="fc" id="L914">		qualityReportTable.setValueAt(nADII, index, 4);</span>
+<span class="fc" id="L915">	}</span>
+
+	/**
+	 * resets rules on the GUI.
+	 */
+	protected void clearRulesGUI() {
+<span class="fc" id="L921">		threshold_1.setText(&quot;&quot;);</span>
+<span class="fc" id="L922">		threshold_2.setText(&quot;&quot;);</span>
+<span class="fc" id="L923">		threshold_3.setText(&quot;&quot;);</span>
+<span class="fc" id="L924">		threshold_4.setText(&quot;&quot;);</span>
+<span class="fc" id="L925">		signal_1.setSelectedIndex(0);</span>
+<span class="fc" id="L926">		signal_2.setSelectedIndex(0);</span>
+<span class="fc" id="L927">		signal_3.setSelectedIndex(0);</span>
+<span class="fc" id="L928">		signal_4.setSelectedIndex(0);</span>
+<span class="fc" id="L929">		logicOp_1.setSelectedIndex(0);</span>
+<span class="fc" id="L930">		logicOp_2.setSelectedIndex(0);</span>
+<span class="fc" id="L931">	}</span>
+
+	/**
+	 * Loads rules from txt file.
+	 */
+	protected void loadRulesfromFile() {
+<span class="fc" id="L937">		longMethodRules_dlmodel.clear();</span>
+<span class="fc" id="L938">		featureEnvyRules_dlmodel.clear();</span>
+<span class="fc" id="L939">		longMethodRules.clear();</span>
+<span class="fc" id="L940">		featureEnvyRules.clear();</span>
+		try {
+<span class="fc" id="L942">			BufferedReader br = new BufferedReader(new FileReader(&quot;long_method_rules.txt&quot;));</span>
+			String line;
+<span class="fc bfc" id="L944" title="All 2 branches covered.">			while ((line = br.readLine()) != null) {</span>
+<span class="fc" id="L945">				String[] splitted = line.split(&quot; &quot;);</span>
+<span class="fc bfc" id="L946" title="All 2 branches covered.">				for (int i = 0; i &lt; splitted.length; i++) {</span>
+<span class="fc" id="L947">					longMethodRules.add(splitted[i]);</span>
+				}
+<span class="fc" id="L949">				longMethodRules_dlmodel.addElement(line);</span>
+			}
+<span class="fc" id="L951">			br.close();</span>
+<span class="pc" id="L952">		} catch (IOException e1) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L954">			e1.printStackTrace();</span>
+		}
+
+		try {
+<span class="fc" id="L958">			BufferedReader br = new BufferedReader(new FileReader(&quot;feature_envy_rules.txt&quot;));</span>
+			String line;
+<span class="fc bfc" id="L960" title="All 2 branches covered.">			while ((line = br.readLine()) != null) {</span>
+<span class="fc" id="L961">				String[] splitted = line.split(&quot; &quot;);</span>
+<span class="fc bfc" id="L962" title="All 2 branches covered.">				for (int i = 0; i &lt; splitted.length; i++) {</span>
+<span class="fc" id="L963">					featureEnvyRules.add(splitted[i]);</span>
+				}
+<span class="fc" id="L965">				featureEnvyRules_dlmodel.addElement(line);</span>
+			}
+<span class="fc" id="L967">			br.close();</span>
+<span class="pc" id="L968">		} catch (IOException e1) {</span>
+			// TODO Auto-generated catch block
+<span class="nc" id="L970">			e1.printStackTrace();</span>
+		}
+
+<span class="fc" id="L973">	}</span>
+
+	/**
+	 * checks if text field is empty.
+	 *
+	 * @param tf the textfield
+	 * @return true, if successful
+	 */
+	private boolean textFieldIsEmpty(JTextField tf) {
+		try {
+<span class="fc" id="L983">			tf.getText();</span>
+<span class="fc bfc" id="L984" title="All 2 branches covered.">			if (tf.getText().isBlank()) {</span>
+<span class="fc" id="L985">				return true;</span>
+			}
+<span class="nc" id="L987">		} catch (NullPointerException np) {</span>
+<span class="nc" id="L988">			return true;</span>
+		}
+<span class="fc" id="L990">		return false;</span>
+	}
+
+	/**
+	 * saves the current configuration.
+	 */
+	protected void save() {
+<span class="fc" id="L997">		boolean longMethodRulesDefined = true;</span>
+<span class="fc" id="L998">		boolean featureEnvyRulesDefined = true;</span>
+		try {
+<span class="fc" id="L1000">			Integer.parseInt(threshold_1.getText().toString());</span>
+<span class="fc" id="L1001">			longMethodRules.clear();</span>
+<span class="fc" id="L1002">			longMethodRules.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L1003">			longMethodRules.add(signal_1.getSelectedItem().toString());</span>
+<span class="fc" id="L1004">			longMethodRules.add(threshold_1.getText().toString());</span>
+<span class="fc bfc" id="L1005" title="All 2 branches covered.">			if (logicOp_1.getSelectedItem().toString() != &quot;END&quot;) {</span>
+				try {
+<span class="fc" id="L1007">					Integer.parseInt(threshold_2.getText().toString());</span>
+<span class="fc" id="L1008">					longMethodRules.add(logicOp_1.getSelectedItem().toString());</span>
+<span class="fc" id="L1009">					longMethodRules.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L1010">					longMethodRules.add(signal_2.getSelectedItem().toString());</span>
+<span class="fc" id="L1011">					longMethodRules.add(threshold_2.getText().toString());</span>
+<span class="pc" id="L1012">				} catch (NumberFormatException t2) {</span>
+<span class="nc" id="L1013">					System.out.println(&quot;user defined a logical operator but did not define one of the conditions&quot;);</span>
+				}
+			}
+<span class="pc" id="L1016">		} catch (NumberFormatException t1) {</span>
+			try {
+<span class="fc" id="L1018">				Integer.parseInt(threshold_2.getText().toString());</span>
+<span class="fc" id="L1019">				longMethodRules.clear();</span>
+<span class="fc" id="L1020">				longMethodRules.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L1021">				longMethodRules.add(signal_2.getSelectedItem().toString());</span>
+<span class="fc" id="L1022">				longMethodRules.add(threshold_2.getText().toString());</span>
+<span class="fc" id="L1023">			} catch (NumberFormatException t2) {</span>
+<span class="fc" id="L1024">				longMethodRulesDefined = false;</span>
+			}
+		}
+		try {
+<span class="fc" id="L1028">			Integer.parseInt(threshold_3.getText().toString());</span>
+<span class="fc" id="L1029">			featureEnvyRules.clear();</span>
+<span class="fc" id="L1030">			featureEnvyRules.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L1031">			featureEnvyRules.add(signal_3.getSelectedItem().toString());</span>
+<span class="fc" id="L1032">			featureEnvyRules.add(threshold_3.getText().toString());</span>
+<span class="fc bfc" id="L1033" title="All 2 branches covered.">			if (logicOp_2.getSelectedItem().toString() != &quot;END&quot;) {</span>
+				try {
+<span class="fc" id="L1035">					Double.parseDouble(threshold_4.getText().toString());</span>
+<span class="fc" id="L1036">					featureEnvyRules.add(logicOp_2.getSelectedItem().toString());</span>
+<span class="fc" id="L1037">					featureEnvyRules.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L1038">					featureEnvyRules.add(signal_4.getSelectedItem().toString());</span>
+<span class="fc" id="L1039">					featureEnvyRules.add(threshold_4.getText().toString());</span>
+<span class="pc" id="L1040">				} catch (NumberFormatException t4) {</span>
+<span class="nc" id="L1041">					System.out.println(&quot;user defined a logical operator but did not define one of the conditions&quot;);</span>
+				}
+			}
+<span class="pc" id="L1044">		} catch (NumberFormatException t3) {</span>
+			try {
+<span class="fc" id="L1046">				Double.parseDouble(threshold_4.getText().toString());</span>
+<span class="fc" id="L1047">				featureEnvyRules.clear();</span>
+<span class="fc" id="L1048">				featureEnvyRules.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L1049">				featureEnvyRules.add(signal_4.getSelectedItem().toString());</span>
+<span class="fc" id="L1050">				featureEnvyRules.add(threshold_4.getText().toString());</span>
+<span class="fc" id="L1051">			} catch (NumberFormatException t4) {</span>
+<span class="fc" id="L1052">				featureEnvyRulesDefined = false;</span>
+			}
+		}
+<span class="fc" id="L1055">		System.out.println(longMethodRules);</span>
+<span class="fc" id="L1056">		System.out.println(featureEnvyRules);</span>
+		try {
+<span class="fc bfc" id="L1058" title="All 2 branches covered.">			if (longMethodRulesDefined) {</span>
+<span class="fc" id="L1059">				FileWriter writer1 = new FileWriter(&quot;long_method_rules.txt&quot;, false);</span>
+<span class="fc" id="L1060">				BufferedWriter bw1 = new BufferedWriter(writer1);</span>
+<span class="fc bfc" id="L1061" title="All 2 branches covered.">				for (String str : longMethodRules) {</span>
+<span class="fc" id="L1062">					bw1.write(str + &quot; &quot;);</span>
+				}
+<span class="fc" id="L1064">				bw1.write(&quot;\n&quot;);</span>
+<span class="fc" id="L1065">				bw1.close();</span>
+<span class="fc" id="L1066">				longMethodRules.clear();</span>
+			}
+<span class="fc bfc" id="L1068" title="All 2 branches covered.">			if (featureEnvyRulesDefined) {</span>
+<span class="fc" id="L1069">				FileWriter writer2 = new FileWriter(&quot;feature_envy_rules.txt&quot;, false);</span>
+<span class="fc" id="L1070">				BufferedWriter bw2 = new BufferedWriter(writer2);</span>
+<span class="fc bfc" id="L1071" title="All 2 branches covered.">				for (String str : featureEnvyRules) {</span>
+<span class="fc" id="L1072">					bw2.write(str + &quot; &quot;);</span>
+				}
+<span class="fc" id="L1074">				bw2.write(&quot;\n&quot;);</span>
+<span class="fc" id="L1075">				bw2.close();</span>
+<span class="fc" id="L1076">				featureEnvyRules.clear();</span>
+			}
+<span class="pc bpc" id="L1078" title="1 of 4 branches missed.">			if (longMethodRulesDefined || featureEnvyRulesDefined) {</span>
+<span class="fc" id="L1079">				loadRulesfromFile();</span>
+			}
+<span class="pc" id="L1081">		} catch (IOException e) {</span>
+		}
+<span class="fc" id="L1083">	}</span>
+
+/////////////////////GETERS FOR TESTS ////////////////////
+	public JPanel getContentPane() {
+<span class="nc" id="L1087">		return contentPane;</span>
+	}
+
+	public JTextField getFilePath() {
+<span class="nc" id="L1091">		return filePath;</span>
+	}
+
+	public JTable getLoadedFile() {
+<span class="nc" id="L1095">		return loadedFile;</span>
+	}
+
+	public JTextField getThreshold_1() {
+<span class="fc" id="L1099">		return threshold_1;</span>
+	}
+
+	public JTextField getThreshold_2() {
+<span class="fc" id="L1103">		return threshold_2;</span>
+	}
+
+	public JTextField getThreshold_3() {
+<span class="fc" id="L1107">		return threshold_3;</span>
+	}
+
+	public JTextField getThreshold_4() {
+<span class="fc" id="L1111">		return threshold_4;</span>
+	}
+
+	public JComboBox getSignal_1() {
+<span class="fc" id="L1115">		return signal_1;</span>
+	}
+
+	public JComboBox getSignal_2() {
+<span class="fc" id="L1119">		return signal_2;</span>
+	}
+
+	public JComboBox getSignal_3() {
+<span class="fc" id="L1123">		return signal_3;</span>
+	}
+
+	public JComboBox getSignal_4() {
+<span class="fc" id="L1127">		return signal_4;</span>
+	}
+
+	public JComboBox getLogicOp_1() {
+<span class="fc" id="L1131">		return logicOp_1;</span>
+	}
+
+	public JComboBox getLogicOp_2() {
+<span class="fc" id="L1135">		return logicOp_2;</span>
+	}
+
+	public JTable getResultsTable() {
+<span class="nc" id="L1139">		return resultsTable;</span>
+	}
+
+	public DefaultTableModel getDtm() {
+<span class="nc" id="L1143">		return dtm;</span>
+	}
+
+	public JTable getQualityReportTable() {
+<span class="fc" id="L1147">		return qualityReportTable;</span>
+	}
+
+	public DefaultListModel&lt;String&gt; getLongMethodRules_dlmodel() {
+<span class="nc" id="L1151">		return longMethodRules_dlmodel;</span>
+	}
+
+	public JList&lt;String&gt; getLongMethodRulesList() {
+<span class="fc" id="L1155">		return longMethodRulesList;</span>
+	}
+
+	public DefaultListModel&lt;String&gt; getFeatureEnvyRules_dlmodel() {
+<span class="nc" id="L1159">		return featureEnvyRules_dlmodel;</span>
+	}
+
+	public JList&lt;String&gt; getFeatureEnvyRulesList() {
+<span class="fc" id="L1163">		return featureEnvyRulesList;</span>
+	}
+
+	public static JTable getJtable() {
+<span class="nc" id="L1167">		return jtable;</span>
+	}
+
+	public int getiPlasma_DCI() {
+<span class="fc" id="L1171">		return iPlasma_DCI;</span>
+	}
+
+	public int getiPlasma_DII() {
+<span class="fc" id="L1175">		return iPlasma_DII;</span>
+	}
+
+	public int getiPlasma_ADCI() {
+<span class="fc" id="L1179">		return iPlasma_ADCI;</span>
+	}
+
+	public int getiPlasma_ADII() {
+<span class="fc" id="L1183">		return iPlasma_ADII;</span>
+	}
+
+	public int getPMD_DCI() {
+<span class="fc" id="L1187">		return PMD_DCI;</span>
+	}
+
+	public int getPMD_DII() {
+<span class="fc" id="L1191">		return PMD_DII;</span>
+	}
+
+	public int getPMD_ADCI() {
+<span class="fc" id="L1195">		return PMD_ADCI;</span>
+	}
+
+	public int getPMD_ADII() {
+<span class="fc" id="L1199">		return PMD_ADII;</span>
+	}
+
+	public int getUser_DCI() {
+<span class="nc" id="L1203">		return user_DCI;</span>
+	}
+
+	public int getUser_DII() {
+<span class="nc" id="L1207">		return user_DII;</span>
+	}
+
+	public int getUser_ADCI() {
+<span class="nc" id="L1211">		return user_ADCI;</span>
+	}
+
+	public int getUser_ADII() {
+<span class="nc" id="L1215">		return user_ADII;</span>
+	}
+
+	public ArrayList&lt;String&gt; getLongMethodRules() {
+<span class="fc" id="L1219">		return longMethodRules;</span>
+	}
+
+	public ArrayList&lt;String&gt; getFeatureEnvyRules() {
+<span class="fc" id="L1223">		return featureEnvyRules;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>ES-LETI-1Sem-2020-Grupo9 (12/12/2020 15:11:41)</div></body></html>

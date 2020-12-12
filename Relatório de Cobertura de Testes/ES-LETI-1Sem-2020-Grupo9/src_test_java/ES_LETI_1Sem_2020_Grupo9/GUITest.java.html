@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>GUITest.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ES-LETI-1Sem-2020-Grupo9 (12/12/2020 15:11:41)</a> &gt; <a href="../../index.html" class="el_group">ES-LETI-1Sem-2020-Grupo9</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">ES_LETI_1Sem_2020_Grupo9</a> &gt; <span class="el_source">GUITest.java</span></div><h1>GUITest.java</h1><pre class="source lang-java linenums">package ES_LETI_1Sem_2020_Grupo9;
+
+import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.awt.Robot;
+import java.util.ArrayList;
+
+import javax.swing.JTextField;
+
+import org.junit.jupiter.api.Test;
+
+<span class="fc" id="L13">class GUITest extends GUI {</span>
+
+	
+<span class="fc" id="L16">	private GUI test = new GUI();</span>
+	
+	@Test
+	  void updateQualityTable() {
+<span class="fc" id="L20">		test.updateQualityValues(0,1,2,3,4);</span>
+<span class="fc" id="L21">		int output_1 = (int) test.getQualityReportTable().getValueAt(0, 1);</span>
+<span class="fc" id="L22">		int output_2 = (int) test.getQualityReportTable().getValueAt(0, 2);</span>
+<span class="fc" id="L23">		int output_3 = (int) test.getQualityReportTable().getValueAt(0, 3);</span>
+<span class="fc" id="L24">		int output_4 = (int) test.getQualityReportTable().getValueAt(0, 4);</span>
+<span class="fc" id="L25">		assertEquals(1, output_1);</span>
+<span class="fc" id="L26">		assertEquals(2, output_2);</span>
+<span class="fc" id="L27">		assertEquals(3, output_3);</span>
+<span class="fc" id="L28">		assertEquals(4, output_4);</span>
+<span class="fc" id="L29">	 }</span>
+	
+	@Test
+	void clearRulesInput() {
+<span class="fc" id="L33">		test.clearRulesGUI();</span>
+<span class="fc" id="L34">		String t1 = test.getThreshold_1().getText();</span>
+<span class="fc" id="L35">		String t2 = test.getThreshold_2().getText();</span>
+<span class="fc" id="L36">		String t3 = test.getThreshold_3().getText();</span>
+<span class="fc" id="L37">		String t4 = test.getThreshold_4().getText();</span>
+<span class="fc" id="L38">		String s1 = test.getSignal_1().getSelectedItem().toString();</span>
+<span class="fc" id="L39">		String s2 = test.getSignal_2().getSelectedItem().toString();</span>
+<span class="fc" id="L40">		String s3 = test.getSignal_3().getSelectedItem().toString();</span>
+<span class="fc" id="L41">		String s4 = test.getSignal_4().getSelectedItem().toString();</span>
+<span class="fc" id="L42">		String l1 = test.getLogicOp_1().getSelectedItem().toString();</span>
+<span class="fc" id="L43">		String l2 = test.getLogicOp_2().getSelectedItem().toString();</span>
+<span class="fc" id="L44">		assertEquals(&quot;&quot;, t1);</span>
+<span class="fc" id="L45">		assertEquals(&quot;&quot;, t2);</span>
+<span class="fc" id="L46">		assertEquals(&quot;&quot;, t3);</span>
+<span class="fc" id="L47">		assertEquals(&quot;&quot;, t4);</span>
+<span class="fc" id="L48">		assertEquals(&quot;BIGGER_THAN&quot;, s1);</span>
+<span class="fc" id="L49">		assertEquals(&quot;BIGGER_THAN&quot;, s2);</span>
+<span class="fc" id="L50">		assertEquals(&quot;BIGGER_THAN&quot;, s3);</span>
+<span class="fc" id="L51">		assertEquals(&quot;BIGGER_THAN&quot;, s4);</span>
+<span class="fc" id="L52">		assertEquals(&quot;END&quot;, l1);</span>
+<span class="fc" id="L53">		assertEquals(&quot;END&quot;, l2);</span>
+<span class="fc" id="L54">	}</span>
+	
+	@Test
+	void featureMethod() {
+<span class="fc" id="L58">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L59">		aux.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L60">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L61">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L62">		aux.add(&quot;AND&quot;);</span>
+<span class="fc" id="L63">		aux.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L64">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L65">		aux.add(&quot;2.3&quot;);</span>
+<span class="fc" id="L66">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L67">		assertTrue(test.hasFeatureEnvy(11, 2.4));</span>
+<span class="fc" id="L68">	}</span>
+	
+	@Test
+	void featureMethodv1() {
+<span class="fc" id="L72">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L73">		aux.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L74">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L75">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L76">		aux.add(&quot;AND&quot;);</span>
+<span class="fc" id="L77">		aux.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L78">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L79">		aux.add(&quot;3.5&quot;);</span>
+<span class="fc" id="L80">		test.setFeatureEnvyRules(aux);;</span>
+<span class="fc" id="L81">		assertTrue(test.hasFeatureEnvy(20,2));</span>
+<span class="fc" id="L82">	}</span>
+	
+	@Test
+	void featureMethodv2() {
+<span class="fc" id="L86">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L87">		aux.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L88">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L89">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L90">		aux.add(&quot;AND&quot;);</span>
+<span class="fc" id="L91">		aux.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L92">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L93">		aux.add(&quot;3.2&quot;);</span>
+<span class="fc" id="L94">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L95">		assertTrue(test.hasFeatureEnvy(9, 2));</span>
+<span class="fc" id="L96">	}</span>
+	
+	@Test
+	void featureMethodv3() {
+<span class="fc" id="L100">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L101">		aux.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L102">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L103">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L104">		aux.add(&quot;AND&quot;);</span>
+<span class="fc" id="L105">		aux.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L106">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L107">		aux.add(&quot;1&quot;);</span>
+<span class="fc" id="L108">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L109">		assertTrue(test.hasFeatureEnvy(9, 2));</span>
+<span class="fc" id="L110">	}</span>
+	
+	@Test
+	void featureMethodv4() {
+<span class="fc" id="L114">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L115">		aux.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L116">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L117">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L118">		aux.add(&quot;OR&quot;);</span>
+<span class="fc" id="L119">		aux.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L120">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L121">		aux.add(&quot;1&quot;);</span>
+<span class="fc" id="L122">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L123">		assertTrue(test.hasFeatureEnvy(4, 2));</span>
+<span class="fc" id="L124">	}</span>
+	
+	@Test
+	void featureMethodv5() {
+<span class="fc" id="L128">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L129">		aux.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L130">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L131">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L132">		aux.add(&quot;OR&quot;);</span>
+<span class="fc" id="L133">		aux.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L134">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L135">		aux.add(&quot;3&quot;);</span>
+<span class="fc" id="L136">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L137">		assertTrue(test.hasFeatureEnvy(4, 2));</span>
+<span class="fc" id="L138">	}</span>
+	
+	@Test
+	void featureMethodv6() {
+<span class="fc" id="L142">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L143">		aux.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L144">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L145">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L146">		aux.add(&quot;OR&quot;);</span>
+<span class="fc" id="L147">		aux.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L148">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L149">		aux.add(&quot;3&quot;);</span>
+<span class="fc" id="L150">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L151">		assertTrue(test.hasFeatureEnvy(20, 2));</span>
+<span class="fc" id="L152">	}</span>
+	
+	@Test
+	void featureMethodv7() {
+<span class="fc" id="L156">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L157">		aux.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L158">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L159">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L160">		aux.add(&quot;OR&quot;);</span>
+<span class="fc" id="L161">		aux.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L162">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L163">		aux.add(&quot;1&quot;);</span>
+<span class="fc" id="L164">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L165">		assertTrue(test.hasFeatureEnvy(20, 2));</span>
+<span class="fc" id="L166">	}</span>
+	
+	@Test
+	void featureMethodv8() {
+<span class="fc" id="L170">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L171">		aux.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L172">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L173">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L174">		aux.add(&quot;END&quot;);</span>
+<span class="fc" id="L175">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L176">		assertTrue(test.hasFeatureEnvy(20, 2));</span>
+<span class="fc" id="L177">	}</span>
+	
+	@Test
+	void featureMethodv9() {
+<span class="fc" id="L181">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L182">		aux.add(&quot;ATFD&quot;);</span>
+<span class="fc" id="L183">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L184">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L185">		aux.add(&quot;END&quot;);</span>
+<span class="fc" id="L186">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L187">		assertTrue(test.hasFeatureEnvy(9, 20));</span>
+<span class="fc" id="L188">	}</span>
+	
+	@Test
+	void featureMethodv10() {
+<span class="fc" id="L192">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L193">		aux.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L194">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L195">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L196">		aux.add(&quot;END&quot;);</span>
+<span class="fc" id="L197">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L198">		assertTrue(test.hasFeatureEnvy(1, 8));</span>
+<span class="fc" id="L199">	}</span>
+	
+	@Test
+	void featureMethod11() {
+<span class="fc" id="L203">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L204">		aux.add(&quot;LAA&quot;);</span>
+<span class="fc" id="L205">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L206">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L207">		aux.add(&quot;END&quot;);</span>
+<span class="fc" id="L208">		test.setFeatureEnvyRules(aux);</span>
+<span class="fc" id="L209">		assertTrue(test.hasFeatureEnvy(2, 15));</span>
+<span class="fc" id="L210">	}</span>
+	
+	@Test
+	void longMethod() {
+<span class="fc" id="L214">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L215">		aux.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L216">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L217">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L218">		aux.add(&quot;AND&quot;);</span>
+<span class="fc" id="L219">		aux.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L220">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L221">		aux.add(&quot;1&quot;);</span>
+<span class="fc" id="L222">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L223">		assertTrue(test.isLongMethod(20, 2));</span>
+<span class="fc" id="L224">	}</span>
+	
+	@Test
+	void longMethodv1() {
+<span class="fc" id="L228">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L229">		aux.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L230">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L231">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L232">		aux.add(&quot;AND&quot;);</span>
+<span class="fc" id="L233">		aux.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L234">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L235">		aux.add(&quot;3&quot;);</span>
+<span class="fc" id="L236">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L237">		assertTrue(test.isLongMethod(20, 2));</span>
+<span class="fc" id="L238">	}</span>
+	
+	@Test
+	void longMethodv2() {
+<span class="fc" id="L242">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L243">		aux.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L244">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L245">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L246">		aux.add(&quot;AND&quot;);</span>
+<span class="fc" id="L247">		aux.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L248">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L249">		aux.add(&quot;3&quot;);</span>
+<span class="fc" id="L250">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L251">		assertTrue(test.isLongMethod(9, 2));</span>
+<span class="fc" id="L252">	}</span>
+	
+	@Test
+	void longMethodv3() {
+<span class="fc" id="L256">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L257">		aux.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L258">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L259">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L260">		aux.add(&quot;AND&quot;);</span>
+<span class="fc" id="L261">		aux.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L262">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L263">		aux.add(&quot;1&quot;);</span>
+<span class="fc" id="L264">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L265">		assertTrue(test.isLongMethod(9, 2));</span>
+<span class="fc" id="L266">	}</span>
+	
+	@Test
+	void longMethodv4() {
+<span class="fc" id="L270">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L271">		aux.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L272">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L273">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L274">		aux.add(&quot;OR&quot;);</span>
+<span class="fc" id="L275">		aux.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L276">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L277">		aux.add(&quot;1&quot;);</span>
+<span class="fc" id="L278">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L279">		assertTrue(test.isLongMethod(20, 2));</span>
+<span class="fc" id="L280">	}</span>
+	
+	@Test
+	void longMethodv5() {
+<span class="fc" id="L284">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L285">		aux.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L286">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L287">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L288">		aux.add(&quot;OR&quot;);</span>
+<span class="fc" id="L289">		aux.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L290">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L291">		aux.add(&quot;3&quot;);</span>
+<span class="fc" id="L292">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L293">		assertTrue(test.isLongMethod(20, 2));</span>
+<span class="fc" id="L294">	}</span>
+	
+	@Test
+	void longMethodv6() {
+<span class="fc" id="L298">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L299">		aux.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L300">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L301">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L302">		aux.add(&quot;OR&quot;);</span>
+<span class="fc" id="L303">		aux.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L304">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L305">		aux.add(&quot;3&quot;);</span>
+<span class="fc" id="L306">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L307">		assertTrue(test.isLongMethod(9, 2));</span>
+<span class="fc" id="L308">	}</span>
+	
+	@Test
+	void longMethodv7() {
+<span class="fc" id="L312">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L313">		aux.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L314">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L315">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L316">		aux.add(&quot;OR&quot;);</span>
+<span class="fc" id="L317">		aux.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L318">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L319">		aux.add(&quot;1&quot;);</span>
+<span class="fc" id="L320">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L321">		assertTrue(test.isLongMethod(9, 2));</span>
+<span class="fc" id="L322">	}</span>
+	
+	@Test
+	void longMethodv8() {
+<span class="fc" id="L326">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L327">		aux.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L328">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L329">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L330">		aux.add(&quot;END&quot;);</span>
+<span class="fc" id="L331">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L332">		assertTrue(test.isLongMethod(20, 0));</span>
+<span class="fc" id="L333">	}</span>
+	
+	@Test
+	void longMethodv9() {
+<span class="fc" id="L337">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L338">		aux.add(&quot;LOC&quot;);</span>
+<span class="fc" id="L339">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L340">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L341">		aux.add(&quot;END&quot;);</span>
+<span class="fc" id="L342">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L343">		assertTrue(test.isLongMethod(9, 1));</span>
+<span class="fc" id="L344">	}</span>
+	
+	@Test
+	void longMethodv10() {
+<span class="fc" id="L348">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L349">		aux.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L350">		aux.add(&quot;SMALLER_THAN&quot;);</span>
+<span class="fc" id="L351">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L352">		aux.add(&quot;END&quot;);</span>
+<span class="fc" id="L353">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L354">		assertTrue(test.isLongMethod(9, 1));</span>
+<span class="fc" id="L355">	}</span>
+	
+	@Test
+	void longMethodv11() {
+<span class="fc" id="L359">		ArrayList&lt;String&gt; aux = new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L360">		aux.add(&quot;CYCLO&quot;);</span>
+<span class="fc" id="L361">		aux.add(&quot;BIGGER_THAN&quot;);</span>
+<span class="fc" id="L362">		aux.add(&quot;10&quot;);</span>
+<span class="fc" id="L363">		aux.add(&quot;END&quot;);</span>
+<span class="fc" id="L364">		test.setLongMethodRules(aux);</span>
+<span class="fc" id="L365">		assertTrue(test.isLongMethod(11, 12));</span>
+<span class="fc" id="L366">	}</span>
+	
+	@Test
+	void saveTofile() {
+<span class="fc" id="L370">		test.getThreshold_1().setText(&quot;20&quot;);</span>
+<span class="fc" id="L371">		test.getSignal_1().setSelectedIndex(0);</span>
+<span class="fc" id="L372">		test.save();</span>
+<span class="fc" id="L373">		test.loadRulesfromFile();</span>
+<span class="fc" id="L374">		ArrayList&lt;String&gt; aux = test.getLongMethodRules();</span>
+<span class="fc" id="L375">		assertEquals(&quot;LOC&quot;, aux.get(0));</span>
+<span class="fc" id="L376">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L377">		assertEquals(&quot;20&quot;, aux.get(2));</span>
+<span class="fc" id="L378">	}</span>
+	
+	@Test
+	void saveTofilev1() {
+<span class="fc" id="L382">		test.getThreshold_1().setText(&quot;20&quot;);</span>
+<span class="fc" id="L383">		test.getSignal_1().setSelectedIndex(0);</span>
+<span class="fc" id="L384">		test.getLogicOp_1().setSelectedIndex(1);</span>
+<span class="fc" id="L385">		test.getThreshold_2().setText(&quot;20&quot;);</span>
+<span class="fc" id="L386">		test.getSignal_2().setSelectedIndex(0);</span>
+<span class="fc" id="L387">		test.save();</span>
+<span class="fc" id="L388">		test.loadRulesfromFile();</span>
+<span class="fc" id="L389">		ArrayList&lt;String&gt; aux = test.getLongMethodRules();</span>
+<span class="fc" id="L390">		assertEquals(&quot;LOC&quot;, aux.get(0));</span>
+<span class="fc" id="L391">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L392">		assertEquals(&quot;20&quot;, aux.get(2));</span>
+<span class="fc" id="L393">		assertEquals(&quot;OR&quot;, aux.get(3));</span>
+<span class="fc" id="L394">		assertEquals(&quot;CYCLO&quot;, aux.get(4));</span>
+<span class="fc" id="L395">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(5));</span>
+<span class="fc" id="L396">		assertEquals(&quot;20&quot;, aux.get(6));</span>
+<span class="fc" id="L397">	}</span>
+	
+	@Test
+	void saveTofilev2() {
+<span class="fc" id="L401">		test.getThreshold_2().setText(&quot;20&quot;);</span>
+<span class="fc" id="L402">		test.getSignal_2().setSelectedIndex(0);</span>
+<span class="fc" id="L403">		test.save();</span>
+<span class="fc" id="L404">		test.loadRulesfromFile();</span>
+<span class="fc" id="L405">		ArrayList&lt;String&gt; aux = test.getLongMethodRules();</span>
+<span class="fc" id="L406">		assertEquals(&quot;CYCLO&quot;, aux.get(0));</span>
+<span class="fc" id="L407">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L408">		assertEquals(&quot;20&quot;, aux.get(2));</span>
+<span class="fc" id="L409">	}</span>
+	
+	@Test
+	void saveTofilev3() {
+<span class="fc" id="L413">		test.getThreshold_3().setText(&quot;20&quot;);</span>
+<span class="fc" id="L414">		test.getSignal_3().setSelectedIndex(0);</span>
+<span class="fc" id="L415">		test.save();</span>
+<span class="fc" id="L416">		test.loadRulesfromFile();</span>
+<span class="fc" id="L417">		ArrayList&lt;String&gt; aux = test.getFeatureEnvyRules();</span>
+<span class="fc" id="L418">		assertEquals(&quot;ATFD&quot;, aux.get(0));</span>
+<span class="fc" id="L419">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L420">		assertEquals(&quot;20&quot;, aux.get(2));</span>
+<span class="fc" id="L421">	}</span>
+	
+	@Test
+	void saveTofilev4() {
+<span class="fc" id="L425">		test.getThreshold_3().setText(&quot;20&quot;);</span>
+<span class="fc" id="L426">		test.getSignal_3().setSelectedIndex(0);</span>
+<span class="fc" id="L427">		test.getLogicOp_2().setSelectedIndex(1);</span>
+<span class="fc" id="L428">		test.getThreshold_4().setText(&quot;20&quot;);</span>
+<span class="fc" id="L429">		test.getSignal_4().setSelectedIndex(0);</span>
+<span class="fc" id="L430">		test.save();</span>
+<span class="fc" id="L431">		test.loadRulesfromFile();</span>
+<span class="fc" id="L432">		ArrayList&lt;String&gt; aux = test.getFeatureEnvyRules();</span>
+<span class="fc" id="L433">		assertEquals(&quot;ATFD&quot;, aux.get(0));</span>
+<span class="fc" id="L434">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L435">		assertEquals(&quot;20&quot;, aux.get(2));</span>
+<span class="fc" id="L436">		assertEquals(&quot;OR&quot;, aux.get(3));</span>
+<span class="fc" id="L437">		assertEquals(&quot;LAA&quot;, aux.get(4));</span>
+<span class="fc" id="L438">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(5));</span>
+<span class="fc" id="L439">		assertEquals(&quot;20&quot;, aux.get(6));</span>
+<span class="fc" id="L440">	}</span>
+	
+	@Test
+	void saveTofilev5() {
+<span class="fc" id="L444">		test.getThreshold_4().setText(&quot;20&quot;);</span>
+<span class="fc" id="L445">		test.getSignal_4().setSelectedIndex(0);</span>
+<span class="fc" id="L446">		test.save();</span>
+<span class="fc" id="L447">		test.loadRulesfromFile();</span>
+<span class="fc" id="L448">		ArrayList&lt;String&gt; aux = test.getFeatureEnvyRules();</span>
+<span class="fc" id="L449">		assertEquals(&quot;LAA&quot;, aux.get(0));</span>
+<span class="fc" id="L450">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L451">		assertEquals(&quot;20&quot;, aux.get(2));</span>
+<span class="fc" id="L452">	}</span>
+	
+	@Test
+	void editTest() {
+<span class="fc" id="L456">		test.getThreshold_1().setText(&quot;20&quot;);</span>
+<span class="fc" id="L457">		test.getSignal_1().setSelectedIndex(0);</span>
+<span class="fc" id="L458">		test.save();</span>
+<span class="fc" id="L459">		test.getLongMethodRulesList().setSelectedIndex(0);</span>
+<span class="fc" id="L460">		test.getThreshold_1().setText(&quot;30&quot;);</span>
+<span class="fc" id="L461">		test.getSignal_1().setSelectedIndex(1);</span>
+<span class="fc" id="L462">		test.edit();</span>
+<span class="fc" id="L463">		test.loadRulesfromFile();</span>
+<span class="fc" id="L464">		ArrayList&lt;String&gt; aux = test.getLongMethodRules();</span>
+<span class="fc" id="L465">		assertEquals(&quot;LOC&quot;, aux.get(0));</span>
+<span class="fc" id="L466">		assertEquals(&quot;SMALLER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L467">		assertEquals(&quot;30&quot;, aux.get(2));</span>
+<span class="fc" id="L468">	}</span>
+	
+	@Test
+	void editTestv1() {
+<span class="fc" id="L472">		test.getThreshold_3().setText(&quot;20&quot;);</span>
+<span class="fc" id="L473">		test.getSignal_3().setSelectedIndex(0);</span>
+<span class="fc" id="L474">		test.save();</span>
+<span class="fc" id="L475">		test.getFeatureEnvyRulesList().setSelectedIndex(0);</span>
+<span class="fc" id="L476">		test.getThreshold_3().setText(&quot;30&quot;);</span>
+<span class="fc" id="L477">		test.getSignal_3().setSelectedIndex(1);</span>
+<span class="fc" id="L478">		test.edit();</span>
+<span class="fc" id="L479">		test.loadRulesfromFile();</span>
+<span class="fc" id="L480">		ArrayList&lt;String&gt; aux = test.getFeatureEnvyRules();</span>
+<span class="fc" id="L481">		assertEquals(&quot;ATFD&quot;, aux.get(0));</span>
+<span class="fc" id="L482">		assertEquals(&quot;SMALLER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L483">		assertEquals(&quot;30&quot;, aux.get(2));</span>
+<span class="fc" id="L484">	}</span>
+	
+	@Test
+	void editTestv2() {
+<span class="fc" id="L488">		test.getThreshold_1().setText(&quot;20&quot;);</span>
+<span class="fc" id="L489">		test.getSignal_1().setSelectedIndex(0);</span>
+<span class="fc" id="L490">		test.save();</span>
+<span class="fc" id="L491">		test.getLongMethodRulesList().setSelectedIndex(0);</span>
+<span class="fc" id="L492">		test.getThreshold_3().setText(&quot;30&quot;);</span>
+<span class="fc" id="L493">		test.getSignal_3().setSelectedIndex(1);</span>
+<span class="fc" id="L494">		test.edit();</span>
+<span class="fc" id="L495">		test.loadRulesfromFile();</span>
+<span class="fc" id="L496">		ArrayList&lt;String&gt; aux = test.getLongMethodRules();</span>
+<span class="fc" id="L497">		assertEquals(&quot;LOC&quot;, aux.get(0));</span>
+<span class="fc" id="L498">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L499">		assertEquals(&quot;20&quot;, aux.get(2));</span>
+<span class="fc" id="L500">	}</span>
+	
+	@Test
+	void editTestv3() {
+<span class="fc" id="L504">		test.getThreshold_3().setText(&quot;20&quot;);</span>
+<span class="fc" id="L505">		test.getSignal_3().setSelectedIndex(0);</span>
+<span class="fc" id="L506">		test.save();</span>
+<span class="fc" id="L507">		test.getFeatureEnvyRulesList().setSelectedIndex(0);</span>
+<span class="fc" id="L508">		test.getThreshold_2().setText(&quot;30&quot;);</span>
+<span class="fc" id="L509">		test.getSignal_2().setSelectedIndex(1);</span>
+<span class="fc" id="L510">		test.edit();</span>
+<span class="fc" id="L511">		test.loadRulesfromFile();</span>
+<span class="fc" id="L512">		ArrayList&lt;String&gt; aux = test.getFeatureEnvyRules();</span>
+<span class="fc" id="L513">		assertEquals(&quot;ATFD&quot;, aux.get(0));</span>
+<span class="fc" id="L514">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L515">		assertEquals(&quot;20&quot;, aux.get(2));</span>
+<span class="fc" id="L516">	}</span>
+	
+	@Test
+	void editTestv4() {
+<span class="fc" id="L520">		test.getThreshold_3().setText(&quot;20&quot;);</span>
+<span class="fc" id="L521">		test.getSignal_3().setSelectedIndex(0);</span>
+<span class="fc" id="L522">		test.save();</span>
+<span class="fc" id="L523">		test.edit();</span>
+<span class="fc" id="L524">		test.loadRulesfromFile();</span>
+<span class="fc" id="L525">		ArrayList&lt;String&gt; aux = test.getFeatureEnvyRules();</span>
+<span class="fc" id="L526">		assertEquals(&quot;ATFD&quot;, aux.get(0));</span>
+<span class="fc" id="L527">		assertEquals(&quot;BIGGER_THAN&quot;, aux.get(1));</span>
+<span class="fc" id="L528">		assertEquals(&quot;20&quot;, aux.get(2));</span>
+<span class="fc" id="L529">	}</span>
+	
+	
+	
+		 @Test
+		  void feature_envy_exists() {
+<span class="fc" id="L535">			 assertTrue(test.featureEnvyRules.isEmpty());</span>
+		  
+<span class="fc" id="L537">		 }</span>
+		 
+		 @Test
+		  void long_method_exists() {
+<span class="fc" id="L541">			 assertTrue(test.longMethodRules.isEmpty());</span>
+		  
+<span class="fc" id="L543">		 }</span>
+		 
+		 @Test
+		  void list_is_not_empty() {
+<span class="pc bpc" id="L547" title="1 of 2 branches missed.">			 assertFalse(test.featureEnvyRules.size()!= 0);</span>
+		  
+<span class="fc" id="L549">		 }</span>
+		 @Test
+		  void plasma_adci() {
+<span class="pc bpc" id="L552" title="1 of 2 branches missed.">			 assertFalse(test.getiPlasma_ADCI()!=0);</span>
+			 
+<span class="fc" id="L554">		 }	 </span>
+		 @Test
+		 void plasma_adii() {
+<span class="pc bpc" id="L557" title="1 of 2 branches missed.">			 assertFalse(test.getiPlasma_ADII()!=0);</span>
+		 
+<span class="fc" id="L559">	}</span>
+		 @Test
+		 void plasma_dci() {
+<span class="pc bpc" id="L562" title="1 of 2 branches missed.">			 assertFalse(test.getiPlasma_DCI()!=0);</span>
+		 
+<span class="fc" id="L564">	}</span>
+		 @Test
+		 void plasma_dii() {
+<span class="pc bpc" id="L567" title="1 of 2 branches missed.">			 assertFalse(test.getiPlasma_DII()!=0);</span>
+		 
+<span class="fc" id="L569">	}</span>
+
+
+		 @Test
+		  void pmd_adci() {
+<span class="pc bpc" id="L574" title="1 of 2 branches missed.">			 assertFalse(test.getPMD_ADCI()!=0);</span>
+			 
+<span class="fc" id="L576">		 }	 </span>
+		 @Test
+		 void pmd_adii() {
+<span class="pc bpc" id="L579" title="1 of 2 branches missed.">			 assertFalse(test.getPMD_ADII()!=0);</span>
+		 
+<span class="fc" id="L581">	}</span>
+		 @Test
+		 void pmd_dci() {
+<span class="pc bpc" id="L584" title="1 of 2 branches missed.">			 assertFalse(test.getPMD_DCI()!=0);</span>
+		 
+<span class="fc" id="L586">	}</span>
+		 @Test
+		 void pmd_dii() {
+<span class="pc bpc" id="L589" title="1 of 2 branches missed.">			 assertFalse(test.getPMD_DII()!=0);</span>
+		 
+<span class="fc" id="L591">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>ES-LETI-1Sem-2020-Grupo9 (12/12/2020 15:11:41)</div></body></html>

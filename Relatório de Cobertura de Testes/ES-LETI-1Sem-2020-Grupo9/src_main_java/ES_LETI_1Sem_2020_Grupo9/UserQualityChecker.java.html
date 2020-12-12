@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>UserQualityChecker.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">ES-LETI-1Sem-2020-Grupo9 (12/12/2020 15:11:41)</a> &gt; <a href="../../index.html" class="el_group">ES-LETI-1Sem-2020-Grupo9</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">ES_LETI_1Sem_2020_Grupo9</a> &gt; <span class="el_source">UserQualityChecker.java</span></div><h1>UserQualityChecker.java</h1><pre class="source lang-java linenums">package ES_LETI_1Sem_2020_Grupo9;
+
+import java.util.Vector;
+
+import javax.swing.table.DefaultTableModel;
+
+/**
+ * The Class UserQualityChecker.
+ */
+public class UserQualityChecker extends Thread {
+	
+	/** The type. */
+	private String type;
+	
+	/** The matrix. */
+	private Vector&lt;Vector&lt;Object&gt;&gt; matriz;
+	
+	/** The results. */
+	private DefaultTableModel results;
+	
+	/** The n Defeitos Corretamente Identificados. */
+	private int nDCI;
+	
+	/** The n Defeitos Incorretamente Identificados . */
+	private int nDII;
+	
+	/** The n Ausências de Defeitos Corretamente
+Identificadas. */
+	private int nADCI;
+	
+	/** The n Ausências de Defeitos Incorretamente Identificadas. */
+	private int nADII;
+	
+	/**
+	 * Instantiates a new user quality checker.
+	 *
+	 * @param type the type
+	 * @param matriz the matriz
+	 * @param results the results
+	 */
+<span class="nc" id="L41">	public UserQualityChecker(String type, Vector&lt;Vector&lt;Object&gt;&gt; matriz, DefaultTableModel results) {</span>
+<span class="nc" id="L42">		this.type = type;</span>
+<span class="nc" id="L43">		this.matriz = matriz;</span>
+<span class="nc" id="L44">		this.results = results;</span>
+<span class="nc" id="L45">	}</span>
+	
+	/**
+	 * function to sum the numbers on a given file.
+	 */
+	@Override
+	public void run() {
+		
+		int excelColumn;
+		int resultsColumn;
+		
+<span class="nc bnc" id="L56" title="All 2 branches missed.">		if(type.equals(&quot;user_long&quot;)) {</span>
+<span class="nc" id="L57">			excelColumn = 8;</span>
+<span class="nc" id="L58">			resultsColumn = 1;</span>
+<span class="nc" id="L59">		}</span>
+		else {
+<span class="nc" id="L61">			excelColumn = 11;</span>
+<span class="nc" id="L62">			resultsColumn = 2;</span>
+		}
+		
+<span class="nc bnc" id="L65" title="All 2 branches missed.">		for (int i = 0; i &lt; 420; i++) {</span>
+			
+<span class="nc bnc" id="L67" title="All 4 branches missed.">			if ((boolean) results.getValueAt(i, resultsColumn) == true &amp;&amp; (boolean) matriz.get(i).get(excelColumn) == true) {</span>
+<span class="nc" id="L68">				nDCI = nDCI + 1;					</span>
+<span class="nc" id="L69">			}</span>
+<span class="nc bnc" id="L70" title="All 4 branches missed.">			else if ((boolean) results.getValueAt(i, resultsColumn) == true &amp;&amp; (boolean) matriz.get(i).get(excelColumn) == false) {</span>
+<span class="nc" id="L71">				nDII = nDII + 1;</span>
+<span class="nc" id="L72">			}</span>
+<span class="nc bnc" id="L73" title="All 4 branches missed.">			else if ((boolean) results.getValueAt(i, resultsColumn) == false &amp;&amp; (boolean) matriz.get(i).get(excelColumn) == false) {</span>
+<span class="nc" id="L74">				nADCI = nADCI + 1;</span>
+<span class="nc" id="L75">			}</span>
+<span class="nc bnc" id="L76" title="All 4 branches missed.">			else if ((boolean) results.getValueAt(i, resultsColumn) == false &amp;&amp; (boolean) matriz.get(i).get(excelColumn) == true) {</span>
+<span class="nc" id="L77">				nADII = nADII +1;</span>
+			}
+        }
+<span class="nc" id="L80">	}</span>
+
+	/**
+	 * Gets the type.
+	 *
+	 * @return the type
+	 */
+	public String getType() {
+<span class="nc" id="L88">		return type;</span>
+	}
+
+	/**
+	 * Sets the type.
+	 *
+	 * @param type the new type
+	 */
+	public void setType(String type) {
+<span class="nc" id="L97">		this.type = type;</span>
+<span class="nc" id="L98">	}</span>
+
+	/**
+	 * Gets the results.
+	 *
+	 * @return the results
+	 */
+	public DefaultTableModel getResults() {
+<span class="nc" id="L106">		return results;</span>
+	}
+
+	/**
+	 * Sets the results.
+	 *
+	 * @param results the new results
+	 */
+	public void setResults(DefaultTableModel results) {
+<span class="nc" id="L115">		this.results = results;</span>
+<span class="nc" id="L116">	}</span>
+
+	/**
+	 * Gets the number of Defeitos Corretamente Identificados.
+	 *
+	 * @return the numer of Defeitos Corretamente Identificados
+	 */
+	public int getnDCI() {
+<span class="nc" id="L124">		return nDCI;</span>
+	}
+
+	/**
+	 * Sets the number of Defeitos Corretamente Identificados.
+	 *
+	 * @param nDCI the new n Defeitos Corretamente Identificados
+	 */
+	public void setnDCI(int nDCI) {
+<span class="nc" id="L133">		this.nDCI = nDCI;</span>
+<span class="nc" id="L134">	}</span>
+
+	/**
+	 * Gets the number of Defeitos Incorretamente Identificados.
+	 *
+	 * @return the number of Defeitos Incorretamente Identificados
+	 */
+	public int getnDII() {
+<span class="nc" id="L142">		return nDII;</span>
+	}
+
+	/**
+	 * Sets the number of Defeitos Incorretamente Identificados.
+	 *
+	 * @param nDII the new number of Defeitos Incorretamente Identificados
+	 */
+	public void setnDII(int nDII) {
+<span class="nc" id="L151">		this.nDII = nDII;</span>
+<span class="nc" id="L152">	}</span>
+
+	/**
+	 * Gets the number of Ausências de Defeitos Corretamente
+Identificadas.
+	 *
+	 * @return the number of Ausências de Defeitos Corretamente
+Identificadas
+	 */
+	public int getnADCI() {
+<span class="nc" id="L162">		return nADCI;</span>
+	}
+
+	/**
+	 * Sets the number of Ausências de Defeitos Corretamente
+Identificadas.
+	 *
+	 * @param nADCI the new number of Ausências de Defeitos Corretamente
+Identificadas
+	 */
+	public void setnADCI(int nADCI) {
+<span class="nc" id="L173">		this.nADCI = nADCI;</span>
+<span class="nc" id="L174">	}</span>
+
+	/**
+	 * Gets the number of Ausências de Defeitos Corretamente
+Identificadas.
+	 *
+	 * @return the number of Ausências de Defeitos Corretamente
+Identificadas
+	 */
+	public int getnADII() {
+<span class="nc" id="L184">		return nADII;</span>
+	}
+
+	/**
+	 * Sets the number of Ausências de Defeitos Corretamente
+Identificadas.
+	 *
+	 * @param nADII the new number of Ausências de Defeitos Corretamente
+Identificadas
+	 */
+	public void setnADII(int nADII) {
+<span class="nc" id="L195">		this.nADII = nADII;</span>
+<span class="nc" id="L196">	}</span>
+	
+	
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>ES-LETI-1Sem-2020-Grupo9 (12/12/2020 15:11:41)</div></body></html>
