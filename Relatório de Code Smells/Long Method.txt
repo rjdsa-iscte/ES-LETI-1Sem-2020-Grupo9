@@ -1,0 +1,29 @@
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void save() 	bw2	B11	0/9
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void save() 	bw2	B12	0/7
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void save() 	bw1	B6	1/11
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void save() 	bw1	B7	1/9
+ES_LETI_1Sem_2020_Grupo9.UserQualityChecker	public void run() 	excelColumn	B1	1/4
+ES_LETI_1Sem_2020_Grupo9.UserQualityChecker	public void run() 	resultsColumn	B1	1/4
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void save() 	featureEnvyRules	B1	9/29
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void save() 	featureEnvyRules	B3	4/16
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void save() 	longMethodRules	B1	9/29
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean isLongMethod(int, int) 	cycloTreshold	B1	5/8
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean isLongMethod(int, int) 	cycloTreshold	B2	3/5
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean isLongMethod(int, int) 	cycloTreshold	B3	1/3
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean isLongMethod(int, int) 	cycloTreshold	B5	0/2
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void edit() 	ruleSelected	B1	2/5
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void edit() 	isLongMethodRule	B1	2/4
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void edit() 	isLongMethodRule	B3	1/2
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void loadRulesfromFile() 	featureEnvyRules	B1	4/8
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void loadRulesfromFile() 	longMethodRules	B1	4/8
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean hasFeatureEnvy(int, double) 	atfdTreshold	B1	5/7
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean hasFeatureEnvy(int, double) 	atfdTreshold	B2	3/4
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean hasFeatureEnvy(int, double) 	atfdTreshold	B3	1/2
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean hasFeatureEnvy(int, double) 	laaTreshold	B1	5/7
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean hasFeatureEnvy(int, double) 	laaTreshold	B2	3/4
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean hasFeatureEnvy(int, double) 	laaTreshold	B3	1/2
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean isLongMethod(int, int) 	locTreshold	B1	5/7
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean isLongMethod(int, int) 	locTreshold	B2	3/4
+ES_LETI_1Sem_2020_Grupo9.GUI	protected boolean isLongMethod(int, int) 	locTreshold	B3	1/2
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void loadRulesfromFile() 	featureEnvyRules_dlmodel	B1	4/6
+ES_LETI_1Sem_2020_Grupo9.GUI	protected void loadRulesfromFile() 	longMethodRules_dlmodel	B1	4/6

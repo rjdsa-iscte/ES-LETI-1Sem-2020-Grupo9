@@ -1,0 +1,1867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Metrics>
+   <MetricDescriptions>
+      <MetricDescription id = "VG" description ="McCabe Cyclomatic Complexity"/>
+      <MetricDescription id = "PAR" description ="Number of Parameters"/>
+      <MetricDescription id = "NBD" description ="Nested Block Depth"/>
+      <MetricDescription id = "CA" description ="Afferent Coupling"/>
+      <MetricDescription id = "CE" description ="Efferent Coupling"/>
+      <MetricDescription id = "RMI" description ="Instability"/>
+      <MetricDescription id = "RMA" description ="Abstractness"/>
+      <MetricDescription id = "RMD" description ="Normalized Distance"/>
+      <MetricDescription id = "DIT" description ="Depth of Inheritance Tree"/>
+      <MetricDescription id = "WMC" description ="Weighted methods per Class"/>
+      <MetricDescription id = "NSC" description ="Number of Children"/>
+      <MetricDescription id = "NORM" description ="Number of Overridden Methods"/>
+      <MetricDescription id = "LCOM" description ="Lack of Cohesion of Methods"/>
+      <MetricDescription id = "NOF" description ="Number of Attributes"/>
+      <MetricDescription id = "NSF" description ="Number of Static Attributes"/>
+      <MetricDescription id = "NOM" description ="Number of Methods"/>
+      <MetricDescription id = "NSM" description ="Number of Static Methods"/>
+      <MetricDescription id = "SIX" description ="Specialization Index"/>
+      <MetricDescription id = "NOC" description ="Number of Classes"/>
+      <MetricDescription id = "NOI" description ="Number of Interfaces"/>
+      <MetricDescription id = "NOP" description ="Number of Packages"/>
+      <MetricDescription id = "TLOC" description ="Total Lines of Code"/>
+      <MetricDescription id = "MLOC" description ="Method Lines of Code"/>
+   </MetricDescriptions>
+   <Project name = "ES-LETI-1Sem-2020-Grupo9" handle = "=ES-LETI-1Sem-2020-Grupo9">
+      <Metrics>
+         <Metric id ="VG" avg ="2,023" stddev ="4,786" points ="129" max ="36" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~isLongMethod~I~I"/>
+         <Metric id ="PAR" avg ="0,225" stddev ="0,65" points ="129" max ="5" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~updateQualityValues~I~I~I~I~I"/>
+         <Metric id ="NBD" avg ="1,279" stddev ="0,996" points ="129" max ="8" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI"/>
+         <Metric id ="CA" avg ="0" stddev ="0" points ="2" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+         <Metric id ="CE" avg ="2" stddev ="0" points ="2" max ="2" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+         <Metric id ="RMI" avg ="1" stddev ="0" points ="2" max ="1" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+         <Metric id ="RMA" avg ="0" stddev ="0" points ="2" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+         <Metric id ="RMD" avg ="0" stddev ="0" points ="2" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+         <Metric id ="DIT" avg ="3" stddev ="2,062" points ="8" max ="7" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+         <Metric id ="WMC" value ="261" avg ="32,625" stddev ="47,736" points ="8" max ="152" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+         <Metric id ="NSC" value ="1" avg ="0,125" stddev ="0,331" points ="8" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+         <Metric id ="NORM" value ="4" avg ="0,5" stddev ="0,5" points ="8" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+         <Metric id ="LCOM" avg ="0,327" stddev ="0,424" points ="8" max ="0,962" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+         <Metric id ="NOF" value ="59" avg ="7,375" stddev ="10,688" points ="8" max ="35" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+         <Metric id ="NSF" value ="5" avg ="0,625" stddev ="1,654" points ="8" max ="5" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+         <Metric id ="NOM" value ="127" avg ="15,875" stddev ="18,381" points ="8" max ="48" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+         <Metric id ="NSM" value ="2" avg ="0,25" stddev ="0,661" points ="8" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+         <Metric id ="SIX" avg ="0,305" stddev ="0,644" points ="8" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+         <Metric id ="NOC" value ="8" avg ="4" stddev ="2" points ="2" max ="6" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+         <Metric id ="NOI" value ="0" avg ="0" stddev ="0" points ="2" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+         <Metric id ="NOP" value ="2"/>
+         <Metric id ="TLOC" value ="1768"/>
+         <Metric id ="MLOC" value ="1281" avg ="9,93" stddev ="35,921" points ="129" max ="388" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI"/>
+      </Metrics>
+      <PackageRoot name = "java" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/">
+         <Metrics>
+            <Metric id ="VG" avg ="1,036" stddev ="0,187" points ="55" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+            <Metric id ="PAR" avg ="0" stddev ="0" points ="55" max ="0" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+            <Metric id ="NBD" avg ="1,036" stddev ="0,187" points ="55" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+            <Metric id ="CA" avg ="0" stddev ="0" points ="1" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="CE" avg ="2" stddev ="0" points ="1" max ="2" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="RMI" avg ="1" stddev ="0" points ="1" max ="1" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="RMA" avg ="0" stddev ="0" points ="1" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="RMD" avg ="0" stddev ="0" points ="1" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="DIT" avg ="4" stddev ="3" points ="2" max ="7" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+            <Metric id ="WMC" value ="57" avg ="28,5" stddev ="19,5" points ="2" max ="48" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+            <Metric id ="NSC" value ="0" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+            <Metric id ="NORM" value ="0" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+            <Metric id ="LCOM" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+            <Metric id ="NOF" value ="1" avg ="0,5" stddev ="0,5" points ="2" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+            <Metric id ="NSF" value ="0" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+            <Metric id ="NOM" value ="55" avg ="27,5" stddev ="20,5" points ="2" max ="48" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+            <Metric id ="NSM" value ="0" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+            <Metric id ="SIX" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+            <Metric id ="NOC" value ="2" avg ="2" stddev ="0" points ="1" max ="2" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="NOI" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="NOP" value ="1"/>
+            <Metric id ="TLOC" value ="603"/>
+            <Metric id ="MLOC" value ="423" avg ="7,691" stddev ="4,472" points ="55" max ="21" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~clearRulesInput"/>
+         </Metrics>
+         <Package name = "ES_LETI_1Sem_2020_Grupo9" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9">
+            <Metrics>
+               <Metric id ="VG" avg ="1,036" stddev ="0,187" points ="55" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+               <Metric id ="PAR" avg ="0" stddev ="0" points ="55" max ="0" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+               <Metric id ="NBD" avg ="1,036" stddev ="0,187" points ="55" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+               <Metric id ="CA" value ="0"/>
+               <Metric id ="CE" value ="2"/>
+               <Metric id ="RMI" value ="1"/>
+               <Metric id ="RMA" value ="0"/>
+               <Metric id ="RMD" value ="0"/>
+               <Metric id ="DIT" avg ="4" stddev ="3" points ="2" max ="7" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+               <Metric id ="WMC" value ="57" avg ="28,5" stddev ="19,5" points ="2" max ="48" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+               <Metric id ="NSC" value ="0" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+               <Metric id ="NORM" value ="0" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+               <Metric id ="LCOM" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+               <Metric id ="NOF" value ="1" avg ="0,5" stddev ="0,5" points ="2" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+               <Metric id ="NSF" value ="0" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+               <Metric id ="NOM" value ="55" avg ="27,5" stddev ="20,5" points ="2" max ="48" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+               <Metric id ="NSM" value ="0" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+               <Metric id ="SIX" avg ="0" stddev ="0" points ="2" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+               <Metric id ="NOC" value ="2"/>
+               <Metric id ="NOI" value ="0"/>
+               <Metric id ="TLOC" value ="603"/>
+               <Metric id ="MLOC" value ="423" avg ="7,691" stddev ="4,472" points ="55" max ="21" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~clearRulesInput"/>
+            </Metrics>
+            <CompilationUnit name = "GUITest.java" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java">
+               <Metrics>
+                  <Metric id ="VG" avg ="1" stddev ="0" points ="48" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~updateQualityTable"/>
+                  <Metric id ="PAR" avg ="0" stddev ="0" points ="48" max ="0" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~updateQualityTable"/>
+                  <Metric id ="NBD" avg ="1" stddev ="0" points ="48" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~updateQualityTable"/>
+                  <Metric id ="DIT" avg ="7" stddev ="0" points ="1" max ="7" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+                  <Metric id ="WMC" value ="48" avg ="48" stddev ="0" points ="1" max ="48" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+                  <Metric id ="NSC" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+                  <Metric id ="NORM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+                  <Metric id ="LCOM" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+                  <Metric id ="NOF" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+                  <Metric id ="NSF" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+                  <Metric id ="NOM" value ="48" avg ="48" stddev ="0" points ="1" max ="48" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+                  <Metric id ="NSM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+                  <Metric id ="SIX" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest"/>
+                  <Metric id ="NOC" value ="1"/>
+                  <Metric id ="NOI" value ="0"/>
+                  <Metric id ="TLOC" value ="530"/>
+                  <Metric id ="MLOC" value ="376" avg ="7,833" stddev ="4,432" points ="48" max ="21" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~clearRulesInput"/>
+               </Metrics>
+               <Type name = "GUITest" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest">
+                  <Metrics>
+                     <Metric id ="VG" avg ="1" stddev ="0" points ="48" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~updateQualityTable"/>
+                     <Metric id ="PAR" avg ="0" stddev ="0" points ="48" max ="0" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~updateQualityTable"/>
+                     <Metric id ="NBD" avg ="1" stddev ="0" points ="48" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~updateQualityTable"/>
+                     <Metric id ="DIT" value ="7"/>
+                     <Metric id ="WMC" value ="48"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="0"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="1"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="48"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0"/>
+                     <Metric id ="MLOC" value ="376" avg ="7,833" stddev ="4,432" points ="48" max ="21" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~clearRulesInput"/>
+                  </Metrics>
+                  <Method name = "pmd_adci" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~pmd_adci">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethodv3" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethodv3">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethodv4" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethodv4">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethodv1" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethodv1">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethodv2" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethodv2">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethodv9" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethodv9">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="7"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethodv7" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethodv7">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethodv10" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethodv10">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="7"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethodv8" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethodv8">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="7"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethodv5" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethodv5">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethodv6" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethodv6">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "editTest" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~editTest">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="12"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethod" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethod">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethod" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethod">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "saveTofilev3" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~saveTofilev3">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="8"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "saveTofilev2" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~saveTofilev2">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="8"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "saveTofilev1" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~saveTofilev1">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="15"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv11" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv11">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="7"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv10" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv10">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="7"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "clearRulesInput" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~clearRulesInput">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="21"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "long_method_exists" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~long_method_exists">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "saveTofilev5" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~saveTofilev5">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="8"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "saveTofilev4" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~saveTofilev4">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="15"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "pmd_dii" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~pmd_dii">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "featureMethod11" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~featureMethod11">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="7"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "feature_envy_exists" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~feature_envy_exists">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "plasma_adii" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~plasma_adii">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "updateQualityTable" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~updateQualityTable">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="9"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "plasma_dci" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~plasma_dci">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "list_is_not_empty" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~list_is_not_empty">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "editTestv4" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~editTestv4">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="9"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "editTestv2" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~editTestv2">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="12"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "editTestv3" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~editTestv3">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="12"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "editTestv1" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~editTestv1">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="12"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "pmd_adii" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~pmd_adii">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "pmd_dci" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~pmd_dci">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "saveTofile" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~saveTofile">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="8"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "plasma_dii" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~plasma_dii">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "plasma_adci" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~plasma_adci">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv6" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv6">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv5" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv5">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv4" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv4">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv3" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv3">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv9" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv9">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="7"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv8" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv8">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="7"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv7" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv7">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv2" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv2">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "longMethodv1" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUITest.java[GUITest~longMethodv1">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+            </CompilationUnit>
+            <CompilationUnit name = "QualityCheckerTest.java" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java">
+               <Metrics>
+                  <Metric id ="VG" avg ="1,286" stddev ="0,452" points ="7" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+                  <Metric id ="PAR" avg ="0" stddev ="0" points ="7" max ="0" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+                  <Metric id ="NBD" avg ="1,286" stddev ="0,452" points ="7" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+                  <Metric id ="DIT" avg ="1" stddev ="0" points ="1" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+                  <Metric id ="WMC" value ="9" avg ="9" stddev ="0" points ="1" max ="9" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+                  <Metric id ="NSC" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+                  <Metric id ="NORM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+                  <Metric id ="LCOM" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+                  <Metric id ="NOF" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+                  <Metric id ="NSF" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+                  <Metric id ="NOM" value ="7" avg ="7" stddev ="0" points ="1" max ="7" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+                  <Metric id ="NSM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+                  <Metric id ="SIX" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest"/>
+                  <Metric id ="NOC" value ="1"/>
+                  <Metric id ="NOI" value ="0"/>
+                  <Metric id ="TLOC" value ="73"/>
+                  <Metric id ="MLOC" value ="47" avg ="6,714" stddev ="4,62" points ="7" max ="14" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+               </Metrics>
+               <Type name = "QualityCheckerTest" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest">
+                  <Metrics>
+                     <Metric id ="VG" avg ="1,286" stddev ="0,452" points ="7" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+                     <Metric id ="PAR" avg ="0" stddev ="0" points ="7" max ="0" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+                     <Metric id ="NBD" avg ="1,286" stddev ="0,452" points ="7" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+                     <Metric id ="DIT" value ="1"/>
+                     <Metric id ="WMC" value ="9"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="0"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="0"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="7"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0"/>
+                     <Metric id ="MLOC" value ="47" avg ="6,714" stddev ="4,62" points ="7" max ="14" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma"/>
+                  </Metrics>
+                  <Method name = "testGetnColumn" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testGetnColumn">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="3"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "testGetnADII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testGetnADII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="4"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "testRun_PMD" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_PMD">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="2"/>
+                        <Metric id ="MLOC" value ="14"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "testGetnDCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testGetnDCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="4"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "testGetnDII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testGetnDII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="4"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "testRun_iPlasma" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testRun_iPlasma">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="2"/>
+                        <Metric id ="MLOC" value ="14"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "testGetnADCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/test\/java=/test=/true=/=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityCheckerTest.java[QualityCheckerTest~testGetnADCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="4"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+            </CompilationUnit>
+         </Package>
+      </PackageRoot>
+      <PackageRoot name = "java" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/">
+         <Metrics>
+            <Metric id ="VG" avg ="2,757" stddev ="6,216" points ="74" max ="36" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~isLongMethod~I~I"/>
+            <Metric id ="PAR" avg ="0,392" stddev ="0,819" points ="74" max ="5" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~updateQualityValues~I~I~I~I~I"/>
+            <Metric id ="NBD" avg ="1,459" stddev ="1,275" points ="74" max ="8" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI"/>
+            <Metric id ="CA" avg ="0" stddev ="0" points ="1" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="CE" avg ="2" stddev ="0" points ="1" max ="2" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="RMI" avg ="1" stddev ="0" points ="1" max ="1" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="RMA" avg ="0" stddev ="0" points ="1" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="RMD" avg ="0" stddev ="0" points ="1" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="DIT" avg ="2,667" stddev ="1,491" points ="6" max ="6" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+            <Metric id ="WMC" value ="204" avg ="34" stddev ="53,889" points ="6" max ="152" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+            <Metric id ="NSC" value ="1" avg ="0,167" stddev ="0,373" points ="6" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+            <Metric id ="NORM" value ="4" avg ="0,667" stddev ="0,471" points ="6" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+            <Metric id ="LCOM" avg ="0,436" stddev ="0,438" points ="6" max ="0,962" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+            <Metric id ="NOF" value ="58" avg ="9,667" stddev ="11,455" points ="6" max ="35" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+            <Metric id ="NSF" value ="5" avg ="0,833" stddev ="1,863" points ="6" max ="5" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+            <Metric id ="NOM" value ="72" avg ="12" stddev ="15,822" points ="6" max ="45" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+            <Metric id ="NSM" value ="2" avg ="0,333" stddev ="0,745" points ="6" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+            <Metric id ="SIX" avg ="0,407" stddev ="0,715" points ="6" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+            <Metric id ="NOC" value ="6" avg ="6" stddev ="0" points ="1" max ="6" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="NOI" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="packageFragment" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9"/>
+            <Metric id ="NOP" value ="1"/>
+            <Metric id ="TLOC" value ="1165"/>
+            <Metric id ="MLOC" value ="858" avg ="11,595" stddev ="47,201" points ="74" max ="388" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI"/>
+         </Metrics>
+         <Package name = "ES_LETI_1Sem_2020_Grupo9" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9">
+            <Metrics>
+               <Metric id ="VG" avg ="2,757" stddev ="6,216" points ="74" max ="36" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~isLongMethod~I~I"/>
+               <Metric id ="PAR" avg ="0,392" stddev ="0,819" points ="74" max ="5" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~updateQualityValues~I~I~I~I~I"/>
+               <Metric id ="NBD" avg ="1,459" stddev ="1,275" points ="74" max ="8" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI"/>
+               <Metric id ="CA" value ="0"/>
+               <Metric id ="CE" value ="2"/>
+               <Metric id ="RMI" value ="1"/>
+               <Metric id ="RMA" value ="0"/>
+               <Metric id ="RMD" value ="0"/>
+               <Metric id ="DIT" avg ="2,667" stddev ="1,491" points ="6" max ="6" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+               <Metric id ="WMC" value ="204" avg ="34" stddev ="53,889" points ="6" max ="152" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+               <Metric id ="NSC" value ="1" avg ="0,167" stddev ="0,373" points ="6" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+               <Metric id ="NORM" value ="4" avg ="0,667" stddev ="0,471" points ="6" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+               <Metric id ="LCOM" avg ="0,436" stddev ="0,438" points ="6" max ="0,962" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+               <Metric id ="NOF" value ="58" avg ="9,667" stddev ="11,455" points ="6" max ="35" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+               <Metric id ="NSF" value ="5" avg ="0,833" stddev ="1,863" points ="6" max ="5" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+               <Metric id ="NOM" value ="72" avg ="12" stddev ="15,822" points ="6" max ="45" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+               <Metric id ="NSM" value ="2" avg ="0,333" stddev ="0,745" points ="6" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+               <Metric id ="SIX" avg ="0,407" stddev ="0,715" points ="6" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+               <Metric id ="NOC" value ="6"/>
+               <Metric id ="NOI" value ="0"/>
+               <Metric id ="TLOC" value ="1165"/>
+               <Metric id ="MLOC" value ="858" avg ="11,595" stddev ="47,201" points ="74" max ="388" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI"/>
+            </Metrics>
+            <CompilationUnit name = "rules_list_operators.java" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java">
+               <Metrics>
+                  <Metric id ="VG" avg ="0" stddev ="0" points ="0" per ="method"/>
+                  <Metric id ="PAR" avg ="0" stddev ="0" points ="0" per ="method"/>
+                  <Metric id ="NBD" avg ="0" stddev ="0" points ="0" per ="method"/>
+                  <Metric id ="DIT" avg ="2" stddev ="0" points ="1" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators"/>
+                  <Metric id ="WMC" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators"/>
+                  <Metric id ="NSC" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators"/>
+                  <Metric id ="NORM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators"/>
+                  <Metric id ="LCOM" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators"/>
+                  <Metric id ="NOF" value ="2" avg ="2" stddev ="0" points ="1" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators"/>
+                  <Metric id ="NSF" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators"/>
+                  <Metric id ="NOM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators"/>
+                  <Metric id ="NSM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators"/>
+                  <Metric id ="SIX" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators"/>
+                  <Metric id ="NOC" value ="1"/>
+                  <Metric id ="NOI" value ="0"/>
+                  <Metric id ="TLOC" value ="5"/>
+                  <Metric id ="MLOC" value ="0" avg ="0" stddev ="0" points ="0" per ="method"/>
+               </Metrics>
+               <Type name = "rules_list_operators" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_operators.java[rules_list_operators">
+                  <Metrics>
+                     <Metric id ="VG" avg ="0" stddev ="0" points ="0" per ="method"/>
+                     <Metric id ="PAR" avg ="0" stddev ="0" points ="0" per ="method"/>
+                     <Metric id ="NBD" avg ="0" stddev ="0" points ="0" per ="method"/>
+                     <Metric id ="DIT" value ="2"/>
+                     <Metric id ="WMC" value ="0"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="0"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="2"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="0"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0"/>
+                     <Metric id ="MLOC" value ="0" avg ="0" stddev ="0" points ="0" per ="method"/>
+                  </Metrics>
+               </Type>
+            </CompilationUnit>
+            <CompilationUnit name = "QualityChecker.java" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java">
+               <Metrics>
+                  <Metric id ="VG" avg ="2,167" stddev ="3,869" points ="12" max ="15" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~run"/>
+                  <Metric id ="PAR" avg ="0,583" stddev ="0,64" points ="12" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~QualityChecker~I~QString;"/>
+                  <Metric id ="NBD" avg ="1,25" stddev ="0,829" points ="12" max ="4" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~run"/>
+                  <Metric id ="DIT" avg ="2" stddev ="0" points ="1" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker"/>
+                  <Metric id ="WMC" value ="26" avg ="26" stddev ="0" points ="1" max ="26" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker"/>
+                  <Metric id ="NSC" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker"/>
+                  <Metric id ="NORM" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker"/>
+                  <Metric id ="LCOM" avg ="0,818" stddev ="0" points ="1" max ="0,818" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker"/>
+                  <Metric id ="NOF" value ="6" avg ="6" stddev ="0" points ="1" max ="6" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker"/>
+                  <Metric id ="NSF" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker"/>
+                  <Metric id ="NOM" value ="12" avg ="12" stddev ="0" points ="1" max ="12" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker"/>
+                  <Metric id ="NSM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker"/>
+                  <Metric id ="SIX" avg ="0,167" stddev ="0" points ="1" max ="0,167" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker"/>
+                  <Metric id ="NOC" value ="1"/>
+                  <Metric id ="NOI" value ="0"/>
+                  <Metric id ="TLOC" value ="83"/>
+                  <Metric id ="MLOC" value ="43" avg ="3,583" stddev ="8,271" points ="12" max ="31" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~run"/>
+               </Metrics>
+               <Type name = "QualityChecker" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker">
+                  <Metrics>
+                     <Metric id ="VG" avg ="2,167" stddev ="3,869" points ="12" max ="15" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~run"/>
+                     <Metric id ="PAR" avg ="0,583" stddev ="0,64" points ="12" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~QualityChecker~I~QString;"/>
+                     <Metric id ="NBD" avg ="1,25" stddev ="0,829" points ="12" max ="4" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~run"/>
+                     <Metric id ="DIT" value ="2"/>
+                     <Metric id ="WMC" value ="26"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="1"/>
+                     <Metric id ="LCOM" value ="0,818"/>
+                     <Metric id ="NOF" value ="6"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="12"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0,167"/>
+                     <Metric id ="MLOC" value ="43" avg ="3,583" stddev ="8,271" points ="12" max ="31" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~run"/>
+                  </Metrics>
+                  <Method name = "setnDII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~setnDII~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getnADII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~getnADII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setnADCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~setnADCI~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getnDII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~getnDII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getnADCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~getnADCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "QualityChecker" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~QualityChecker~I~QString;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="2"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="2"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "run" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~run">
+                     <Metrics>
+                        <Metric id ="VG" value ="15"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="4"/>
+                        <Metric id ="MLOC" value ="31"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setnADII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~setnADII~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getnDCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~getnDCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setnDCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~setnDCI~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getnColumn" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~getnColumn">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setnColumn" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{QualityChecker.java[QualityChecker~setnColumn~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+            </CompilationUnit>
+            <CompilationUnit name = "GUI.java" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java">
+               <Metrics>
+                  <Metric id ="VG" avg ="3,234" stddev ="7,375" points ="47" max ="36" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~isLongMethod~I~I"/>
+                  <Metric id ="PAR" avg ="0,277" stddev ="0,843" points ="47" max ="5" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~updateQualityValues~I~I~I~I~I"/>
+                  <Metric id ="NBD" avg ="1,617" stddev ="1,495" points ="47" max ="8" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI"/>
+                  <Metric id ="DIT" avg ="6" stddev ="0" points ="1" max ="6" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+                  <Metric id ="WMC" value ="152" avg ="152" stddev ="0" points ="1" max ="152" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+                  <Metric id ="NSC" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+                  <Metric id ="NORM" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+                  <Metric id ="LCOM" avg ="0,962" stddev ="0" points ="1" max ="0,962" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+                  <Metric id ="NOF" value ="35" avg ="35" stddev ="0" points ="1" max ="35" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+                  <Metric id ="NSF" value ="5" avg ="5" stddev ="0" points ="1" max ="5" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+                  <Metric id ="NOM" value ="45" avg ="45" stddev ="0" points ="1" max ="45" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+                  <Metric id ="NSM" value ="2" avg ="2" stddev ="0" points ="1" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+                  <Metric id ="SIX" avg ="0,133" stddev ="0" points ="1" max ="0,133" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI"/>
+                  <Metric id ="NOC" value ="1"/>
+                  <Metric id ="NOI" value ="0"/>
+                  <Metric id ="TLOC" value ="979"/>
+                  <Metric id ="MLOC" value ="775" avg ="16,489" stddev ="58,431" points ="47" max ="388" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI"/>
+               </Metrics>
+               <Type name = "GUI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI">
+                  <Metrics>
+                     <Metric id ="VG" avg ="3,234" stddev ="7,375" points ="47" max ="36" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~isLongMethod~I~I"/>
+                     <Metric id ="PAR" avg ="0,277" stddev ="0,843" points ="47" max ="5" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~updateQualityValues~I~I~I~I~I"/>
+                     <Metric id ="NBD" avg ="1,617" stddev ="1,495" points ="47" max ="8" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI"/>
+                     <Metric id ="DIT" value ="6"/>
+                     <Metric id ="WMC" value ="152"/>
+                     <Metric id ="NSC" value ="1"/>
+                     <Metric id ="NORM" value ="1"/>
+                     <Metric id ="LCOM" value ="0,962"/>
+                     <Metric id ="NOF" value ="35"/>
+                     <Metric id ="NSF" value ="5"/>
+                     <Metric id ="NOM" value ="45"/>
+                     <Metric id ="NSM" value ="2"/>
+                     <Metric id ="SIX" value ="0,133"/>
+                     <Metric id ="MLOC" value ="775" avg ="16,489" stddev ="58,431" points ="47" max ="388" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI"/>
+                  </Metrics>
+                  <Method name = "getPMD_DII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getPMD_DII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getThreshold_2" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getThreshold_2">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getThreshold_1" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getThreshold_1">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getThreshold_4" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getThreshold_4">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getThreshold_3" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getThreshold_3">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getUser_ADII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getUser_ADII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "updateQualityValues" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~updateQualityValues~I~I~I~I~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="5"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="4"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getJtable" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getJtable">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "isLongMethod" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~isLongMethod~I~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="36"/>
+                        <Metric id ="PAR" value ="2"/>
+                        <Metric id ="NBD" value ="5"/>
+                        <Metric id ="MLOC" value ="79"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "mouseClicked" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!5~mouseClicked~QMouseEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getColumnClass" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!8~getColumnClass~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getDtm" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getDtm">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getUser_DII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getUser_DII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getiPlasma_ADII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getiPlasma_ADII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "textFieldIsEmpty" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~textFieldIsEmpty~QJTextField;">
+                     <Metrics>
+                        <Metric id ="VG" value ="3"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="3"/>
+                        <Metric id ="MLOC" value ="9"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "mouseClicked" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!7~mouseClicked~QMouseEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="2"/>
+                        <Metric id ="MLOC" value ="24"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="2"/>
+                        <Metric id ="MLOC" value ="6"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getFeatureEnvyRules_dlmodel" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getFeatureEnvyRules_dlmodel">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getSignal_4" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getSignal_4">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getFeatureEnvyRules" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getFeatureEnvyRules">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getSignal_2" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getSignal_2">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getSignal_3" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getSignal_3">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getSignal_1" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getSignal_1">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!3~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="6"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="4"/>
+                        <Metric id ="MLOC" value ="27"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getiPlasma_DCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getiPlasma_DCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setFeatureEnvyRules" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~setFeatureEnvyRules~QArrayList\&lt;QString;&gt;;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getUser_DCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getUser_DCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "main" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~main~\[QString;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="3"/>
+                        <Metric id ="MLOC" value ="14"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getLongMethodRulesList" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getLongMethodRulesList">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getLoadedFile" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getLoadedFile">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "save" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~save">
+                     <Metrics>
+                        <Metric id ="VG" value ="16"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="4"/>
+                        <Metric id ="MLOC" value ="86"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getLongMethodRules_dlmodel" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getLongMethodRules_dlmodel">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getResultsTable" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getResultsTable">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getPMD_ADCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getPMD_ADCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getLongMethodRules" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getLongMethodRules">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "loadRulesfromFile" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~loadRulesfromFile">
+                     <Metrics>
+                        <Metric id ="VG" value ="7"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="4"/>
+                        <Metric id ="MLOC" value ="32"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getiPlasma_DII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getiPlasma_DII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!2~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="15"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="7"/>
+                        <Metric id ="MLOC" value ="45"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "clearRulesGUI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~clearRulesGUI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="10"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "run" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~main~\[QString;[~run">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="2"/>
+                        <Metric id ="MLOC" value ="6"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getQualityReportTable" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getQualityReportTable">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "mouseClicked" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!6~mouseClicked~QMouseEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "hasFeatureEnvy" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~hasFeatureEnvy~I~D">
+                     <Metrics>
+                        <Metric id ="VG" value ="35"/>
+                        <Metric id ="PAR" value ="2"/>
+                        <Metric id ="NBD" value ="5"/>
+                        <Metric id ="MLOC" value ="79"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setLongMethodRules" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~setLongMethodRules~QArrayList\&lt;QString;&gt;;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getLogicOp_2" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getLogicOp_2">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getLogicOp_1" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getLogicOp_1">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getPMD_ADII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getPMD_ADII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "GUI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="8"/>
+                        <Metric id ="MLOC" value ="388"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getFilePath" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getFilePath">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getPMD_DCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getPMD_DCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "edit" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~edit">
+                     <Metrics>
+                        <Metric id ="VG" value ="13"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="5"/>
+                        <Metric id ="MLOC" value ="37"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getiPlasma_ADCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getiPlasma_ADCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!4~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getFeatureEnvyRulesList" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getFeatureEnvyRulesList">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getContentPane" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getContentPane">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getUser_ADCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~getUser_ADCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+               <Type name = "anonymous" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!6">
+                  <Metrics>
+                     <Metric id ="VG" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!6~mouseClicked~QMouseEvent;"/>
+                     <Metric id ="PAR" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!6~mouseClicked~QMouseEvent;"/>
+                     <Metric id ="NBD" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!6~mouseClicked~QMouseEvent;"/>
+                     <Metric id ="DIT" value ="2"/>
+                     <Metric id ="WMC" value ="1"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="1"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="0"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="1"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="2"/>
+                     <Metric id ="MLOC" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!6~mouseClicked~QMouseEvent;"/>
+                  </Metrics>
+                  <Method name = "mouseClicked" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!6~mouseClicked~QMouseEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+               <Type name = "anonymous" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!7">
+                  <Metrics>
+                     <Metric id ="VG" avg ="2" stddev ="0" points ="1" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!7~mouseClicked~QMouseEvent;"/>
+                     <Metric id ="PAR" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!7~mouseClicked~QMouseEvent;"/>
+                     <Metric id ="NBD" avg ="2" stddev ="0" points ="1" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!7~mouseClicked~QMouseEvent;"/>
+                     <Metric id ="DIT" value ="2"/>
+                     <Metric id ="WMC" value ="2"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="1"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="0"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="1"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="2"/>
+                     <Metric id ="MLOC" value ="24" avg ="24" stddev ="0" points ="1" max ="24" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!7~mouseClicked~QMouseEvent;"/>
+                  </Metrics>
+                  <Method name = "mouseClicked" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!7~mouseClicked~QMouseEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="2"/>
+                        <Metric id ="MLOC" value ="24"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+               <Type name = "anonymous" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!4">
+                  <Metrics>
+                     <Metric id ="VG" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!4~actionPerformed~QActionEvent;"/>
+                     <Metric id ="PAR" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!4~actionPerformed~QActionEvent;"/>
+                     <Metric id ="NBD" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!4~actionPerformed~QActionEvent;"/>
+                     <Metric id ="DIT" value ="1"/>
+                     <Metric id ="WMC" value ="1"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="0"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="0"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="1"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0"/>
+                     <Metric id ="MLOC" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!4~actionPerformed~QActionEvent;"/>
+                  </Metrics>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!4~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+               <Type name = "anonymous" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!5">
+                  <Metrics>
+                     <Metric id ="VG" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!5~mouseClicked~QMouseEvent;"/>
+                     <Metric id ="PAR" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!5~mouseClicked~QMouseEvent;"/>
+                     <Metric id ="NBD" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!5~mouseClicked~QMouseEvent;"/>
+                     <Metric id ="DIT" value ="2"/>
+                     <Metric id ="WMC" value ="1"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="1"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="0"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="1"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="2"/>
+                     <Metric id ="MLOC" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!5~mouseClicked~QMouseEvent;"/>
+                  </Metrics>
+                  <Method name = "mouseClicked" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!5~mouseClicked~QMouseEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+               <Type name = "anonymous" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!8">
+                  <Metrics>
+                     <Metric id ="VG" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!8~getColumnClass~I"/>
+                     <Metric id ="PAR" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!8~getColumnClass~I"/>
+                     <Metric id ="NBD" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!8~getColumnClass~I"/>
+                     <Metric id ="DIT" value ="3"/>
+                     <Metric id ="WMC" value ="1"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="1"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="1"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="1"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="3"/>
+                     <Metric id ="MLOC" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!8~getColumnClass~I"/>
+                  </Metrics>
+                  <Method name = "getColumnClass" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!8~getColumnClass~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+               <Type name = "anonymous" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!2">
+                  <Metrics>
+                     <Metric id ="VG" avg ="15" stddev ="0" points ="1" max ="15" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!2~actionPerformed~QActionEvent;"/>
+                     <Metric id ="PAR" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!2~actionPerformed~QActionEvent;"/>
+                     <Metric id ="NBD" avg ="7" stddev ="0" points ="1" max ="7" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!2~actionPerformed~QActionEvent;"/>
+                     <Metric id ="DIT" value ="1"/>
+                     <Metric id ="WMC" value ="15"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="0"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="0"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="1"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0"/>
+                     <Metric id ="MLOC" value ="45" avg ="45" stddev ="0" points ="1" max ="45" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!2~actionPerformed~QActionEvent;"/>
+                  </Metrics>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!2~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="15"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="7"/>
+                        <Metric id ="MLOC" value ="45"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+               <Type name = "anonymous" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!3">
+                  <Metrics>
+                     <Metric id ="VG" avg ="6" stddev ="0" points ="1" max ="6" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!3~actionPerformed~QActionEvent;"/>
+                     <Metric id ="PAR" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!3~actionPerformed~QActionEvent;"/>
+                     <Metric id ="NBD" avg ="4" stddev ="0" points ="1" max ="4" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!3~actionPerformed~QActionEvent;"/>
+                     <Metric id ="DIT" value ="1"/>
+                     <Metric id ="WMC" value ="6"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="0"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="0"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="1"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0"/>
+                     <Metric id ="MLOC" value ="27" avg ="27" stddev ="0" points ="1" max ="27" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!3~actionPerformed~QActionEvent;"/>
+                  </Metrics>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!3~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="6"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="4"/>
+                        <Metric id ="MLOC" value ="27"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+               <Type name = "anonymous" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[">
+                  <Metrics>
+                     <Metric id ="VG" avg ="2" stddev ="0" points ="1" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[~actionPerformed~QActionEvent;"/>
+                     <Metric id ="PAR" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[~actionPerformed~QActionEvent;"/>
+                     <Metric id ="NBD" avg ="2" stddev ="0" points ="1" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[~actionPerformed~QActionEvent;"/>
+                     <Metric id ="DIT" value ="1"/>
+                     <Metric id ="WMC" value ="2"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="0"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="0"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="1"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0"/>
+                     <Metric id ="MLOC" value ="6" avg ="6" stddev ="0" points ="1" max ="6" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[~actionPerformed~QActionEvent;"/>
+                  </Metrics>
+                  <Method name = "mouseClicked" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!5~mouseClicked~QMouseEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getColumnClass" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!8~getColumnClass~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "mouseClicked" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!7~mouseClicked~QMouseEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="2"/>
+                        <Metric id ="MLOC" value ="24"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="2"/>
+                        <Metric id ="MLOC" value ="6"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!3~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="6"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="4"/>
+                        <Metric id ="MLOC" value ="27"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!2~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="15"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="7"/>
+                        <Metric id ="MLOC" value ="45"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "mouseClicked" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!6~mouseClicked~QMouseEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "actionPerformed" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~GUI[!4~actionPerformed~QActionEvent;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+               <Type name = "anonymous" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~main~\[QString;[">
+                  <Metrics>
+                     <Metric id ="VG" avg ="2" stddev ="0" points ="1" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~main~\[QString;[~run"/>
+                     <Metric id ="PAR" avg ="0" stddev ="0" points ="1" max ="0" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~main~\[QString;[~run"/>
+                     <Metric id ="NBD" avg ="2" stddev ="0" points ="1" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~main~\[QString;[~run"/>
+                     <Metric id ="DIT" value ="1"/>
+                     <Metric id ="WMC" value ="2"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="0"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="0"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="1"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0"/>
+                     <Metric id ="MLOC" value ="6" avg ="6" stddev ="0" points ="1" max ="6" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~main~\[QString;[~run"/>
+                  </Metrics>
+                  <Method name = "run" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{GUI.java[GUI~main~\[QString;[~run">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="2"/>
+                        <Metric id ="MLOC" value ="6"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+            </CompilationUnit>
+            <CompilationUnit name = "rules_list_functions.java" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java">
+               <Metrics>
+                  <Metric id ="VG" avg ="2" stddev ="0" points ="1" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions~toString"/>
+                  <Metric id ="PAR" avg ="0" stddev ="0" points ="1" max ="0" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions~toString"/>
+                  <Metric id ="NBD" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions~toString"/>
+                  <Metric id ="DIT" avg ="2" stddev ="0" points ="1" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+                  <Metric id ="WMC" value ="2" avg ="2" stddev ="0" points ="1" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+                  <Metric id ="NSC" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+                  <Metric id ="NORM" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+                  <Metric id ="LCOM" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+                  <Metric id ="NOF" value ="5" avg ="5" stddev ="0" points ="1" max ="5" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+                  <Metric id ="NSF" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+                  <Metric id ="NOM" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+                  <Metric id ="NSM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+                  <Metric id ="SIX" avg ="2" stddev ="0" points ="1" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions"/>
+                  <Metric id ="NOC" value ="1"/>
+                  <Metric id ="NOI" value ="0"/>
+                  <Metric id ="TLOC" value ="12"/>
+                  <Metric id ="MLOC" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions~toString"/>
+               </Metrics>
+               <Type name = "rules_list_functions" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions">
+                  <Metrics>
+                     <Metric id ="VG" avg ="2" stddev ="0" points ="1" max ="2" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions~toString"/>
+                     <Metric id ="PAR" avg ="0" stddev ="0" points ="1" max ="0" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions~toString"/>
+                     <Metric id ="NBD" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions~toString"/>
+                     <Metric id ="DIT" value ="2"/>
+                     <Metric id ="WMC" value ="2"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="1"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="5"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="1"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="2"/>
+                     <Metric id ="MLOC" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions~toString"/>
+                  </Metrics>
+                  <Method name = "toString" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_functions.java[rules_list_functions~toString">
+                     <Metrics>
+                        <Metric id ="VG" value ="2"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+            </CompilationUnit>
+            <CompilationUnit name = "UserQualityChecker.java" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java">
+               <Metrics>
+                  <Metric id ="VG" avg ="1,714" stddev ="2,575" points ="14" max ="11" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~run"/>
+                  <Metric id ="PAR" avg ="0,643" stddev ="0,811" points ="14" max ="3" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~UserQualityChecker~QString;~QVector\&lt;QVector\&lt;QObject;&gt;;&gt;;~QDefaultTableModel;"/>
+                  <Metric id ="NBD" avg ="1,143" stddev ="0,515" points ="14" max ="3" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~run"/>
+                  <Metric id ="DIT" avg ="2" stddev ="0" points ="1" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+                  <Metric id ="WMC" value ="24" avg ="24" stddev ="0" points ="1" max ="24" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+                  <Metric id ="NSC" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+                  <Metric id ="NORM" value ="1" avg ="1" stddev ="0" points ="1" max ="1" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+                  <Metric id ="LCOM" avg ="0,835" stddev ="0" points ="1" max ="0,835" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+                  <Metric id ="NOF" value ="7" avg ="7" stddev ="0" points ="1" max ="7" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+                  <Metric id ="NSF" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+                  <Metric id ="NOM" value ="14" avg ="14" stddev ="0" points ="1" max ="14" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+                  <Metric id ="NSM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+                  <Metric id ="SIX" avg ="0,143" stddev ="0" points ="1" max ="0,143" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker"/>
+                  <Metric id ="NOC" value ="1"/>
+                  <Metric id ="NOI" value ="0"/>
+                  <Metric id ="TLOC" value ="80"/>
+                  <Metric id ="MLOC" value ="39" avg ="2,786" stddev ="5,906" points ="14" max ="24" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~run"/>
+               </Metrics>
+               <Type name = "UserQualityChecker" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker">
+                  <Metrics>
+                     <Metric id ="VG" avg ="1,714" stddev ="2,575" points ="14" max ="11" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~run"/>
+                     <Metric id ="PAR" avg ="0,643" stddev ="0,811" points ="14" max ="3" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~UserQualityChecker~QString;~QVector\&lt;QVector\&lt;QObject;&gt;;&gt;;~QDefaultTableModel;"/>
+                     <Metric id ="NBD" avg ="1,143" stddev ="0,515" points ="14" max ="3" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~run"/>
+                     <Metric id ="DIT" value ="2"/>
+                     <Metric id ="WMC" value ="24"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="1"/>
+                     <Metric id ="LCOM" value ="0,835"/>
+                     <Metric id ="NOF" value ="7"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="14"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0,143"/>
+                     <Metric id ="MLOC" value ="39" avg ="2,786" stddev ="5,906" points ="14" max ="24" per ="method" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~run"/>
+                  </Metrics>
+                  <Method name = "getnDII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~getnDII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setnADCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~setnADCI~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getResults" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~getResults">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getnDCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~getnDCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setResults" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~setResults~QDefaultTableModel;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setType" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~setType~QString;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getType" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~getType">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setnDII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~setnDII~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getnADII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~getnADII">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setnDCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~setnDCI~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "getnADCI" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~getnADCI">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "run" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~run">
+                     <Metrics>
+                        <Metric id ="VG" value ="11"/>
+                        <Metric id ="PAR" value ="0"/>
+                        <Metric id ="NBD" value ="3"/>
+                        <Metric id ="MLOC" value ="24"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "setnADII" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~setnADII~I">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="1"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="1"/>
+                     </Metrics>
+                  </Method>
+                  <Method name = "UserQualityChecker" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{UserQualityChecker.java[UserQualityChecker~UserQualityChecker~QString;~QVector\&lt;QVector\&lt;QObject;&gt;;&gt;;~QDefaultTableModel;">
+                     <Metrics>
+                        <Metric id ="VG" value ="1"/>
+                        <Metric id ="PAR" value ="3"/>
+                        <Metric id ="NBD" value ="1"/>
+                        <Metric id ="MLOC" value ="3"/>
+                     </Metrics>
+                  </Method>
+               </Type>
+            </CompilationUnit>
+            <CompilationUnit name = "rules_list_logical.java" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java">
+               <Metrics>
+                  <Metric id ="VG" avg ="0" stddev ="0" points ="0" per ="method"/>
+                  <Metric id ="PAR" avg ="0" stddev ="0" points ="0" per ="method"/>
+                  <Metric id ="NBD" avg ="0" stddev ="0" points ="0" per ="method"/>
+                  <Metric id ="DIT" avg ="2" stddev ="0" points ="1" max ="2" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical"/>
+                  <Metric id ="WMC" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical"/>
+                  <Metric id ="NSC" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical"/>
+                  <Metric id ="NORM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical"/>
+                  <Metric id ="LCOM" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical"/>
+                  <Metric id ="NOF" value ="3" avg ="3" stddev ="0" points ="1" max ="3" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical"/>
+                  <Metric id ="NSF" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical"/>
+                  <Metric id ="NOM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical"/>
+                  <Metric id ="NSM" value ="0" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical"/>
+                  <Metric id ="SIX" avg ="0" stddev ="0" points ="1" max ="0" per ="type" maxhandle ="=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical"/>
+                  <Metric id ="NOC" value ="1"/>
+                  <Metric id ="NOI" value ="0"/>
+                  <Metric id ="TLOC" value ="6"/>
+                  <Metric id ="MLOC" value ="0" avg ="0" stddev ="0" points ="0" per ="method"/>
+               </Metrics>
+               <Type name = "rules_list_logical" handle = "=ES-LETI-1Sem-2020-Grupo9/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;ES_LETI_1Sem_2020_Grupo9{rules_list_logical.java[rules_list_logical">
+                  <Metrics>
+                     <Metric id ="VG" avg ="0" stddev ="0" points ="0" per ="method"/>
+                     <Metric id ="PAR" avg ="0" stddev ="0" points ="0" per ="method"/>
+                     <Metric id ="NBD" avg ="0" stddev ="0" points ="0" per ="method"/>
+                     <Metric id ="DIT" value ="2"/>
+                     <Metric id ="WMC" value ="0"/>
+                     <Metric id ="NSC" value ="0"/>
+                     <Metric id ="NORM" value ="0"/>
+                     <Metric id ="LCOM" value ="0"/>
+                     <Metric id ="NOF" value ="3"/>
+                     <Metric id ="NSF" value ="0"/>
+                     <Metric id ="NOM" value ="0"/>
+                     <Metric id ="NSM" value ="0"/>
+                     <Metric id ="SIX" value ="0"/>
+                     <Metric id ="MLOC" value ="0" avg ="0" stddev ="0" points ="0" per ="method"/>
+                  </Metrics>
+               </Type>
+            </CompilationUnit>
+         </Package>
+      </PackageRoot>
+   </Project>
+</Metrics>
